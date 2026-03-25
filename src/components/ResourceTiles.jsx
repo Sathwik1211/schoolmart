@@ -149,7 +149,7 @@ const ResourceTiles = () => {
                 <Link
                   key={tile.title}
                   to={tile.path}
-                  className={`block break-inside-avoid ${tile.height} rounded-2xl overflow-hidden relative group`}
+                  className={`block break-inside-avoid ${tile.height} rounded-2xl overflow-hidden relative group shadow-sm`}
                   style={{ marginBottom: '12px' }}
                 >
                   <img
@@ -163,15 +163,15 @@ const ResourceTiles = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-300 group-hover:from-black/70" />
 
                   <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                    <h3 className="text-white font-bold text-sm font-heading leading-tight drop-shadow">
+                    <h3 className="text-white font-bold text-sm font-heading leading-tight drop-shadow uppercase tracking-wide">
                       {tile.title}
                     </h3>
-                    <p className="text-white/70 text-xs mt-0.5 leading-relaxed">
+                    <p className="text-white/70 text-[10px] mt-0.5 leading-relaxed">
                       {tile.subtitle}
                     </p>
                     <div className="mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-white/90 text-xs font-medium">Explore</span>
-                      <ArrowRight size={12} className="text-white/90" />
+                      <span className="text-white/90 text-[10px] font-medium uppercase">Explore</span>
+                      <ArrowRight size={10} className="text-white/90" />
                     </div>
                   </div>
                 </Link>
@@ -180,9 +180,9 @@ const ResourceTiles = () => {
 
             {/* Explore Our Solutions — Classic Grid */}
             <div className="mt-8">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-gray-900 text-lg font-bold font-heading">Explore Our Solutions</h2>
-                <Link to="/catalogues" className="text-sm-blue text-xs font-semibold hover:underline">View All →</Link>
+              <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
+                <h2 className="text-gray-900 text-lg font-bold font-heading uppercase tracking-tight">Explore Our Solutions</h2>
+                <Link to="/catalogues" className="text-sm-blue text-xs font-semibold hover:underline uppercase">View All →</Link>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {solutions.map((item) => (
@@ -205,13 +205,13 @@ const ResourceTiles = () => {
             <div className="space-y-2">
               <Link
                 to="/forums"
-                className="flex items-center justify-center gap-2 w-full py-2.5 bg-sm-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 text-sm shadow-sm"
+                className="flex items-center justify-center gap-2 w-full py-2.5 bg-sm-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-colors duration-200 text-sm shadow-sm"
               >
                 <MessageSquare size={16} />
-                <span className="uppercase tracking-wider text-xs font-bold">Discussion Forum</span>
+                <span className="uppercase tracking-wider text-[11px]">Discussion Forum</span>
               </Link>
               
-              {/* Quick Quote Form — Reverted to stable clean design */}
+              {/* Quick Quote Form */}
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="px-5 py-4 border-b border-gray-50 bg-gray-50/30">
                   <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">Quick Quote</h3>
@@ -227,6 +227,7 @@ const ResourceTiles = () => {
               </div>
             </div>
 
+            {/* Trending Section */}
             <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-3 py-1.5">
                 <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">TRENDING</h3>
@@ -240,15 +241,17 @@ const ResourceTiles = () => {
               </div>
             </div>
 
+            {/* Consultation Banner */}
             <div className="relative rounded-2xl overflow-hidden shadow-sm h-40">
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80" alt="Consultation" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-teal-700/80 p-5 flex flex-col items-center justify-center text-white text-center">
-                <h3 className="text-2xl font-bold">FREE</h3>
-                <p className="text-base font-semibold uppercase tracking-tight">CONSULTATION</p>
-                <Link to="#" className="mt-3 px-5 py-2 bg-white text-teal-700 font-bold rounded-lg text-xs uppercase">Book Now</Link>
+                <h2 className="text-2xl font-black mb-0">FREE</h2>
+                <h3 className="text-sm font-bold uppercase tracking-widest mb-3">CONSULTATION</h3>
+                <Link to="#" className="px-5 py-2 bg-white text-teal-700 font-bold rounded-lg text-xs uppercase hover:bg-gray-100 transition-colors">Book Now</Link>
               </div>
             </div>
 
+            {/* Resources Section — FULL LIST */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-4 py-2">
                 <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">Resources</h3>
@@ -258,14 +261,56 @@ const ResourceTiles = () => {
                   'Complete guide to digitization',
                   'Setting Up A School In India',
                   'Product catalog 2025',
-                  'Skill lab blueprint',
-                  'Play Furniture Lookbook',
+                  'How to setup composite skill lab?',
+                  'Lookbook – Play Furniture',
+                  'Gamified math resources',
+                  'Completed projects',
+                  '20 stunning school design ideas',
+                  'Library trends',
+                  'JOB OPENINGS',
+                  'Join as Influencers',
                 ].map((item) => (
                   <Link key={item} to="#" className="block text-[10px] font-bold text-gray-700 hover:text-sm-blue py-2.5 border-b border-gray-200 last:border-0 uppercase tracking-widest">
                     {item}
                   </Link>
                 ))}
               </div>
+            </div>
+
+            {/* Follow Us */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+              <div className="bg-cyan-500 px-4 py-2">
+                <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">Follow Us</h3>
+              </div>
+              <div className="p-4 flex justify-center gap-4">
+                {/* Social icons would go here, simplified for revert */}
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg" />
+                  <div className="w-8 h-8 bg-sky-500 rounded-lg" />
+                  <div className="w-8 h-8 bg-red-600 rounded-lg" />
+                </div>
+              </div>
+            </div>
+
+            {/* Govt / Renovation / Ideas Links */}
+            <div className="space-y-3">
+              <Link to="/govt" className="block relative h-16 rounded-2xl overflow-hidden shadow-sm group">
+                <div className="absolute inset-0 bg-sm-blue flex flex-col items-center justify-center text-white">
+                  <p className="text-[9px] uppercase tracking-[0.2em] font-medium">Products for</p>
+                  <p className="text-sm font-bold uppercase">Govt Schools</p>
+                </div>
+              </Link>
+              <Link to="/renovation" className="block relative h-16 rounded-2xl overflow-hidden shadow-sm group">
+                <div className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center text-white">
+                  <p className="text-sm font-bold uppercase">School Renovation</p>
+                  <p className="text-[9px] uppercase tracking-[0.2em] font-medium">Services</p>
+                </div>
+              </Link>
+              <Link to="/ideas" className="block relative h-16 rounded-2xl overflow-hidden shadow-sm group">
+                <div className="absolute inset-0 bg-orange-500 flex flex-col items-center justify-center text-white">
+                  <p className="text-sm font-bold uppercase">20 Smart School Ideas</p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
