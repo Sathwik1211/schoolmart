@@ -37,15 +37,15 @@ const Navbar = () => {
   ];
 
   const categories = [
-    { name: 'FURNITURE', path: '/furniture', icon: Armchair, color: 'bg-sm-orange' },
-    { name: 'ARCHITECTURE', path: '/school-building-design', icon: Building2, color: 'bg-sm-blue' },
-    { name: 'DIGITAL INFRA', path: '/digital', icon: Laptop, color: 'bg-sm-teal' },
-    { name: 'SCHOOL DESIGNS', path: '/design', icon: Palette, color: 'bg-sm-purple' },
-    { name: 'DIGITAL CONTENT', path: '/digital', icon: BookOpen, color: 'bg-sm-green' },
-    { name: 'SPORTS', path: '/sports', icon: Trophy, color: 'bg-sm-red' },
-    { name: 'MATHEMATICS', path: '/gamified-math-labs', icon: Calculator, color: 'bg-sm-yellow' },
-    { name: 'SCIENCE', path: '/science-is-fun', icon: FlaskConical, color: 'bg-sm-cyan' },
-    { name: 'LABS / LIBRARIES', path: '/labs', icon: Library, color: 'bg-sm-indigo' },
+    { name: 'FURNITURE', path: '/furniture', icon: Armchair, color: 'bg-sm-gray' },
+    { name: 'ARCHITECTURE', path: '/school-building-design', icon: Building2, color: 'bg-sm-gray' },
+    { name: 'DIGITAL INFRA', path: '/digital', icon: Laptop, color: 'bg-sm-gray' },
+    { name: 'SCHOOL DESIGNS', path: '/design', icon: Palette, color: 'bg-sm-gray' },
+    { name: 'DIGITAL CONTENT', path: '/digital', icon: BookOpen, color: 'bg-sm-gray' },
+    { name: 'SPORTS', path: '/sports', icon: Trophy, color: 'bg-sm-gray' },
+    { name: 'MATHEMATICS', path: '/gamified-math-labs', icon: Calculator, color: 'bg-sm-gray' },
+    { name: 'SCIENCE', path: '/science-is-fun', icon: FlaskConical, color: 'bg-sm-gray' },
+    { name: 'LABS / LIBRARIES', path: '/labs', icon: Library, color: 'bg-sm-gray' },
   ];
 
   return (
@@ -206,8 +206,8 @@ const Navbar = () => {
                   className="flex flex-col items-center group flex-none w-[26vw] sm:w-auto shrink-0 snap-center sm:snap-none"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full ${cat.color} flex items-center justify-center mb-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                    <Icon size={28} className="text-white" />
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full ${cat.color} border border-gray-100 flex items-center justify-center mb-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
+                    <Icon size={28} className="text-gray-600 group-hover:text-sm-blue" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center uppercase tracking-tight group-hover:text-sm-blue transition-colors duration-200">
                     {cat.name}
