@@ -267,7 +267,7 @@ const ResourceTiles = () => {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className="block text-[10px] font-bold text-gray-700 hover:text-sm-blue transition-colors duration-150 py-2.5 border-b border-gray-100 last:border-0 uppercase tracking-wider"
+                    className="block text-[10px] font-bold text-gray-700 hover:text-sm-blue transition-colors duration-150 py-3 border-b border-gray-200 last:border-0 uppercase tracking-wider"
                   >
                     {item.label}
                   </Link>
