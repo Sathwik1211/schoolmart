@@ -180,22 +180,51 @@ const ResourceTiles = () => {
               ))}
             </div>
 
-            {/* Explore Our Solutions — 3-col grid, 2 rows */}
-            <div className="mt-4">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-gray-800 text-base font-bold font-heading">Explore Our Solutions</h2>
-                <Link to="/catalogues" className="text-gray-400 text-xs hover:text-gray-700">View All →</Link>
+            {/* Explore Our Solutions — Standard Card Layout */}
+            <div className="mt-8">
+              <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
+                <h2 className="text-gray-900 text-lg font-bold font-heading">Explore Our Solutions</h2>
+                <Link to="/catalogues" className="text-sm-blue text-xs font-semibold hover:underline">View All Solutions →</Link>
               </div>
-              <div className="flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible snap-x snap-mandatory gap-3 pb-2 sm:pb-0 hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <div className="flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible snap-x snap-mandatory gap-5 pb-4 sm:pb-0 hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {solutions.map((item) => (
-                  <Link key={item.title} to={item.path} className="block focus:outline-none flex-none w-[70vw] sm:w-auto shrink-0 snap-center sm:snap-none">
-                    <ImageOverlayCard
-                      img={item.img}
-                      title={item.title}
-                      description={item.description}
-                      badge={item.badge}
-                      fallback="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
-                    />
+                  <Link 
+                    key={item.title} 
+                    to={item.path} 
+                    className="block focus:outline-none flex-none w-[80vw] sm:w-auto shrink-0 snap-center sm:snap-none group"
+                  >
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100/60 h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                      {/* Top Image */}
+                      <div className="relative h-44 overflow-hidden">
+                        <img 
+                          src={item.img} 
+                          alt={item.title} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-95 group-hover:brightness-100"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span 
+                            className="px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider rounded-lg shadow-sm"
+                            style={{ backgroundColor: item.badge.color }}
+                          >
+                            {item.badge.label}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-5 flex-1 flex flex-col">
+                        <h3 className="text-gray-900 font-bold text-base font-heading mb-2 group-hover:text-sm-blue transition-colors duration-200">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4">
+                          {item.description}
+                        </p>
+                        <div className="mt-auto flex items-center text-sm-blue text-[11px] font-bold uppercase tracking-widest gap-1 group-hover:gap-2 transition-all duration-200">
+                          <span>Learn More</span>
+                          <ArrowRight size={14} />
+                        </div>
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </div>
