@@ -214,44 +214,39 @@ const ResourceTiles = () => {
                 <span className="uppercase tracking-wider text-xs">Discussion Forum</span>
               </Link>
             {/* Quick Quote Form */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100/50 group transition-all duration-300 hover:shadow-xl">
-              <div className="bg-gradient-to-r from-sm-blue to-blue-700 px-6 py-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center">
-                    <FileText size={14} className="text-white" />
-                  </div>
-                  <h3 className="text-xs font-bold text-white uppercase tracking-widest">Quick Quote</h3>
-                </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-50 bg-gray-50/30">
+                <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">Quick Quote</h3>
               </div>
-              <form className="p-5 space-y-3">
-                <div className="space-y-4">
-                  <div className="relative">
+              <form className="p-4 space-y-3">
+                <div className="space-y-3">
+                  <div className="relative group">
                     <input 
                       type="text" 
                       placeholder="School Name" 
-                      className="w-full pl-4 pr-4 py-3 bg-gray-50/50 border border-gray-100 rounded-2xl text-[11px] focus:ring-2 focus:ring-sm-blue/20 focus:border-sm-blue focus:bg-white outline-none transition-all duration-200 placeholder:text-gray-400"
+                      className="w-full pl-4 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all duration-200 placeholder:text-gray-400 group-hover:border-gray-300"
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative group">
                     <input 
                       type="text" 
                       placeholder="Pin Code" 
-                      className="w-full pl-4 pr-4 py-3 bg-gray-50/50 border border-gray-100 rounded-2xl text-[11px] focus:ring-2 focus:ring-sm-blue/20 focus:border-sm-blue focus:bg-white outline-none transition-all duration-200 placeholder:text-gray-400"
+                      className="w-full pl-4 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all duration-200 placeholder:text-gray-400 group-hover:border-gray-300"
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative group">
                     <textarea 
                       placeholder="What are you looking for?" 
                       rows="3"
-                      className="w-full pl-4 pr-4 py-3 bg-gray-50/50 border border-gray-100 rounded-2xl text-[11px] focus:ring-2 focus:ring-sm-blue/20 focus:border-sm-blue focus:bg-white outline-none transition-all duration-200 placeholder:text-gray-400 resize-none"
+                      className="w-full pl-4 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all duration-200 placeholder:text-gray-400 group-hover:border-gray-300 resize-none"
                     ></textarea>
                   </div>
                 </div>
                 <button 
                   type="submit"
-                  className="w-full py-3.5 bg-sm-blue text-white font-bold rounded-2xl hover:bg-blue-700 active:scale-[0.98] transition-all duration-200 text-[10px] uppercase tracking-[0.2em] shadow-lg shadow-blue-900/20 mt-2"
+                  className="w-full py-2.5 bg-sm-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-200 text-xs uppercase tracking-widest shadow-sm active:scale-[0.98]"
                 >
-                  Submit Quote →
+                  Submit Quote
                 </button>
               </form>
             </div>
