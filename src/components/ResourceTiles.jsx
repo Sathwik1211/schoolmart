@@ -213,13 +213,39 @@ const ResourceTiles = () => {
                 <MessageSquare size={16} />
                 <span className="uppercase tracking-wider text-xs">Discussion Forum</span>
               </Link>
-              <Link
-                to="/contact-us"
-                className="flex items-center justify-center gap-2 w-full py-2.5 bg-sm-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 text-sm"
-              >
-                <FileText size={16} />
-                <span className="uppercase tracking-wider text-xs">Request a Quote</span>
-              </Link>
+            {/* Quick Quote Form */}
+            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+              <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-3">Quick Quote</h3>
+              <form className="space-y-2">
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="School Name" 
+                    className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="Pin Code" 
+                    className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <textarea 
+                    placeholder="Looking for..." 
+                    rows="3"
+                    className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:ring-1 focus:ring-sm-blue focus:border-sm-blue outline-none transition-all resize-none"
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full py-2.5 bg-sm-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-200 text-xs uppercase tracking-widest shadow-md shadow-blue-900/10"
+                >
+                  Submit Quote
+                </button>
+              </form>
+            </div>
             </div>
 
             {/* Classifieds Section */}
