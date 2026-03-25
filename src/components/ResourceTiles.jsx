@@ -180,59 +180,64 @@ const ResourceTiles = () => {
               ))}
             </div>
 
-            {/* Explore Our Solutions — Compact Bento Layout */}
-            <div className="mt-10">
-              <div className="flex items-end justify-between mb-6 pb-3 border-b border-gray-100">
-                <h2 className="text-gray-900 text-2xl font-black font-heading tracking-tight">Explore Our Solutions</h2>
-                <Link to="/catalogues" className="text-sm-blue text-xs font-bold hover:underline py-1">View All Solutions →</Link>
+            {/* Explore Our Solutions — Modern Pill-Style Slider */}
+            <div className="mt-14 pb-10">
+              <div className="flex flex-col mb-8">
+                <div className="flex items-center gap-4 mb-1">
+                  <div className="h-1 w-12 bg-sm-blue rounded-full" />
+                  <h2 className="text-gray-900 text-3xl font-black font-heading tracking-tight">Our Solutions</h2>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 text-sm ml-16">Innovative educational infrastructure designed for impact.</p>
+                  <Link to="/catalogues" className="text-sm-blue text-sm font-bold hover:underline flex items-center gap-1">
+                    View All <ArrowRight size={16} />
+                  </Link>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                {solutions.map((item, idx) => {
-                  // Determine grid span for a "bento" feel
-                  const spans = [
-                    'md:col-span-8', // 1st: wide
-                    'md:col-span-4', // 2nd: narrow
-                    'md:col-span-4', // 3rd: narrow
-                    'md:col-span-4', // 4th: narrow
-                    'md:col-span-4', // 5th: narrow 
-                    'md:col-span-12', // 6th: full width featured
-                  ][idx] || 'md:col-span-4';
-
-                  return (
-                    <Link 
-                      key={item.title} 
-                      to={item.path} 
-                      className={`group relative overflow-hidden rounded-[1.5rem] bg-white shadow-sm hover:shadow-lg transition-all duration-500 ${spans} ${idx === 5 ? 'h-48' : 'h-64'}`}
-                    >
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                      
-                      <div className="absolute top-4 left-4 z-10">
-                        <span 
-                          className="px-2.5 py-1 text-[9px] font-bold text-white uppercase tracking-[0.15em] rounded-md backdrop-blur-md border border-white/20"
-                          style={{ backgroundColor: `${item.badge.color}bb` }}
-                        >
-                          {item.badge.label}
-                        </span>
+              <div className="flex overflow-x-auto gap-8 pb-10 px-4 -mx-4 hide-scrollbar snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {solutions.map((item, idx) => (
+                  <Link 
+                    key={item.title} 
+                    to={item.path} 
+                    className="flex-none w-[280px] group snap-center"
+                  >
+                    <div className="relative mb-6">
+                      {/* Pill-shaped image container to break the 'box' feel */}
+                      <div className="relative h-[420px] rounded-[100px] overflow-hidden shadow-2xl transition-all duration-500 group-hover:rounded-[2rem] group-hover:scale-[0.98]">
+                        <img 
+                          src={item.img} 
+                          alt={item.title} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        {/* Status/Badge */}
+                        <div className="absolute top-8 left-1/2 -translate-x-1/2">
+                          <span 
+                            className="px-4 py-1.5 text-[9px] font-bold text-white uppercase tracking-[0.2em] rounded-full backdrop-blur-md shadow-lg border border-white/20 whitespace-nowrap"
+                            style={{ backgroundColor: `${item.badge.color}bb` }}
+                          >
+                            {item.badge.label}
+                          </span>
+                        </div>
                       </div>
-
-                      <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                        <span className="text-white/10 text-3xl font-black absolute top-0 right-5 pointer-events-none">0{idx +1}</span>
-                        <h3 className="text-white font-bold text-lg font-heading leading-tight mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-white/70 text-[11px] leading-relaxed line-clamp-2 max-w-[85%] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                          {item.description}
-                        </p>
+                    </div>
+                    
+                    {/* Floating/Cardless content below the pill */}
+                    <div className="text-center px-4 transform transition-all duration-300 group-hover:-translate-y-2">
+                      <h3 className="text-gray-900 font-extrabold text-xl font-heading mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4 opacity-80">
+                        {item.description}
+                      </p>
+                      <div className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-100 text-sm-blue group-hover:bg-sm-blue group-hover:text-white group-hover:border-sm-blue transition-all duration-300">
+                        <ArrowRight size={18} />
                       </div>
-                    </Link>
-                  );
-                })}
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
