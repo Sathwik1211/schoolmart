@@ -255,7 +255,7 @@ const ResourceTiles = () => {
             {/* Classifieds Section */}
             <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-3 py-1.5">
-                <h3 className="text-white font-semibold text-center uppercase tracking-wide text-xs">Classifieds</h3>
+                <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">TRENDING</h3>
               </div>
               <div className="px-3 py-1">
                 {[
@@ -267,7 +267,7 @@ const ResourceTiles = () => {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className="block text-[11px] text-gray-600 hover:text-sm-blue transition-colors duration-150 py-1.5 border-b border-gray-50 last:border-0"
+                    className="block text-[11px] font-bold text-gray-700 hover:text-sm-blue transition-colors duration-150 py-2 border-b border-gray-50 last:border-0"
                   >
                     {item.label}
                   </Link>
