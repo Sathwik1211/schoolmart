@@ -180,25 +180,22 @@ const ResourceTiles = () => {
               ))}
             </div>
 
-            {/* Explore Our Solutions — Outstanding Bento Layout */}
-            <div className="mt-12">
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2 border-b border-gray-100 pb-4">
-                <div>
-                  <h2 className="text-gray-900 text-3xl font-extrabold font-heading tracking-tight">Explore Our Solutions</h2>
-                  <p className="text-gray-500 text-sm mt-1">Innovative educational infrastructure for the next generation.</p>
-                </div>
-                <Link to="/catalogues" className="text-sm-blue text-sm font-bold hover:underline py-1">View All Solutions →</Link>
+            {/* Explore Our Solutions — Compact Bento Layout */}
+            <div className="mt-10">
+              <div className="flex items-end justify-between mb-6 pb-3 border-b border-gray-100">
+                <h2 className="text-gray-900 text-2xl font-black font-heading tracking-tight">Explore Our Solutions</h2>
+                <Link to="/catalogues" className="text-sm-blue text-xs font-bold hover:underline py-1">View All Solutions →</Link>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                 {solutions.map((item, idx) => {
                   // Determine grid span for a "bento" feel
                   const spans = [
-                    'md:col-span-7', // 1st: wide
-                    'md:col-span-5', // 2nd: narrow
+                    'md:col-span-8', // 1st: wide
+                    'md:col-span-4', // 2nd: narrow
                     'md:col-span-4', // 3rd: narrow
                     'md:col-span-4', // 4th: narrow
-                    'md:col-span-4', // 5th: narrow (wait, let's adjust for 6 items)
+                    'md:col-span-4', // 5th: narrow 
                     'md:col-span-12', // 6th: full width featured
                   ][idx] || 'md:col-span-4';
 
@@ -206,49 +203,33 @@ const ResourceTiles = () => {
                     <Link 
                       key={item.title} 
                       to={item.path} 
-                      className={`group relative overflow-hidden rounded-[2rem] bg-white shadow-card hover:shadow-card-hover transition-all duration-500 ${spans} ${idx === 5 ? 'h-64' : 'h-80 md:h-96'}`}
+                      className={`group relative overflow-hidden rounded-[1.5rem] bg-white shadow-sm hover:shadow-lg transition-all duration-500 ${spans} ${idx === 5 ? 'h-48' : 'h-64'}`}
                     >
-                      {/* High-quality background image with scale effect */}
                       <img 
                         src={item.img} 
                         alt={item.title} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                       
-                      {/* Multi-layered overlay for depth */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      <div className="absolute inset-0 bg-sm-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Floating Category Tag */}
-                      <div className="absolute top-6 left-6 z-10">
+                      <div className="absolute top-4 left-4 z-10">
                         <span 
-                          className="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-full shadow-lg backdrop-blur-md border border-white/20"
-                          style={{ backgroundColor: `${item.badge.color}cc` }}
+                          className="px-2.5 py-1 text-[9px] font-bold text-white uppercase tracking-[0.15em] rounded-md backdrop-blur-md border border-white/20"
+                          style={{ backgroundColor: `${item.badge.color}bb` }}
                         >
                           {item.badge.label}
                         </span>
                       </div>
 
-                      {/* Content — Bottom Aligned */}
-                      <div className="absolute bottom-0 left-0 right-0 p-8 z-10 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-                        {/* Numerical indicator for "outstanding" feel */}
-                        <span className="text-white/20 text-4xl font-black absolute top-0 right-8 pointer-events-none">0{idx + 1}</span>
-                        
-                        <h3 className="text-white font-extrabold text-xl md:text-2xl font-heading mb-3 leading-tight drop-shadow-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                        <span className="text-white/10 text-3xl font-black absolute top-0 right-5 pointer-events-none">0{idx +1}</span>
+                        <h3 className="text-white font-bold text-lg font-heading leading-tight mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-white/70 text-sm leading-relaxed line-clamp-2 max-w-md opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                        <p className="text-white/70 text-[11px] leading-relaxed line-clamp-2 max-w-[85%] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                           {item.description}
                         </p>
-                        
-                        <div className="mt-6 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                          <span className="w-8 h-px bg-white/50" />
-                          <span>View Details</span>
-                        </div>
                       </div>
-
-                      {/* Subtle inner border on hover */}
-                      <div className="absolute inset-4 border border-white/0 group-hover:border-white/20 rounded-[1.5rem] pointer-events-none transition-all duration-500" />
                     </Link>
                   );
                 })}
