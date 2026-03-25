@@ -298,10 +298,10 @@ const ResourceTiles = () => {
 
             {/* Resources Section */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div className="bg-cyan-500 px-4 py-2">
-                <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">Resources</h3>
+              <div className="bg-cyan-500 px-4 py-2.5">
+                <h3 className="text-white font-semibold text-center uppercase tracking-wide text-xs">Resources</h3>
               </div>
-              <div className="px-4 py-1">
+              <div className="p-3 space-y-0.5">
                 {[
                   'Complete guide to digitization of schools',
                   'Setting Up A School In India',
@@ -318,7 +318,7 @@ const ResourceTiles = () => {
                   <Link
                     key={item}
                     to="#"
-                    className="block text-[10px] font-bold text-gray-700 hover:text-sm-blue transition-colors duration-200 py-2.5 border-b border-gray-200 last:border-0 uppercase tracking-widest"
+                    className="block text-[11px] text-gray-600 hover:text-sm-blue transition-colors duration-200 py-1.5 border-b border-gray-50 last:border-0"
                   >
                     {item}
                   </Link>
