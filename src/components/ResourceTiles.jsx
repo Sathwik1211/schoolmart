@@ -178,58 +178,47 @@ const ResourceTiles = () => {
               ))}
             </div>
 
-            {/* Explore Our Solutions — Fluid Capsule Slider */}
-            <div className="mt-12 mb-10">
-              <div className="flex items-end justify-between mb-8 px-2">
-                <div>
-                  <h2 className="text-gray-900 text-3xl font-black font-heading tracking-tight">Explore Our Solutions</h2>
-                  <div className="h-1 w-20 bg-sm-blue mt-2 rounded-full" />
-                </div>
-                <Link to="/catalogues" className="text-sm-blue text-sm font-bold hover:underline mb-2 flex items-center gap-1 group">
-                  View All Solutions <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                </Link>
+            {/* Explore Our Solutions — Circular Grid Layout */}
+            <div className="mt-14 mb-10">
+              <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-3">
+                <h2 className="text-gray-900 text-2xl font-black font-heading uppercase tracking-tight">Explore Our Solutions</h2>
+                <Link to="/catalogues" className="text-sm-blue text-xs font-bold hover:underline uppercase">View All →</Link>
               </div>
-
-              <div className="flex overflow-x-auto gap-8 pb-12 pt-4 px-4 -mx-4 hide-scrollbar snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
                 {solutions.map((item) => (
-                  <Link 
-                    key={item.title} 
-                    to={item.path} 
-                    className="flex-none w-[260px] group snap-center"
-                  >
-                    <div className="relative mb-6">
-                      {/* CAPSULE SHAPE: Tall and fully rounded at top/bottom */}
-                      <div className="relative h-[380px] rounded-[130px] overflow-hidden shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95">
-                        <img 
-                          src={item.img} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                        
-                        {/* Floating Badge on the capsule */}
-                        <div className="absolute top-10 left-1/2 -translate-x-1/2">
-                          <span 
-                            className="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-full backdrop-blur-md border border-white/20 whitespace-nowrap shadow-lg"
-                            style={{ backgroundColor: `${item.badge.color}dd` }}
-                          >
-                            {item.badge.label}
-                          </span>
-                        </div>
+                  <Link key={item.title} to={item.path} className="flex flex-col items-center text-center group">
+                    {/* Circle Image Container */}
+                    <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl mb-5 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95 border-4 border-white">
+                      <img 
+                        src={item.img} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity" />
+                      
+                      {/* Floating Indicator */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                         <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
+                           <ArrowRight size={24} />
+                         </div>
                       </div>
                     </div>
 
-                    {/* Floating Info below the capsule */}
-                    <div className="text-center px-2 transform transition-all duration-300 group-hover:-translate-y-2">
-                      <h3 className="text-gray-900 font-black text-xl font-heading mb-2 leading-tight">
+                    {/* Content below Circle */}
+                    <div>
+                      <span 
+                        className="px-3 py-1 text-[9px] font-bold text-white uppercase tracking-[0.15em] rounded-full shadow-sm mb-2 inline-block"
+                        style={{ backgroundColor: item.badge.color }}
+                      >
+                        {item.badge.label}
+                      </span>
+                      <h3 className="text-gray-900 font-bold text-base font-heading mb-1 transition-colors group-hover:text-sm-blue">
                         {item.title}
                       </h3>
-                      <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 max-w-[200px] mx-auto opacity-80 mb-4">
+                      <p className="text-gray-500 text-[10px] leading-relaxed line-clamp-2 max-w-[180px] opacity-80">
                         {item.description}
                       </p>
-                      <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-100 text-sm-blue shadow-sm group-hover:bg-sm-blue group-hover:text-white transition-all duration-300">
-                        <ArrowRight size={18} />
-                      </div>
                     </div>
                   </Link>
                 ))}
@@ -248,7 +237,6 @@ const ResourceTiles = () => {
                 <span className="uppercase tracking-wider text-[11px]">Discussion Forum</span>
               </Link>
               
-              {/* Quick Quote Form */}
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="px-5 py-4 border-b border-gray-50 bg-gray-50/30">
                   <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">Quick Quote</h3>
@@ -264,7 +252,6 @@ const ResourceTiles = () => {
               </div>
             </div>
 
-            {/* Trending Section */}
             <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-3 py-1.5">
                 <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">TRENDING</h3>
@@ -278,7 +265,6 @@ const ResourceTiles = () => {
               </div>
             </div>
 
-            {/* Consultation Banner */}
             <div className="relative rounded-2xl overflow-hidden shadow-sm h-40">
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80" alt="Consultation" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-teal-700/80 p-5 flex flex-col items-center justify-center text-white text-center">
@@ -288,7 +274,6 @@ const ResourceTiles = () => {
               </div>
             </div>
 
-            {/* Resources Section — FULL LIST */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-4 py-2">
                 <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">Resources</h3>
@@ -314,7 +299,6 @@ const ResourceTiles = () => {
               </div>
             </div>
 
-            {/* Follow Us */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
               <div className="bg-cyan-500 px-4 py-2">
                 <h3 className="text-white font-bold text-center uppercase tracking-wide text-xs">Follow Us</h3>
@@ -332,7 +316,6 @@ const ResourceTiles = () => {
               </div>
             </div>
 
-            {/* Govt / Renovation / Ideas Links */}
             <div className="space-y-3">
               <Link to="/govt" className="block relative h-16 rounded-2xl overflow-hidden shadow-sm group">
                 <div className="absolute inset-0 bg-sm-blue flex flex-col items-center justify-center text-white">
