@@ -178,22 +178,59 @@ const ResourceTiles = () => {
               ))}
             </div>
 
-            {/* Explore Our Solutions — Classic Grid */}
-            <div className="mt-8">
-              <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
-                <h2 className="text-gray-900 text-lg font-bold font-heading uppercase tracking-tight">Explore Our Solutions</h2>
-                <Link to="/catalogues" className="text-sm-blue text-xs font-semibold hover:underline uppercase">View All →</Link>
+            {/* Explore Our Solutions — Fluid Capsule Slider */}
+            <div className="mt-12 mb-10">
+              <div className="flex items-end justify-between mb-8 px-2">
+                <div>
+                  <h2 className="text-gray-900 text-3xl font-black font-heading tracking-tight">Explore Our Solutions</h2>
+                  <div className="h-1 w-20 bg-sm-blue mt-2 rounded-full" />
+                </div>
+                <Link to="/catalogues" className="text-sm-blue text-sm font-bold hover:underline mb-2 flex items-center gap-1 group">
+                  View All Solutions <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+              <div className="flex overflow-x-auto gap-8 pb-12 pt-4 px-4 -mx-4 hide-scrollbar snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {solutions.map((item) => (
-                  <Link key={item.title} to={item.path} className="block group">
-                    <ImageOverlayCard
-                      img={item.img}
-                      title={item.title}
-                      description={item.description}
-                      badge={item.badge}
-                      fallback="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
-                    />
+                  <Link 
+                    key={item.title} 
+                    to={item.path} 
+                    className="flex-none w-[260px] group snap-center"
+                  >
+                    <div className="relative mb-6">
+                      {/* CAPSULE SHAPE: Tall and fully rounded at top/bottom */}
+                      <div className="relative h-[380px] rounded-[130px] overflow-hidden shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95">
+                        <img 
+                          src={item.img} 
+                          alt={item.title} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                        
+                        {/* Floating Badge on the capsule */}
+                        <div className="absolute top-10 left-1/2 -translate-x-1/2">
+                          <span 
+                            className="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-full backdrop-blur-md border border-white/20 whitespace-nowrap shadow-lg"
+                            style={{ backgroundColor: `${item.badge.color}dd` }}
+                          >
+                            {item.badge.label}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Floating Info below the capsule */}
+                    <div className="text-center px-2 transform transition-all duration-300 group-hover:-translate-y-2">
+                      <h3 className="text-gray-900 font-black text-xl font-heading mb-2 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 max-w-[200px] mx-auto opacity-80 mb-4">
+                        {item.description}
+                      </p>
+                      <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-100 text-sm-blue shadow-sm group-hover:bg-sm-blue group-hover:text-white transition-all duration-300">
+                        <ArrowRight size={18} />
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </div>
