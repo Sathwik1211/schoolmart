@@ -187,7 +187,7 @@ const Navbar = () => {
       </nav>
 
       {/* Top News Ticker - Moved below Green Bar */}
-      <div className="bg-sm-navy border-t-2 border-sm-yellow overflow-hidden h-9 flex items-center relative z-40">
+      <div className="bg-sm-navy border-t-2 border-sm-yellow overflow-hidden h-10 flex items-center relative z-40">
         {/* Slanted Label */}
         <div className="absolute left-0 top-0 bottom-0 bg-gray-100 px-6 flex items-center gap-2 z-20 shadow-xl" style={{ clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0% 100%)' }}>
           <div className="w-4 h-4 rounded-full border-2 border-sm-blue flex items-center justify-center">
@@ -198,7 +198,7 @@ const Navbar = () => {
 
         {/* Scrolling Ticker */}
         <div className="flex-1 overflow-hidden ml-40 h-full relative">
-          <div className="scrolling-ticker h-full gap-20">
+          <div className="ticker-wrapper h-full flex items-center gap-20 whitespace-nowrap">
             {[
               "Digital Transformation Summit: 15 May 2026",
               "New AI-Powered Learning Stations now available for pre-order",

@@ -178,17 +178,19 @@
     animation: slideDown 0.3s ease-out forwards;
   }
 
-  .scrolling-ticker {
+  .ticker-wrapper {
     display: flex;
+    align-items: center;
     white-space: nowrap;
-    animation: ticker-move 40s linear infinite;
+    animation: marquee 25s linear infinite;
+    will-change: transform;
   }
 
-  .scrolling-ticker:hover {
+  .ticker-wrapper:hover {
     animation-play-state: paused;
   }
 
-  @keyframes ticker-move {
+  @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
