@@ -79,39 +79,32 @@ const ContactUs = () => {
            ))}
         </div>
 
-        {/* OFFICE MAP AREA (Screenshot 2 / Unique Element) */}
+        {/* FAQ SECTION - REPLACING MAP */}
         <div className="bg-[#1A1A1A] rounded-[40px] overflow-hidden p-10 lg:p-14 relative text-white">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 opacity-10 rounded-full blur-3xl" />
-           <div className="flex flex-col lg:flex-row gap-12 relative z-10 items-center">
-              <div className="max-w-xl">
-                 <h4 className="text-2xl font-black font-heading mb-4 tracking-tight uppercase">Our Silicon Valley Hub.</h4>
-                 <div className="space-y-4 text-white/50 text-[10px] font-bold uppercase tracking-widest">
-                    <div className="flex gap-4">
-                       <MapPin className="text-sm-blue shrink-0" size={20} />
-                       <p className="leading-relaxed whitespace-pre-line">Corporate Towers, MG Road, {"\n"} Bangalore, Karnataka - 560001</p>
-                    </div>
-                    <div className="flex gap-4">
-                       <Globe className="text-sm-blue shrink-0" size={20} />
-                       <p>Pan-India Network - 22 States</p>
-                    </div>
+           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 opacity-5 rounded-full blur-3xl animate-pulse" />
+           
+           <div className="relative z-10 text-center mb-12">
+              <h4 className="text-3xl font-black font-heading mb-2 tracking-tight uppercase">Common Queries.</h4>
+              <p className="text-white/40 text-[9px] font-bold uppercase tracking-[0.3em]">Institutional Service & Support FAQ</p>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 relative z-10">
+              {[
+                { q: 'Pan-India Installation Support?', a: 'Yes, we maintain a robust service network across 22 states for seamless on-site assembly.' },
+                { q: 'Typical Project Lead Times?', a: 'Standard production cycles range from 4-6 weeks depending on the scale of furniture & tech.' },
+                { q: 'NEP 2020 Compliance Status?', a: 'Our entire catalog is 100% aligned with NEP 2020 guidelines and global safety protocols.' },
+                { q: 'Institutional Site Planning?', a: 'Our design experts offer end-to-end architectural layouts and ergonomics consulting.' },
+                { q: 'Bulk Procurement Discounts?', a: 'We offer tiered pricing for large-scale institutional projects and government tenders.' },
+                { q: 'Software & Content Updates?', a: 'Digital solution clients receive quarterly OTA updates for all curriculum-aligned software.' },
+              ].map((faq, i) => (
+                 <div key={i} className="bg-white/5 backdrop-blur-md rounded-[25px] p-8 border border-white/10 group hover:border-emerald-500 transition-all">
+                    <h5 className="text-[12px] font-black uppercase text-emerald-400 mb-3 tracking-tighter flex items-center gap-3">
+                       <Sparkles size={14} className="group-hover:rotate-45 transition-transform" />
+                       {faq.q}
+                    </h5>
+                    <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest leading-loose">{faq.a}</p>
                  </div>
-                 <div className="mt-10">
-                    <button className="px-6 py-2.5 bg-white text-gray-900 font-black rounded-full hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[9px] flex items-center gap-2">
-                       Open in Maps <ArrowRight size={14} />
-                    </button>
-                 </div>
-              </div>
-              <div className="flex-1 w-full bg-white/5 rounded-[30px] p-1.5 border border-white/10 group overflow-hidden">
-                 <div className="h-[300px] w-full rounded-[25px] bg-gray-800 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1524311582025-055996ea5533?w=1000&q=80" alt="Map View" className="w-full h-full object-cover grayscale brightness-50" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                       <div className="w-12 h-12 bg-sm-blue rounded-full animate-ping opacity-30" />
-                       <div className="w-12 h-12 bg-sm-blue rounded-full flex items-center justify-center shadow-2xl relative z-10">
-                          <MapPin size={24} className="text-white" />
-                       </div>
-                    </div>
-                 </div>
-              </div>
+              ))}
            </div>
         </div>
       </div>
