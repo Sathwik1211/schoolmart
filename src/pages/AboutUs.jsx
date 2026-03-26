@@ -6,24 +6,52 @@ const AboutUs = () => {
   return (
     <main className="min-h-screen bg-gray-50 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4">
-        {/* STORYTELLING BENTO GRID (Screenshot 2 / Bento Inspired) */}
+        {/* REFINED STORY HERO - REMOVED IMMEDIATE BENTO ENTRY */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* HERITAGE BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-blue-50 text-sm-blue font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90 border border-blue-100">
+                 <Rocket size={12} className="inline mr-2" /> Since 2012
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Empowering <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">the</span> <br/> Future of Edu.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 Designing learning environments that shape the future through innovation and ergonomics.
+              </p>
+           </div>
+
+           {/* IMPACT FEATURE HUB - RIGHT (High Contrast Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-sm-blue rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">1500+ <br/> Schools <br/> Equipped.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-white text-sm-blue font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg active:scale-95">Our Impact</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-white transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative border border-gray-800">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Visionary <br/> Architecture <br/> Hub.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Bespoke</span>
+                    <Users className="text-gray-700 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* STORYTELLING BENTO GRID (Below the new Hero) */}
         <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-6 gap-5 h-auto lg:h-[900px]">
-          
-          {/* Main Hero Card */}
-          <div className="lg:col-span-2 lg:row-span-3 bg-sm-blue rounded-[30px] p-8 text-white relative overflow-hidden group shadow-2xl">
-             <div className="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-pulse" />
-             <div className="relative z-10 flex flex-col h-full">
-                <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-[0.2em] mb-6 w-fit border border-white/30"><Sparkles size={12} className="inline mr-2" /> Since 2012</span>
-                <h1 className="text-3xl md:text-5xl font-black font-heading leading-tight mb-6 uppercase">Empowering <br/> Educational <br/> Spaces.</h1>
-                <p className="text-white/80 text-base leading-relaxed max-w-md mb-auto font-medium">
-                  At SchoolMart, we design learning environments that shape the future of education in India through innovation and ergonomics.
-                </p>
-                <div className="mt-8 flex gap-3 items-center">
-                   <div className="w-12 h-1 bg-white/30 rounded-full" />
-                   <span className="text-[10px] font-black uppercase tracking-widest text-white/60 hover:text-white transition-colors cursor-pointer">Our Philosophy</span>
-                </div>
-             </div>
-          </div>
+           {/* REDESIGNED MAIN BENTO CARD */}
+           <div className="lg:col-span-2 lg:row-span-3 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden">
+              <div className="w-12 h-1 bg-sm-blue mb-8 rounded-full" />
+              <h3 className="text-2xl font-black text-gray-900 font-heading mb-6 uppercase tracking-tight">Our <span className="text-sm-blue">Philosophy.</span></h3>
+              <p className="text-gray-500 text-[11px] leading-relaxed max-w-sm mb-10 font-bold uppercase tracking-widest">
+                 We don't just supply furniture; we engineer productivity, safety, and curiosity into every square inch of your institution.
+              </p>
+           </div>
 
           {/* Impact Stats Card */}
           <div className="lg:col-span-1 lg:row-span-2 bg-white rounded-[30px] p-8 shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:shadow-xl transition-all">

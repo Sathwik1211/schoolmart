@@ -61,40 +61,54 @@ const products = [
 const Furniture = () => {
   return (
     <main className="min-h-screen bg-white">
-      {/* Dynamic Header Section */}
-      <section className="pt-16 pb-10 px-4 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-black text-gray-900 font-heading leading-tight mb-4 uppercase">
-                 School <span className="text-sm-blue">Furniture.</span>
-              </h1>
-              <p className="text-[14px] font-bold text-gray-400 leading-relaxed max-w-lg tracking-widest uppercase">
-                Explore 1200+ ergonomic products designed to create inspiring learning spaces.
-              </p>
+      {/* MODERN BOUTIQUE HERO - REMOVED GENERIC STARTING */}
+      <section className="px-4 pt-8 pb-12 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
+         {/* COLLECTION BLOCK - LEFT */}
+         <div className="flex-1 bg-gray-50 rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+            <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+               <Sofa size={12} className="inline mr-2" /> 2024 Collection
             </div>
-            <div className="flex gap-3">
-              <button className="px-6 py-2.5 bg-sm-blue text-white font-black text-[10px] tracking-widest uppercase rounded-full hover:bg-blue-700 transition-all shadow-lg active:scale-95 shadow-blue-50">
-                Catalogue
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center border-2 border-gray-200 rounded-full text-gray-400 hover:text-sm-blue hover:border-sm-blue transition-all">
-                <Download size={18} />
-              </button>
-            </div>
-          </div>
+            <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+               School <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Furniture</span> <br/> Solutions.
+            </h1>
+            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+               Explore 1200+ ergonomic products designed to create inspiring learning spaces.
+            </p>
+         </div>
 
-          {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
-          <div className="flex overflow-x-auto gap-10 pb-4 hide-scrollbar justify-center">
-            {categories.map((cat) => (
-              <button key={cat.id} className="flex flex-col items-center gap-3 group flex-none">
-                <div className="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-50">
-                  {cat.icon}
-                </div>
-                <span className="text-[9px] font-black text-gray-500 group-hover:text-gray-900 tracking-widest uppercase">{cat.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+         {/* CATALOGUE FEATURE HUB - RIGHT (High Contrast Inspired) */}
+         <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div className="bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+               <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">The <br/> Lookbook <br/> Catalogue.</h3>
+               <div className="flex items-center justify-between mt-8 relative z-10">
+                  <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Download PDF</button>
+                  <Download className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+               </div>
+            </div>
+            <div className="bg-white rounded-[30px] p-8 text-gray-900 flex flex-col justify-between group overflow-hidden relative border border-gray-100">
+               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Expert <br/> Planning <br/> Hub.</h3>
+               <div className="flex items-center justify-between mt-8 relative z-10">
+                  <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Bespoke</span>
+                  <ArrowRight className="text-gray-300 group-hover:text-sm-blue transition-colors" size={24} />
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* Compact Category Strip — FROM REFERENCE SITE */}
+      <section className="pb-12 px-2 max-w-7xl mx-auto">
+         <div className="flex overflow-x-auto gap-10 pb-4 hide-scrollbar justify-start lg:justify-center border-b border-gray-100">
+           {categories.map((cat) => (
+             <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
+               <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
+                 {cat.icon}
+               </div>
+               <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>
+             </button>
+           ))}
+         </div>
       </section>
 
       {/* Featured Staggered Grid Layout */}

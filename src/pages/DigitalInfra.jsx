@@ -19,37 +19,37 @@ const gadgets = [
 const DigitalInfra = () => {
   return (
     <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
-      {/* TECH HERO SECTION (Screenshot 4 Product-heavy Inspired) */}
-      <section className="px-4 py-12 max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-center">
-         <div className="flex-1 text-center lg:text-left">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-sm-blue font-black rounded-full mb-6 text-[10px] uppercase tracking-widest shadow-sm hover:translate-x-1 transition-transform border border-blue-200 cursor-pointer">
-               <Zap size={14} className="animate-pulse" /> Digital Revolution
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black font-heading leading-[0.9] mb-8 tracking-tighter text-gray-900">
-               Building <br/> The <span className="text-sm-blue uppercase italic">Smart</span> <br/> Campus.
-            </h1>
-            <p className="text-base text-gray-500 max-w-lg mb-10">
-               Future-proof your educational legacy with high-performance hardware and cloud-first infrastructure tailored for modern pedagogy.
-            </p>
-            <div className="flex gap-4 justify-center lg:justify-start">
-               <button className="px-8 py-4 bg-gray-900 text-white font-black rounded-3xl hover:bg-sm-blue transition-all shadow-xl uppercase tracking-widest text-[10px] flex items-center gap-3 active:scale-95">
-                  Request Live Demo <Eye size={16} />
-               </button>
+      {/* MODERN SMART HUB HERO - REMOVED GENERIC STARTING */}
+      <section className="px-4 pt-8 pb-12 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
+         {/* TECH BLOCK - LEFT */}
+         <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+            <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+               <Zap size={12} className="inline mr-2 animate-pulse" /> Digital Revolution
             </div>
+            <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+               Building <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">the</span> <br/> Smart Campus.
+            </h1>
+            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+               Future-proofing educational legacy with hardware & cloud infrastructure tailored for modern pedagogy.
+            </p>
          </div>
 
-         <div className="flex-1 w-full relative">
-            <div className="absolute inset-0 bg-blue-400 rounded-full blur-[100px] opacity-15 -mr-24" />
-            <div className="relative bg-[#1A1A1A] rounded-[40px] p-6 overflow-hidden shadow-2xl border border-white/5 transform lg:rotate-1 hover:rotate-0 transition-transform duration-700">
-               <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=1000&q=80" alt="Smart Class" className="rounded-[30px] opacity-60 grayscale group-hover:grayscale-0 transition-all duration-1000 w-full h-auto" />
-               <div className="absolute top-10 left-10">
-                  <div className="w-12 h-12 bg-sm-blue/20 backdrop-blur-md rounded-xl flex items-center justify-center text-sm-blue border border-sm-blue/30 shadow-2xl">
-                     <Terminal size={24} />
-                  </div>
+         {/* INFRA FEATURE HUB - RIGHT (Premium Inspired) */}
+         <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+               <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Integrated <br/> Tech Stack <br/> Dashboard.</h3>
+               <div className="flex items-center justify-between mt-8 relative z-10">
+                  <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Live Demo</button>
+                  <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
                </div>
-               <div className="mt-6">
-                  <h4 className="text-white text-xl font-black mb-1">Integrated Tech Stack</h4>
-                  <p className="text-white/40 text-[9px] font-bold uppercase tracking-[0.2em]">One Campus // One Dashboard</p>
+            </div>
+            <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
+               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Enterprise <br/> Infrastructure <br/> Scale.</h3>
+               <div className="flex items-center justify-between mt-8 relative z-10">
+                  <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Support</span>
+                  <Tablet className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
                </div>
             </div>
          </div>

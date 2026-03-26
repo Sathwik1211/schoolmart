@@ -20,33 +20,53 @@ const Science = () => {
     <main className="min-h-screen bg-gray-50 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* EXPERIMENTAL LAB HERO (Unique for Science) */}
-        <section className="py-12 flex flex-col items-center text-center relative overflow-hidden bg-white/50 rounded-[40px] border border-gray-100 mb-16 shadow-sm">
-           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-sm-blue opacity-[0.02] rounded-full blur-[80px] -mr-48 -mt-48" />
-           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-emerald-500 opacity-[0.02] rounded-full blur-[60px] -ml-32 -mb-32" />
-
-           <div className="relative z-10 flex flex-col items-center">
-              <span className="inline-block px-4 py-1.5 bg-emerald-500/10 text-emerald-600 font-black rounded-full mb-6 text-[10px] uppercase tracking-widest border border-emerald-500/20 active:translate-y-1 transition-transform cursor-pointer">
-                 <Activity size={14} className="inline mr-2 animate-pulse" /> Experimental Discovery
-              </span>
-              <h1 className="text-4xl md:text-6xl font-black font-heading leading-[0.9] mb-8 tracking-tighter text-gray-900 uppercase">
-                 Science Is <br/> <span className="text-sm-blue italic font-serif uppercase tracking-[0.05em]">Pure</span> Fun.
-              </h1>
-              <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed font-medium">
-                 From periodic tables on walls to professional-grade gas-fitted workbenches, we create spaces where curiosity triggers action.
-              </p>
-
-              {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
-              <div className="flex overflow-x-auto gap-10 pb-10 hide-scrollbar justify-start lg:justify-center w-full max-w-4xl">
-                {categories.map((cat) => (
-                  <button key={cat.id} className="flex flex-col items-center gap-3 group flex-none outline-none">
-                    <div className="w-16 h-16 rounded-[25px] bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-emerald-500 group-hover:text-white transition-all transform hover:rotate-3 active:scale-95 border-2 border-transparent group-hover:border-emerald-100">
-                      {cat.icon}
-                    </div>
-                    <span className="text-[9px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
-                  </button>
-                ))}
+        {/* REFINED EXPERIMENTAL HERO - REMOVED CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* EXPERIMENT BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-emerald-500/10 transition-colors" />
+              <div className="px-3 py-1 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <Activity size={12} className="inline mr-2 animate-pulse" /> Experimental Discovery
               </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Science Is <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Pure</span> <br/> Fun.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 From periodic tables to professional workbenches, we create spaces where curiosity triggers action.
+              </p>
+           </div>
+
+           {/* SAFETY FEATURE HUB - RIGHT (High Contrast Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-emerald-600/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-emerald-400">Zero-Leaking <br/> Security <br/> Performance.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-emerald-500/20 active:scale-95">Safety Manual</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-emerald-400 transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-emerald-50 rounded-[30px] p-8 text-emerald-800 flex flex-col justify-between group overflow-hidden relative border border-emerald-100">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Certified <br/> SEFA <br/> Institution.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Member</span>
+                    <Layers className="text-emerald-300 group-hover:text-emerald-600 transition-colors" size={24} />
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* Compact Strip Menu — AS PER REFERENCE */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-10 pb-4 hide-scrollbar justify-start lg:justify-center border-b border-gray-100">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
+               </button>
+             ))}
            </div>
         </section>
 

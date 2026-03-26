@@ -22,26 +22,43 @@ const SchoolDesigns = () => {
   return (
     <main className="min-h-screen bg-gray-50 pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* CREATIVE MASONRY HERO SECTION (Unique for Designs) */}
-        <section className="py-12 flex flex-col items-center text-center">
-           <div className="relative group">
-              <div className="absolute inset-0 bg-yellow-400/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="px-4 py-1.5 bg-yellow-400 text-gray-900 font-black rounded-full text-[9px] uppercase tracking-[0.2em] mb-6 shadow-lg relative z-10">
-                 <Stars size={14} className="inline mr-2 animate-spin" /> Design Innovation 2024
+        {/* MODERN BESPOKE HERO - REMOVED CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* TEXT BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-sm-blue/5 rounded-full blur-3xl -mr-16 -mt-16" />
+              <div className="px-3 py-1 bg-gray-900 text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <Stars size={12} className="inline mr-2" /> Design Studio 2024
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-none mb-6 tracking-tighter text-gray-900 uppercase">
+                 Imagine <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">the</span> <br/> Infinite.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 We create non-linear, adaptive spaces where students explore, discover, and flourish.
+              </p>
+           </div>
+
+           {/* FEATURE BLOCKS - RIGHT (High Contrast Inspired by Reference) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-sm-blue rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative">
+                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Curated <br/> Kindergarten <br/> Design.</h3>
+                 <ArrowUpRight className="self-end text-white/50 group-hover:text-white transition-colors relative z-10" size={24} />
+              </div>
+              <div className="bg-yellow-400 rounded-[30px] p-8 text-gray-900 flex flex-col justify-between group overflow-hidden relative">
+                 <div className="absolute inset-0 bg-gray-900/5 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Execution <br/> Portfolio <br/> Excellence.</h3>
+                 <ArrowRight className="self-end text-gray-900/30 group-hover:text-gray-900 transition-colors relative z-10" size={24} />
               </div>
            </div>
-           <h1 className="text-4xl md:text-6xl font-black font-heading leading-[0.9] mb-8 tracking-tighter text-gray-900 uppercase">
-              Imagine <br/> <span className="text-sm-blue uppercase italic font-serif">Infinite</span> <br/> Learning.
-           </h1>
-           <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed font-medium">
-              We create non-linear, adaptive spaces where students don't just sit—they explore, discover, and flourish.
-           </p>
+        </section>
 
-           {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
-           <div className="flex overflow-x-auto gap-8 pb-10 hide-scrollbar justify-start lg:justify-center w-full">
+        {/* Category Icons Slider — COMPACT STRIP */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
              {categories.map((cat) => (
-               <button key={cat.id} className="flex flex-col items-center gap-3 group flex-none">
-                 <div className="w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-gray-900 group-hover:text-white transition-all transform hover:-translate-y-2 border-2 border-transparent group-hover:border-sm-blue">
+               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-4 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-100">
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
                    {cat.icon}
                  </div>
                  <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>

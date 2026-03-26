@@ -20,33 +20,52 @@ const Mathematics = () => {
     <main className="min-h-screen bg-gray-50 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* LOGICAL GEOMETRIC HERO (Unique for Math) */}
-        <section className="py-12 flex flex-col items-center text-center relative overflow-hidden">
-           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none select-none">
-              <Triangle className="absolute top-10 left-10 text-sm-blue rotate-12" size={30} />
-              <Square className="absolute bottom-10 right-10 text-gray-300 -rotate-45" size={40} />
-              <Circle className="absolute top-1/2 left-10 text-sm-blue/20" size={60} />
+        {/* REFINED LOGICAL HERO - REMOVED CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* LOGIC BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <Sparkles size={12} className="inline mr-2" /> Logic is Beautiful
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Gamify <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Mathematics.</span>
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 Transforming complex abstractions into tangible discovery through our range of laboratory kits.
+              </p>
            </div>
 
-           <div className="relative z-10">
-              <span className="inline-block px-4 py-1.5 bg-gray-900 text-white font-black rounded-full mb-6 text-[10px] uppercase tracking-widest shadow-lg active:scale-95 transition-transform"><Sparkles size={14} className="inline mr-2" /> Logic is Beautiful</span>
-              <h1 className="text-4xl md:text-6xl font-black font-heading leading-tight tracking-tighter text-gray-900 mb-8 uppercase">
-                 Gamify <br/> <span className="text-sm-blue uppercase italic underline-offset-4">Mathematics.</span>
-              </h1>
-              <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed font-medium">
-                 We transform complex abstractions into tangible discovery through our range of laboratory kits designed for the Indian curriculum.
-              </p>
-
-              {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
-              <div className="flex overflow-x-auto gap-10 pb-10 hide-scrollbar justify-start lg:justify-center w-full">
-                {categories.map((cat) => (
-                  <button key={cat.id} className="flex flex-col items-center gap-3 group flex-none">
-                    <div className="w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-sm-blue group-hover:text-white transition-all transform hover:-translate-y-2 border-2 border-transparent group-hover:border-sm-blue shadow-blue-50">
-                      {cat.icon}
-                    </div>
-                    <span className="text-[9px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>
-                  </button>
-                ))}
+           {/* GEOMETRIC FEATURE HUB - RIGHT (Premium Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-1 gap-4">
+              <div className="bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none select-none">
+                    <Triangle className="absolute top-6 right-6 text-white rotate-12" size={30} />
+                    <Square className="absolute bottom-6 left-6 text-sm-blue rotate-45" size={20} />
+                 </div>
+                 <div className="relative z-10">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em] leading-relaxed mb-4 text-sm-blue">Curriculum <br/> Mapping <br/> Excellence.</h3>
+                    <p className="text-white/40 text-[8px] font-bold uppercase tracking-widest leading-loose max-w-[200px]">Mapped to NCERT & CBSE standards for Grade 1-10 institutions.</p>
+                 </div>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all active:scale-95 shadow-lg shadow-blue-500/10">Syllabus Guide</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
               </div>
+           </div>
+        </section>
+
+        {/* Compact Category Strip — FROM REFERENCE SITE */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-10 pb-4 hide-scrollbar justify-start lg:justify-center border-b border-gray-100">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>
+               </button>
+             ))}
            </div>
         </section>
 
