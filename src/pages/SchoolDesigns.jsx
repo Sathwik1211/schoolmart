@@ -1,6 +1,6 @@
 // src/pages/SchoolDesigns.jsx
 import { Link } from 'react-router-dom';
-import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, Eye, Stars, Download, Layers } from 'lucide-react';
+import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, ArrowUpRight, Eye, Stars, Download, Layers } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'COLOR SCHEMES', icon: <Palette size={24} /> },

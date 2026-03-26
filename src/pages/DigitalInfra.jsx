@@ -1,6 +1,6 @@
 // src/pages/DigitalInfra.jsx
 import { Link } from 'react-router-dom';
-import { Monitor, Smartphone, Tablet, Terminal, Wifi, Cloud, ArrowRight, Download, Eye, Zap, ShieldAlert } from 'lucide-react';
+import { Monitor, Smartphone, Tablet, Terminal, Wifi, Cloud, ArrowRight, ArrowUpRight, Download, Eye, Zap, ShieldAlert } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'INTERACTIVE PANELS', icon: <Monitor size={24} /> },

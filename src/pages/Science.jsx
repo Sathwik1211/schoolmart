@@ -1,6 +1,6 @@
 // src/pages/Science.jsx
 import { Link } from 'react-router-dom';
-import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, Download, Eye, FileText, Activity, Layers } from 'lucide-react';
+import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, ArrowUpRight, Download, Eye, FileText, Activity, Layers } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'CHEMISTRY KITS', icon: <FlaskConical size={24} /> },

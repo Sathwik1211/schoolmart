@@ -1,6 +1,6 @@
 // src/pages/Mathematics.jsx
 import { Link } from 'react-router-dom';
-import { Calculator, Triangle, Square, Circle, Zap, ArrowRight, Download, Eye, ExternalLink, Layers, Sparkles } from 'lucide-react';
+import { Calculator, Triangle, Square, Circle, Zap, ArrowRight, Download, Eye, ExternalLink, Layers, Sparkles, ArrowUpRight } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'GEOMETRY KITS', icon: <Triangle size={24} /> },
