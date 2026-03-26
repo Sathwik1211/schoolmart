@@ -41,7 +41,7 @@ const Navbar = () => {
     { name: 'ARCHITECTURE', path: '/school-building-design', icon: Building2, color: 'bg-sm-gray' },
     { name: 'DIGITAL INFRA', path: '/digital', icon: Laptop, color: 'bg-sm-gray' },
     { name: 'SCHOOL DESIGNS', path: '/design', icon: Palette, color: 'bg-sm-gray' },
-    { name: 'DIGITAL CONTENT', path: '/digital', icon: BookOpen, color: 'bg-sm-gray' },
+    { name: 'DIGITAL CONTENT', path: '/digital-content', icon: BookOpen, color: 'bg-sm-gray' },
     { name: 'SPORTS', path: '/sports', icon: Trophy, color: 'bg-sm-gray' },
     { name: 'MATHEMATICS', path: '/gamified-math-labs', icon: Calculator, color: 'bg-sm-gray' },
     { name: 'SCIENCE', path: '/science-is-fun', icon: FlaskConical, color: 'bg-sm-gray' },
