@@ -76,10 +76,10 @@ const Sports = () => {
                  {[
                    { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[300px]' },
                    { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[400px]' },
-                   { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[350px]' },
+                   { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&q=80', h: 'h-[350px]' },
                    { t: 'Aquatic High-Dive', c: 'Swimming', img: 'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=80', h: 'h-[450px]' },
                    { t: 'Indoor Gym Elite', c: 'Fitness', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'Badminton Arena', c: 'Racket Sports', img: 'https://images.unsplash.com/photo-1626224580175-340ad0e3aed0?w=800&q=80', h: 'h-[400px]' },
+                   { t: 'Badminton Arena', c: 'Racket Sports', img: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=800&q=80', h: 'h-[400px]' },
                    { t: 'Cricket Pitch Max', c: 'Outdoor', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80', h: 'h-[350px]' },
                  ].map((work, i) => (
                     <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
