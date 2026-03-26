@@ -1,46 +1,66 @@
 // src/pages/Environments.jsx
 import { Link } from 'react-router-dom';
-import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, Eye, Stars, Download, Layers, MousePointer2, Sparkles, Globe } from 'lucide-react';
+import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, ArrowUpRight, CheckCircle2, Eye, Stars, Download, Layers, MousePointer2, Sparkles, Globe } from 'lucide-react';
 
 const categories = [
-  { id: 'all', name: 'LEARNING HUBS', icon: <Globe size={24} /> },
-  { id: 'focus', name: 'FOCUS ZONES', icon: <Compass size={24} /> },
-  { id: 'creative', name: 'CREATIVE SPACES', icon: <Palette size={24} /> },
-  { id: 'digital', name: 'DIGITAL LOUNGES', icon: <MousePointer2 size={24} /> },
+  { id: 'all', name: 'LEARNING HUBS', icon: <Globe size={20} /> },
+  { id: 'focus', name: 'FOCUS ZONES', icon: <Compass size={20} /> },
+  { id: 'creative', name: 'CREATIVE SPACES', icon: <Palette size={20} /> },
+  { id: 'digital', name: 'DIGITAL LOUNGES', icon: <MousePointer2 size={20} /> },
 ];
 
 const Environments = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-20 overflow-hidden">
+    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* IMMERSIVE SPATIAL HERO (Unique for Environments) */}
-        <section className="py-20 flex flex-col items-center text-center relative overflow-hidden bg-white/50 rounded-[100px] border border-gray-100 mb-20 shadow-sm">
-           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sm-blue opacity-[0.03] rounded-full blur-[120px] -mr-96 -mt-96" />
-           
-           <div className="relative z-10 w-full max-w-5xl flex flex-col items-center p-12 lg:p-20">
-              <span className="inline-block px-5 py-2 bg-sm-blue/10 text-sm-blue font-black rounded-full mb-8 text-[11px] uppercase tracking-widest border border-sm-blue/20 active:translate-y-1 transition-transform cursor-pointer shadow-sm">
-                 <Sparkles size={16} className="inline mr-2 animate-pulse text-yellow-400" /> Sensory Learning Environments
-              </span>
-              <h1 className="text-6xl md:text-[10vw] font-black font-heading leading-none tracking-tighter text-gray-900 mb-12 uppercase select-none">
-                 Atmosphere. <br/> <span className="text-sm-blue italic font-serif tracking-tight lowercase">Everything.</span>
-              </h1>
-              
-              <p className="text-gray-500 text-lg md:text-2xl max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
-                 We don't just furnish; we harmonize. Our environments are engineered to stimulate focus, collaborative energy, and deep learning through architectural sensory design.
-              </p>
-
-              {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
-              <div className="flex overflow-x-auto gap-12 pb-12 hide-scrollbar justify-start lg:justify-center w-full max-w-4xl mx-auto scroll-smooth">
-                {categories.map((cat) => (
-                  <button key={cat.id} className="flex flex-col items-center gap-5 group flex-none outline-none">
-                    <div className="w-24 h-24 rounded-[45px] bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-gray-900 group-hover:text-white transition-all transform hover:-translate-y-4 duration-700 border border-gray-100 group-hover:border-sm-blue rotate-3 group-hover:rotate-0">
-                      {cat.icon}
-                    </div>
-                    <span className="text-[10px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-[0.3em] transition-colors">{cat.name}</span>
-                  </button>
-                ))}
+        {/* REFINED ATMOSPHERE HERO - REMOVED CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* STORY BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-sm-blue/10 text-sm-blue font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90 border border-sm-blue/20">
+                 <Sparkles size={12} className="inline mr-2 animate-pulse" /> Sensory Learning
               </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Atmosphere <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Everything.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 We harmonize architectural sensory design to stimulate focus, collaborative energy, and deep learning.
+              </p>
+           </div>
+
+           {/* AUDIT FEATURE HUB - RIGHT (Premium Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Request <br/> Environment <br/> Audit Survey.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Apply Online</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Spatial <br/> Research <br/> Indices.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Bespoke</span>
+                    <Layers className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* Compact Strip Menu — AS PER REFERENCE */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
+               </button>
+             ))}
            </div>
         </section>
 
