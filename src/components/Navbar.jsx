@@ -50,6 +50,42 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Top News Ticker */}
+      <div className="bg-sm-navy border-t-4 border-sm-yellow overflow-hidden h-10 flex items-center relative z-[60]">
+        {/* Slanted Label */}
+        <div className="absolute left-0 top-0 bottom-0 bg-gray-100 px-6 flex items-center gap-2 z-20 shadow-xl" style={{ clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0% 100%)' }}>
+          <div className="w-5 h-5 rounded-full border-2 border-sm-blue flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-sm-blue" />
+          </div>
+          <span className="text-sm-blue font-black text-[10px] uppercase tracking-wider whitespace-nowrap">Latest Updates</span>
+        </div>
+
+        {/* Scrolling Ticker */}
+        <div className="flex-1 overflow-hidden ml-40 h-full relative">
+          <div className="flex items-center gap-20 whitespace-nowrap animate-ticker h-full group-hover:pause">
+            {[
+              "Digital Transformation Summit: 15 May 2026",
+              "New AI-Powered Learning Stations now available for pre-order",
+              "Join our upcoming Campus Design Webinar on 15th April 2026",
+              "Annual Sports Meet Registrations closing soon",
+              "New Sustainable Furniture Catalogue Launched"
+            ].map((text, i) => (
+              <span key={`original-${i}`} className="text-white text-[10px] font-bold uppercase tracking-widest">{text}</span>
+            ))}
+            {/* Duplicated for seamless loop */}
+            {[
+              "Digital Transformation Summit: 15 May 2026",
+              "New AI-Powered Learning Stations now available for pre-order",
+              "Join our upcoming Campus Design Webinar on 15th April 2026",
+              "Annual Sports Meet Registrations closing soon",
+              "New Sustainable Furniture Catalogue Launched"
+            ].map((text, i) => (
+              <span key={`duplicate-${i}`} className="text-white text-[10px] font-bold uppercase tracking-widest">{text}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Main Navbar */}
       <nav 
         className={`bg-sm-green sticky top-0 z-50 transition-all duration-300 ${
