@@ -16,7 +16,7 @@ import ContactUs from './pages/ContactUs';
 import Furniture from './pages/Furniture';
 import Architecture from './pages/Architecture';
 import DigitalInfra from './pages/DigitalInfra';
-import DigitalContent from './pages/DigitalContent';
+import Libraries from './pages/Libraries';
 import SchoolDesigns from './pages/SchoolDesigns';
 import Sports from './pages/Sports';
 import Mathematics from './pages/Mathematics';
@@ -44,7 +44,7 @@ function App() {
             <Route path="/furniture" element={<Furniture />} />
             <Route path="/school-building-design" element={<Architecture />} />
             <Route path="/digital" element={<DigitalInfra />} />
-            <Route path="/digital-content" element={<DigitalContent />} />
+            <Route path="/libraries" element={<Libraries />} />
             <Route path="/design" element={<SchoolDesigns />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/gamified-math-labs" element={<Mathematics />} />

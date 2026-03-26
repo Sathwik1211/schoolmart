@@ -79,13 +79,13 @@ const ContactUs = () => {
            ))}
         </div>
 
-        {/* FAQ SECTION - REPLACING MAP */}
-        <div className="bg-[#1A1A1A] rounded-[40px] overflow-hidden p-10 lg:p-14 relative text-white">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 opacity-5 rounded-full blur-3xl animate-pulse" />
+        {/* FAQ SECTION - REPLACING MAP - WHITE THEME */}
+        <div className="bg-white rounded-[40px] overflow-hidden p-10 lg:p-14 relative border border-gray-100 shadow-xl">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-sm-blue opacity-5 rounded-full blur-3xl animate-pulse" />
            
            <div className="relative z-10 text-center mb-12">
-              <h4 className="text-3xl font-black font-heading mb-2 tracking-tight uppercase">Common Queries.</h4>
-              <p className="text-white/40 text-[9px] font-bold uppercase tracking-[0.3em]">Institutional Service & Support FAQ</p>
+              <h4 className="text-3xl font-black font-heading mb-2 tracking-tight uppercase text-gray-900">Common Queries.</h4>
+              <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.3em]">Institutional Service & Support FAQ</p>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 relative z-10">
@@ -97,12 +97,12 @@ const ContactUs = () => {
                 { q: 'Bulk Procurement Discounts?', a: 'We offer tiered pricing for large-scale institutional projects and government tenders.' },
                 { q: 'Software & Content Updates?', a: 'Digital solution clients receive quarterly OTA updates for all curriculum-aligned software.' },
               ].map((faq, i) => (
-                 <div key={i} className="bg-white/5 backdrop-blur-md rounded-[25px] p-8 border border-white/10 group hover:border-emerald-500 transition-all">
-                    <h5 className="text-[12px] font-black uppercase text-emerald-400 mb-3 tracking-tighter flex items-center gap-3">
-                       <Sparkles size={14} className="group-hover:rotate-45 transition-transform" />
+                 <div key={i} className="bg-gray-50 rounded-[25px] p-8 border border-gray-100 group hover:border-sm-blue transition-all">
+                    <h5 className="text-[12px] font-black uppercase text-gray-900 mb-3 tracking-tighter flex items-center gap-3">
+                       <Sparkles size={14} className="text-sm-blue group-hover:rotate-45 transition-transform" />
                        {faq.q}
                     </h5>
-                    <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest leading-loose">{faq.a}</p>
+                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-loose">{faq.a}</p>
                  </div>
               ))}
            </div>
