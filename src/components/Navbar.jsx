@@ -69,37 +69,34 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative">
+                <div key={link.name} className="relative group">
                   {link.dropdown ? (
-                    <div 
-                      className="relative"
-                      onMouseEnter={() => setIsCorporateOpen(true)}
-                      onMouseLeave={() => setIsCorporateOpen(false)}
-                    >
-                      <button 
-                        className={`flex items-center gap-1 px-4 py-2 text-sm font-medium text-white uppercase tracking-wide hover:bg-white/10 rounded-md transition-colors duration-200 ${
+                    <>
+                      <Link 
+                        to={link.path}
+                        className={`flex items-center gap-1 px-4 py-2 text-[11px] font-black text-white uppercase tracking-[0.2em] hover:bg-white/10 rounded-full transition-all duration-300 ${
                           isActive(link.path) ? 'bg-white/20' : ''
                         }`}
                       >
                         {link.name}
-                        <ChevronDown size={14} className={`transition-transform duration-200 ${isCorporateOpen ? 'rotate-180' : ''}`} />
-                      </button>
+                        <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
+                      </Link>
                       
-                      {/* Dropdown */}
-                      {isCorporateOpen && (
-                        <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-xl py-2 animate-fade-in-up">
+                      {/* Dropdown Container with Hover Bridge */}
+                      <div className="absolute top-full left-0 w-52 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <div className="bg-white rounded-[20px] shadow-2xl py-3 border border-gray-100 overflow-hidden">
                           {link.dropdown.map((item) => (
                             <Link
                               key={item.name}
                               to={item.path}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-sm-blue hover:text-white transition-colors duration-200"
+                              className="block px-6 py-2.5 text-[10px] font-black text-gray-400 hover:text-sm-blue hover:bg-gray-50 transition-all duration-200 uppercase tracking-widest"
                             >
                               {item.name}
                             </Link>
                           ))}
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    </>
                   ) : link.external ? (
                     <a
                       href={link.path}
