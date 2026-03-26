@@ -163,15 +163,15 @@ const ResourceTiles = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-300 group-hover:from-black/70" />
 
                   <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                    <h3 className="text-white font-bold text-sm font-heading leading-tight drop-shadow uppercase tracking-wide">
+                    <h3 className="text-white font-black text-base font-heading leading-tight drop-shadow uppercase tracking-wide">
                       {tile.title}
                     </h3>
-                    <p className="text-white/70 text-[10px] mt-0.5 leading-relaxed">
+                    <p className="text-white/80 text-xs mt-1 font-medium leading-relaxed">
                       {tile.subtitle}
                     </p>
-                    <div className="mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-white/90 text-[10px] font-medium uppercase">Explore</span>
-                      <ArrowRight size={10} className="text-white/90" />
+                    <div className="mt-2 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-xs font-black uppercase tracking-widest">Explore</span>
+                      <ArrowRight size={12} className="text-white" />
                     </div>
                   </div>
                 </Link>
