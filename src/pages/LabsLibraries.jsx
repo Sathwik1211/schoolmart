@@ -1,6 +1,8 @@
 // src/pages/LabsLibraries.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Beaker, Book, Microscope, FlaskConical, Atom, ArrowRight, ArrowUpRight, Award, Stars, CheckCircle2, Layers } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const categories = [
   { id: 'all', name: 'STEM LABS', icon: <Microscope size={20} /> },
@@ -10,8 +12,10 @@ const categories = [
 ];
 
 const LabsLibraries = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* SCHEMATIC REVERSE HERO - RIGHT FOCUSED STORY, LEFT FEATURE STACK - PACKED */}
@@ -92,7 +96,7 @@ const LabsLibraries = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">THE <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Quantum</span> LAB</h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 1,200+ STEM Hubs</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 1,200+ STEM Hubs</span>
               </div>
               
               <div className="columns-1 md:columns-3 gap-4 space-y-4">
@@ -104,12 +108,16 @@ const LabsLibraries = () => {
                    { t: 'Makerspace Hub', c: 'Creative Tech', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80', h: 'h-[320px]' },
                    { t: 'The Reading Pod', c: 'Interior Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[270px]' },
                  ].map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
+                    <div 
+                      key={i} 
+                      className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
+                      onClick={() => setSelectedItem(work)}
+                    >
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
-                          <h3 className="text-sm font-black text-white uppercase tracking-tighter uppercase">{work.t}</h3>
-                          <span className="text-[8px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+                           <h3 className="text-base font-black text-white uppercase tracking-tighter uppercase">{work.t}</h3>
+                           <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
                        </div>
                     </div>
                  ))}
@@ -133,7 +141,7 @@ const LabsLibraries = () => {
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Knowledge <span className="text-sm-blue">Engineering.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['Acid Resistant', 'Safe Storage', 'Modular', 'RFID Ready'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-100 hover:bg-sm-blue hover:text-white transition-all">
+                    <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-100 hover:bg-sm-blue hover:text-white transition-all">
                        <CheckCircle2 size={14} className="text-sm-blue group-hover:text-white" />
                        {item}
                     </div>
@@ -142,6 +150,12 @@ const LabsLibraries = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

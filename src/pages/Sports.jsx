@@ -1,10 +1,14 @@
 // src/pages/Sports.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Activity, Trophy, Shield, Target, ArrowRight, ArrowUpRight, Award, Layers, CheckCircle2 } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const Sports = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* KINETIC TRIPLE HERO - DISTINCT FROM THE SPLIT-HUB */}
@@ -53,15 +57,6 @@ const Sports = () => {
                  {['OUTDOOR TURFS', 'INDOOR COURTS', 'EQUIPMENT', 'SAFETY SURFACING'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
-                 
-                 <div className="mt-12 p-6 bg-emerald-50/50 rounded-[25px] border border-emerald-100 group transition-all hover:bg-emerald-50">
-                    <span className="text-[8px] font-black text-emerald-600 tracking-[0.2em] uppercase mb-4 block">Safety Rating</span>
-                    <div className="flex items-center gap-2 mb-3">
-                       <Shield size={14} className="text-emerald-500" />
-                       <span className="text-[10px] font-black uppercase text-emerald-700">Gold Certified</span>
-                    </div>
-                    <p className="text-[8px] font-bold text-emerald-600/70 uppercase tracking-widest leading-loose">Compliant with International Standards.</p>
-                 </div>
               </div>
            </aside>
 
@@ -69,7 +64,7 @@ const Sports = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">ELITE <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Surfaces</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">1,200+ Fields Installed</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">1,200+ Fields Installed</span>
               </div>
               
               <div className="columns-1 md:columns-3 gap-4 space-y-4">
@@ -82,12 +77,16 @@ const Sports = () => {
                    { t: 'Badminton Arena', c: 'Racket Sports', img: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=800&q=80', h: 'h-[300px]' },
                    { t: 'Cricket Pitch Max', c: 'Outdoor', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80', h: 'h-[250px]' },
                  ].map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
+                    <div 
+                      key={i} 
+                      className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
+                      onClick={() => setSelectedItem(work)}
+                    >
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
-                          <h3 className="text-sm font-black text-white uppercase tracking-tighter">{work.t}</h3>
-                          <span className="text-[8px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+                          <h3 className="text-base font-black text-white uppercase tracking-tighter">{work.t}</h3>
+                          <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
                        </div>
                     </div>
                  ))}
@@ -114,7 +113,7 @@ const Sports = () => {
               </p>
               <div className="grid grid-cols-2 gap-3">
                  {['FIBA Compliant', 'Anti-Skid', 'Heat Proof', '10 Yr Warranty'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-[8px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <div key={i} className="flex items-center gap-2 text-[10px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-3 rounded-xl border border-gray-100">
                        <CheckCircle2 size={12} className="text-sm-blue" />
                        {item}
                     </div>
@@ -123,6 +122,12 @@ const Sports = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

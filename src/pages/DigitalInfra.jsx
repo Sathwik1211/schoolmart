@@ -1,6 +1,8 @@
 // src/pages/DigitalInfra.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Monitor, Smartphone, Tablet, Terminal, Wifi, Cloud, ArrowRight, ArrowUpRight, Download, Eye, Zap, ShieldAlert, CheckCircle2, Cpu } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const gadgets = [
   { id: 1, title: 'Smart Panel 75" 4K', cat: 'Interactivity', price: '₹1,45,000', img: 'https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=800&q=80', badge: 'Tech Pick' },
@@ -15,12 +17,14 @@ const gadgets = [
 ];
 
 const DigitalInfra = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-white pt-16 pb-10 text-gray-900">
+    <main className="min-h-screen bg-white pt-6 pb-4 text-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* CYBER STRIP HERO - HIGH TECH LIGHT MODE - UNIQUE LAYOUT */}
-        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-3 items-stretch">
+        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-3 items-stretch text-gray-900">
            {/* STORY BLOCK (SPAN 8-EQUIVALENT) - PACKED */}
            <div className="flex-[2] bg-gray-50 rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group min-h-[400px]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-sm-blue/5 rounded-full blur-[100px] -mr-32 -mt-32 group-hover:bg-sm-blue/10 transition-all duration-1000" />
@@ -33,10 +37,6 @@ const DigitalInfra = () => {
               <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest max-w-sm leading-loose relative z-10">
                  Future-proofing educational legacy with high-affinity hardware and cloud infrastructure.
               </p>
-              <div className="flex gap-4 mt-8 relative z-10">
-                 <button className="px-6 py-3 bg-gray-900 text-white font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-sm-blue transition-all active:scale-95">Book Demo</button>
-                 <button className="px-6 py-3 bg-white text-gray-400 border border-gray-100 font-black rounded-full text-[8px] uppercase tracking-widest">Specifications</button>
-              </div>
            </div>
 
            {/* TECH STACK COLUMN - PACKED */}
@@ -67,15 +67,6 @@ const DigitalInfra = () => {
                  {['INTERACTIVE', 'TABLETS', 'NETWORKING', 'CLOUD CLASS', 'SECURITY'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
-                 
-                 <div className="mt-12 p-6 bg-gray-900 rounded-[25px] border border-gray-800 text-white shadow-xl">
-                    <span className="text-[8px] font-black text-sm-blue tracking-[0.2em] uppercase mb-4 block">System Health</span>
-                    <div className="flex items-center gap-3 mb-4">
-                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
-                       <span className="text-[10px] font-black uppercase">All Nodes Active</span>
-                    </div>
-                    <button className="w-full py-2 bg-white/10 hover:bg-sm-blue rounded-full text-[7px] font-black uppercase tracking-widest transition-all">Network Map</button>
-                 </div>
               </div>
            </aside>
 
@@ -83,12 +74,16 @@ const DigitalInfra = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">NETWORK <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Solutions</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {gadgets.map((item, i) => (
-                    <div key={i} className="group cursor-pointer">
+                    <div 
+                      key={i} 
+                      className="group cursor-pointer"
+                      onClick={() => setSelectedItem(item)}
+                    >
                        <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-300 p-2 shadow-sm">
                           <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
                           <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
@@ -101,9 +96,9 @@ const DigitalInfra = () => {
                           </div>
                        </div>
                        <div className="mt-5 px-3">
-                          <h3 className="text-[12px] font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
+                          <h3 className="text-base font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
                           <div className="flex items-center gap-3">
-                             <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{item.price}</span>
+                             <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest group-hover:text-sm-blue transition-colors">Details →</span>
                              <div className="h-px flex-grow bg-gray-100" />
                           </div>
                        </div>
@@ -115,15 +110,15 @@ const DigitalInfra = () => {
 
         {/* INFO SPLIT GRID */}
         <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px] border border-gray-300 p-2">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80" alt="Tech" className="w-full h-full object-cover rounded-[25px] grayscale brightness-95" />
+           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px]">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80" alt="Tech" className="w-full h-full object-cover grayscale brightness-95" />
            </div>
            
-           <div className="bg-white p-12 rounded-[30px] border border-gray-300 shadow-sm relative overflow-hidden group">
+           <div className="bg-white p-12 rounded-[30px] border border-gray-100 shadow-sm relative overflow-hidden group">
               <h2 className="text-3xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Enterprise <br/> <span className="text-sm-blue">Privacy Pro.</span></h2>
               <div className="grid grid-cols-1 gap-3">
                  {['Institutional Grade Encryption', 'Multi-Year Service Level Agreements', 'On-Site Training Programs'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4 text-[9px] font-black uppercase tracking-widest bg-gray-50 p-5 rounded-xl border border-gray-50 group hover:border-sm-blue transition-all text-gray-600">
+                    <div key={i} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest bg-gray-50 p-5 rounded-xl border border-gray-50 group hover:border-sm-blue transition-all text-gray-600">
                        <ShieldAlert size={16} className="text-sm-blue" />
                        {item}
                     </div>
@@ -132,6 +127,12 @@ const DigitalInfra = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

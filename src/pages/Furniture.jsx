@@ -1,6 +1,7 @@
 // src/pages/Furniture.jsx
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { Sofa, GraduationCap, Library, FlaskConical, Building2, ArrowRight, Download, Filter, ChevronDown, CheckCircle2, Award } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const products = [
   { id: 1, name: 'Dual Desk Series 500', category: 'Classroom', price: '₹4,500 - ₹6,500', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80', badge: 'Best Seller' },
@@ -15,8 +16,10 @@ const products = [
 ];
 
 const Furniture = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-white pt-16 pb-10">
+    <main className="min-h-screen bg-white pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* PRODUCT SHOWCASE HERO - UNIQUE LAYOUT - PACKED */}
@@ -94,18 +97,22 @@ const Furniture = () => {
 
            {/* PRODUCTS GRID - MAIN CONTENT */}
            <div className="flex-grow">
-              <div className="flex justify-between items-end mb-8">
+              <div className="flex justify-between items-end mb-4 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">CLASSROOM <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Collection</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Showing 1-4 of 120 Products</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Showing 1-4 of 120 Products</span>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {products.map((item) => (
-                    <div key={item.id} className="group cursor-pointer">
+                    <div 
+                      key={item.id} 
+                      className="group cursor-pointer"
+                      onClick={() => setSelectedItem(item)}
+                    >
                        <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-2xl h-[280px] border border-gray-300 p-2 shadow-sm">
                           <img src={item.img} alt={item.name} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
                           {item.badge && (
-                             <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
+                             <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
                                 {item.badge}
                              </div>
                           )}
@@ -116,9 +123,9 @@ const Furniture = () => {
                           </div>
                        </div>
                        <div className="mt-5 px-3">
-                          <h3 className="text-[13px] font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.name}</h3>
+                          <h3 className="text-base font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.name}</h3>
                           <div className="flex items-center gap-3">
-                             <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{item.price}</span>
+                             <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest group-hover:text-sm-blue transition-colors">View Details →</span>
                              <div className="h-px flex-grow bg-gray-100" />
                           </div>
                        </div>
@@ -134,7 +141,7 @@ const Furniture = () => {
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Bespoke <br/> <span className="text-sm-blue">Planning Hub.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['Free Layout Design', 'Mockup Samples', 'Pan-India Delivery', 'BIFMA Level-3'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-50 hover:bg-sm-blue hover:text-white transition-all">
+                    <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-50 hover:bg-sm-blue hover:text-white transition-all">
                        <CheckCircle2 size={14} className="text-sm-blue group-hover:text-white" />
                        {item}
                     </div>
@@ -147,6 +154,12 @@ const Furniture = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

@@ -1,6 +1,8 @@
 // src/pages/Mathematics.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calculator, Triangle, Square, Circle, Zap, ArrowRight, Download, Eye, ExternalLink, Layers, Sparkles, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const MathItems = [
   { id: 1, title: 'The Pythagoras Lab', cat: 'Theorem Visuals', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80', badge: 'Best Seller' },
@@ -15,8 +17,10 @@ const MathItems = [
 ];
 
 const Mathematics = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* GRID-MODULAR HERO - PERFECTLY ALIGNED 3-COLUMN MESH - UNIQUE LAYOUT */}
@@ -68,13 +72,6 @@ const Mathematics = () => {
                  {['GEOMETRY', 'ALGEBRA', 'ABACUS', 'DIGITAL MATH', 'LOGIC KITS'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
-                 
-                 <div className="mt-12 p-6 bg-gray-900 rounded-[25px] border border-gray-800 text-white shadow-2xl overflow-hidden relative group">
-                    <div className="absolute -top-4 -right-4 w-12 h-12 bg-sm-blue blur-xl opacity-40 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-[8px] font-black text-sm-blue tracking-[0.2em] uppercase mb-4 block">Calculations</span>
-                    <div className="text-xl font-black mb-4">π = 3.1415...</div>
-                    <button className="px-4 py-2 bg-white/10 hover:bg-sm-blue rounded-full text-[7px] font-black uppercase tracking-widest transition-all">Logic AI</button>
-                 </div>
               </div>
            </aside>
 
@@ -82,12 +79,16 @@ const Mathematics = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">GEOMETRY <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Visualizer</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                  {MathItems.map((item, i) => (
-                    <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-300 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer relative overflow-hidden">
+                    <div 
+                      key={i} 
+                      className="bg-white p-2 rounded-[25px] border border-gray-300 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer relative overflow-hidden"
+                      onClick={() => setSelectedItem(item)}
+                    >
                        <div className="relative h-48 rounded-[20px] overflow-hidden mb-4">
                           <img src={item.img} alt={item.title} className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0" />
                           <div className="absolute top-4 right-4 animate-bounce opacity-0 group-hover:opacity-100">
@@ -100,8 +101,8 @@ const Mathematics = () => {
                           </div>
                        </div>
                        <div className="px-4 pb-4 text-center">
-                          <p className="text-sm-blue font-black text-[8px] uppercase tracking-widest mb-1">{item.cat}</p>
-                          <h3 className="text-[13px] font-black text-gray-900 uppercase mb-4 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
+                          <p className="text-sm-blue font-black text-[10px] uppercase tracking-widest mb-1">{item.cat}</p>
+                          <h3 className="text-base font-black text-gray-900 uppercase mb-4 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
                           <div className="h-px bg-gray-100 w-full" />
                        </div>
                     </div>
@@ -116,7 +117,7 @@ const Mathematics = () => {
               <h2 className="text-4xl font-black font-heading mb-8 leading-none uppercase tracking-tighter text-white">Analytical <br/> <span className="text-sm-blue">Planning Hub.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['Custom Logo Kits', 'NCERT Mapped', 'Annual Audit', 'Global Standards'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black uppercase tracking-widest bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-sm-blue transition-all text-gray-400">
+                    <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-sm-blue transition-all text-gray-400">
                        <CheckCircle2 size={14} className="text-sm-blue group-hover:text-white" />
                        {item}
                     </div>
@@ -129,6 +130,12 @@ const Mathematics = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

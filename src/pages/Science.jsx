@@ -1,6 +1,8 @@
 // src/pages/Science.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, ArrowUpRight, Download, Eye, FileText, Activity, Layers, CheckCircle2 } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const scienceItems = [
   { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', img: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80', badge: 'Safety Plus' },
@@ -12,8 +14,10 @@ const scienceItems = [
 ];
 
 const Science = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-white pt-16 pb-10">
+    <main className="min-h-screen bg-white pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* ASYMMETRIC SCHEMATIC HERO - OVERLAPPING ELEMENTS & HIGH VISUAL DENSITY - UNIQUE LAYOUT */}
@@ -24,7 +28,7 @@ const Science = () => {
               <div className="px-3 py-1 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90 relative z-10">
                  <Activity size={12} className="inline mr-2 animate-pulse" /> Experimental Discovery 2025
               </div>
-              <h1 className="text-4xl lg:text-6xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase relative z-10">
+              <h1 className="text-4xl lg:text-5xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase relative z-10">
                  Science <br/> <span className="text-emerald-500 italic font-serif lowercase tracking-normal">is</span> <br/> Pure Fun.
               </h1>
               <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-sm leading-loose relative z-10">
@@ -74,12 +78,16 @@ const Science = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">CHEMISTRY <span className="text-emerald-500 italic font-serif lowercase tracking-normal text-lg ml-2">Apparatus</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Kits for Gr. 8-12</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Selected Kits for Gr. 8-12</span>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                  {scienceItems.map((work, i) => (
-                    <div key={i} className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px]`}>
+                    <div 
+                      key={i} 
+                      className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px]`}
+                      onClick={() => setSelectedItem(work)}
+                    >
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -88,8 +96,8 @@ const Science = () => {
                           </div>
                        </div>
                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
-                          <h3 className="text-sm font-black text-white uppercase tracking-tighter font-heading">{work.title}</h3>
-                          <span className="text-[8px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
+                          <h3 className="text-base font-black text-white uppercase tracking-tighter font-heading">{work.title}</h3>
+                          <span className="text-[10px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
                        </div>
                     </div>
                  ))}
@@ -103,7 +111,7 @@ const Science = () => {
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Security <br/> <span className="text-emerald-500">Performance.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['Acid Resistant', 'Safe Plumbing', 'SEFA Certified', 'Custom Fitting'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-50 hover:bg-emerald-500 hover:text-white transition-all">
+                    <div key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-50 hover:bg-emerald-500 hover:text-white transition-all">
                        <CheckCircle2 size={14} className="text-emerald-500 group-hover:text-white" />
                        {item}
                     </div>
@@ -116,6 +124,12 @@ const Science = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

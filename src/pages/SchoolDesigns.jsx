@@ -1,6 +1,8 @@
 // src/pages/SchoolDesigns.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, ArrowUpRight, Eye, Stars, Download, Layers } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const categories = [
   { id: 'all', name: 'COLOR SCHEMES', icon: <Palette size={24} /> },
@@ -22,8 +24,10 @@ const designWorks = [
 ];
 
 const SchoolDesigns = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-gray-50 pt-20 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         {/* MODERN BESPOKE HERO - COMPACT PACKED */}
         <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
@@ -41,15 +45,13 @@ const SchoolDesigns = () => {
               </p>
            </div>
 
-           {/* FEATURE BLOCKS - RIGHT (High Contrast Inspired by Reference) */}
+           {/* FEATURE BLOCKS - RIGHT */}
            <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
               <div className="bg-sm-blue rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative">
-                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                  <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Curated <br/> Kindergarten <br/> Design.</h3>
                  <ArrowUpRight className="self-end text-white/50 group-hover:text-white transition-colors relative z-10" size={24} />
               </div>
               <div className="bg-yellow-400 rounded-[30px] p-8 text-gray-900 flex flex-col justify-between group overflow-hidden relative">
-                 <div className="absolute inset-0 bg-gray-900/5 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
                  <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Execution <br/> Portfolio <br/> Excellence.</h3>
                  <ArrowRight className="self-end text-gray-900/30 group-hover:text-gray-900 transition-colors relative z-10" size={24} />
               </div>
@@ -68,20 +70,6 @@ const SchoolDesigns = () => {
                  {['COLOR SCHEMES', 'SPATIAL PLANNING', 'WALL GRAPHICS', 'SMART LIGHTING', 'SAFE FLOORING'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
-                 
-                 <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100 shadow-sm">
-                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Process Guide</span>
-                    <div className="space-y-4">
-                       <div className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-sm-blue/10 flex items-center justify-center text-sm-blue text-[10px] font-black">1</div>
-                          <span className="text-[9px] font-black uppercase text-gray-900">Concept</span>
-                       </div>
-                       <div className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 text-[10px] font-black">2</div>
-                          <span className="text-[9px] font-black uppercase text-gray-400">3D Viz</span>
-                       </div>
-                    </div>
-                 </div>
               </div>
            </aside>
 
@@ -89,12 +77,16 @@ const SchoolDesigns = () => {
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">COLOR <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Psychology</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 450+ Sites</span>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 450+ Sites</span>
               </div>
 
               <div className="columns-1 md:columns-3 gap-6 space-y-6">
                  {designWorks.map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300`}>
+                    <div 
+                      key={i} 
+                      className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300`}
+                      onClick={() => setSelectedItem(work)}
+                    >
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6">
@@ -130,7 +122,7 @@ const SchoolDesigns = () => {
                  </p>
                  <div className="grid grid-cols-2 gap-4">
                     {['200+ Palettes', 'UV Resistant', 'Odourless', 'Texture Ready'].map((item, i) => (
-                       <div key={i} className="flex items-center gap-3 text-[9px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-3.5 rounded-xl group hover:bg-gray-900 hover:text-white transition-all">
+                       <div key={i} className="flex items-center gap-3 text-[10px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-3.5 rounded-xl group hover:bg-gray-900 hover:text-white transition-all">
                           <Layers size={14} className="text-sm-blue group-hover:text-white" />
                           {item}
                        </div>
@@ -142,15 +134,16 @@ const SchoolDesigns = () => {
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl skew-x-1 hover:skew-x-0 transition-transform duration-1000">
                  <img src="https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=1000&q=80" alt="Atmosphere" className="w-full h-[400px] object-cover" />
                  <div className="absolute inset-0 bg-blue-900/10 backdrop-contrast-125" />
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <button className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 hover:bg-sm-blue transition-all">
-                       <Eye size={28} />
-                    </button>
-                 </div>
               </div>
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

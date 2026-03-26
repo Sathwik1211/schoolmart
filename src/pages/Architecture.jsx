@@ -1,8 +1,10 @@
-// src/pages/Architecture.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, Compass, Pencil, Map, ArrowRight, ArrowUpRight, Award, CheckCircle2, Layers, Layout } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const Architecture = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
@@ -91,12 +93,16 @@ const Architecture = () => {
                    { t: 'The Glass Courtyard', c: 'Interior Flow', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', h: 'h-[310px]' },
                    { t: 'Future-Pod Annex', c: 'Modern Annex', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[240px]' },
                  ].map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
+                    <div 
+                      key={i} 
+                      className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
+                      onClick={() => setSelectedItem(work)}
+                    >
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
-                          <h3 className="text-sm font-black text-white uppercase tracking-tighter">{work.t}</h3>
-                          <span className="text-[8px] text-sm-blue font-black uppercase tracking-widest">{work.c}</span>
+                           <h3 className="text-base font-black text-white uppercase tracking-tighter font-heading">{work.t}</h3>
+                           <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{work.c}</span>
                        </div>
                     </div>
                  ))}
@@ -123,6 +129,11 @@ const Architecture = () => {
            </div>
         </section>
       </div>
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };

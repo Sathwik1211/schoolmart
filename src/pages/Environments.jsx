@@ -1,10 +1,14 @@
 // src/pages/Environments.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Sparkles, Wind, Sun, Leaf, ArrowRight, ArrowUpRight, Eye, CheckCircle2, Award, Layers } from 'lucide-react';
+import QuickView from '../components/QuickView';
 
 const Environments = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* BENTO HIGH-DENSITY HERO - A 3x2 PACKED GRID MIXING CONTENT & IMAGE */}
@@ -70,31 +74,27 @@ const Environments = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['ACOUSTICS', 'LIGHTING', 'AIR FLOW', 'ECO MATERIALS', 'SPATIAL FLOW'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2">{cat}</button>
-             ))}
-           </div>
-        </section>
-
         {/* MASONRY DISPLAY */}
         <section className="py-6 border-t border-gray-100">
            <div className="columns-1 md:columns-3 gap-4 space-y-4">
               {[
                 { t: 'Natural Light Study', c: 'Optics', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', h: 'h-[220px]' },
                 { t: 'Acoustic Panel Grid', c: 'Sound', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=600&q=80', h: 'h-[280px]' },
-                { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80', h: 'h-[250px]' },
+                { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[250px]' },
                 { t: 'Air Quality Lab', c: 'Climate', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[220px]' },
                 { t: 'Botanical Courtyard', c: 'Organic', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', h: 'h-[310px]' },
                 { t: 'Zen Meditation Pod', c: 'Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[250px]' },
               ].map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[20px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
+                 <div 
+                   key={i} 
+                   className={`break-inside-avoid relative overflow-hidden rounded-[20px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
+                   onClick={() => setSelectedItem(work)}
+                 >
                     <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                       <h3 className="text-sm font-black text-white uppercase">{work.t}</h3>
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                       <h3 className="text-base font-black text-white uppercase">{work.t}</h3>
+                       <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
                     </div>
                  </div>
               ))}
@@ -107,7 +107,7 @@ const Environments = () => {
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase">Engineering <span className="text-sm-blue">Atmospheres.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['CFD Modeled', 'Acoustic Labs', 'UV Protected', 'Ergo Tech'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-xl group hover:bg-sm-blue hover:text-white transition-all border border-gray-100">
+                    <div key={i} className="flex items-center gap-3 text-[10px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-xl group hover:bg-sm-blue hover:text-white transition-all border border-gray-100">
                        <CheckCircle2 size={14} className="text-sm-blue group-hover:text-white" />
                        {item}
                     </div>
@@ -119,6 +119,12 @@ const Environments = () => {
            </div>
         </section>
       </div>
+
+      <QuickView 
+        isOpen={!!selectedItem} 
+        onClose={() => setSelectedItem(null)} 
+        data={selectedItem} 
+      />
     </main>
   );
 };
