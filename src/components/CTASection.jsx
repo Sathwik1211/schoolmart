@@ -3,39 +3,45 @@ import { MessageCircle, Phone } from 'lucide-react';
 
 const CTASection = () => {
   return (
-    <section className="py-8 px-4">
+    <section className="py-12 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-sm-yellow rounded-lg p-8 md:p-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="relative bg-gray-900 rounded-[40px] p-8 md:p-16 border border-white/5 shadow-2xl overflow-hidden group">
+          {/* Background Accent */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sm-blue/20 rounded-full blur-[120px] -mr-48 -mt-48 group-hover:bg-sm-blue/30 transition-all duration-1000" />
+          
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Left Content */}
             <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading mb-4">
-                Ready to talk?
+              <div className="inline-block px-4 py-1 bg-sm-blue/20 text-sm-blue rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                Direct Consultation
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white font-heading mb-6 tracking-tighter uppercase leading-tight">
+                Ready to <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">scale</span> your campus?
               </h2>
-              <p className="text-gray-700 leading-relaxed max-w-2xl">
-                At schoolmart, We have the expertise in guiding you to set up your new campus project 
-                and help you maximize the performance of your campus while also figuring out your return. 
-                We have the expertise in guiding you to set up your new campus project and help you maximize.
+              <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-xl">
+                At SchoolMart, we provide end-to-end expertise in guiding you to set up your new campus project. 
+                From spatial planning to high-density procurement, we help you maximize ROI and institutional growth.
               </p>
             </div>
-
+ 
             {/* Right Content - Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-5">
               <a
                 href="https://wa.me/919966109191"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-full hover:bg-green-600 transition-all duration-200 hover:scale-105 shadow-lg"
+                className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white font-black rounded-full hover:bg-[#128C7E] transition-all active:scale-95 shadow-[0_0_20px_rgba(37,211,102,0.4)]"
               >
-                <MessageCircle size={20} />
-                <span>Connect On WhatsApp</span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 rounded-full transition-opacity" />
+                <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" />
+                <span className="text-[10px] uppercase tracking-widest">Connect on WhatsApp</span>
               </a>
               <a
                 href="tel:+919966109191"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-gray-900 text-gray-900 font-semibold rounded-full hover:bg-gray-900 hover:text-white transition-all duration-200"
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-black rounded-full hover:bg-white hover:text-gray-900 hover:border-white transition-all active:scale-95"
               >
                 <Phone size={20} />
-                <span>Call Us 9966109191</span>
+                <span className="text-[10px] uppercase tracking-widest">Call +91 9966109191</span>
               </a>
             </div>
           </div>
