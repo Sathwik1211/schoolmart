@@ -4,11 +4,11 @@ import { Building2, Compass, Pencil, Map, ArrowRight, ArrowUpRight, Award, Check
 
 const Architecture = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* DRAFTBOARD GRID HERO - OVERLAPPING ELEMENTS & HIGH VISUAL DENSITY - UNIQUE LAYOUT */}
-        <section className="pt-4 pb-6 grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-auto lg:h-[450px]">
+        <section className="pt-2 pb-2 grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-auto lg:h-[450px]">
            {/* LEFT STORY (SPAN 5) - PACKED */}
            <div className="lg:col-span-5 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
               <div className="absolute inset-0 bg-blue-50/20 mix-blend-multiply opacity-50" />
@@ -50,11 +50,11 @@ const Architecture = () => {
         </section>
 
         {/* SIDEBAR LAYOUT SECTION */}
-        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+        <section className="py-4 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
            {/* LEFT SIDEBAR */}
            <aside className="lg:w-[240px] flex-shrink-0">
               <div className="sticky top-24 space-y-2">
-                 <div className="mb-6">
+                 <div className="mb-4">
                     <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">STUDIO SERVICE</h3>
                     <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>

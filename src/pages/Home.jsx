@@ -6,9 +6,11 @@ import ClientLogos from '../components/ClientLogos';
 
 const Home = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen space-y-0 pb-4">
       {/* Promotional Banner */}
-      <BannerSection />
+      <div className="py-2">
+        <BannerSection />
+      </div>
 
       {/* Resource Tiles with Sidebar */}
       <ResourceTiles />

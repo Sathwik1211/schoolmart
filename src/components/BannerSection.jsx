@@ -4,7 +4,7 @@ import SchoolReel from './SchoolReel';
 
 const BannerSection = () => {
   return (
-    <section className="py-5 px-4 bg-white">
+    <section className="pt-2 md:pt-4 pb-4 px-4 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#0a1628] via-[#0f1f3d] to-[#12213f] shadow-xl">
           <div className="flex flex-col lg:flex-row items-stretch min-h-[280px]">

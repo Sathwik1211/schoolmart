@@ -138,19 +138,19 @@ const solutions = [
 
 const ResourceTiles = () => {
   return (
-    <section className="py-6 px-4 bg-sm-gray">
+    <section className="py-2 px-4 bg-sm-gray">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-5">
+        <div className="flex flex-col lg:flex-row gap-2">
           {/* Main Content Area */}
           <div className="flex-1">
             {/* Masonry Tiles Grid */}
-            <div className="columns-2 lg:columns-3 gap-3 space-y-3">
+            <div className="columns-2 lg:columns-3 gap-1.5 space-y-1.5">
               {tiles.map((tile) => (
                 <Link
                   key={tile.title}
                   to={tile.path}
                   className={`block break-inside-avoid ${tile.height} rounded-2xl overflow-hidden relative group shadow-sm border border-gray-300`}
-                  style={{ marginBottom: '12px' }}
+                  style={{ marginBottom: '6px' }}
                 >
                   <img
                     src={tile.img}
@@ -179,17 +179,17 @@ const ResourceTiles = () => {
             </div>
 
             {/* Explore Our Solutions — Circular Grid Layout */}
-            <div className="mt-14 mb-10">
-              <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-3">
-                <h2 className="text-gray-900 text-2xl font-black font-heading uppercase tracking-tight">Explore Our Solutions</h2>
-                <Link to="/catalogues" className="text-sm-blue text-xs font-bold hover:underline uppercase">View All →</Link>
+            <div className="mt-6 mb-4">
+              <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
+                <h2 className="text-gray-900 text-xl font-black font-heading uppercase tracking-tight">Explore Our Solutions</h2>
+                <Link to="/catalogues" className="text-sm-blue text-[10px] font-bold hover:underline uppercase">View All →</Link>
               </div>
               
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {solutions.map((item) => (
                   <Link key={item.title} to={item.path} className="flex flex-col items-center text-center group">
                     {/* Circle Image Container */}
-                    <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl mb-5 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95 border-4 border-gray-300">
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl mb-3 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95 border-2 border-gray-300">
                       <img 
                         src={item.img} 
                         alt={item.title} 
@@ -227,8 +227,8 @@ const ResourceTiles = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="w-full lg:w-72 space-y-4">
-            <div className="space-y-2">
+          <div className="w-full lg:w-72 space-y-1.5">
+            <div className="space-y-1.5">
               <Link
                 to="/forums"
                 className="flex items-center justify-center gap-2 w-full py-2.5 bg-sm-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-colors duration-200 text-sm shadow-sm"

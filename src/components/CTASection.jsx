@@ -3,7 +3,7 @@ import { MessageCircle, Phone } from 'lucide-react';
 
 const CTASection = () => {
   return (
-    <section className="py-12 px-4 relative overflow-hidden">
+    <section className="py-6 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative bg-gray-900 rounded-[40px] p-8 md:p-16 border border-white/5 shadow-2xl overflow-hidden group">
           {/* Background Accent */}

@@ -56,7 +56,7 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <Link to="/" className="flex flex-col items-start">
               <span className="text-2xl font-bold text-white font-heading tracking-wide">
@@ -187,7 +187,7 @@ const Navbar = () => {
       </nav>
 
       {/* Top News Ticker - Moved below Green Bar */}
-      <div className="bg-sm-navy border-t-2 border-sm-yellow overflow-hidden h-10 flex items-center relative z-40">
+      <div className="bg-sm-navy border-t-2 border-sm-yellow overflow-hidden h-8 flex items-center relative z-40">
         {/* Slanted Label */}
         <div className="absolute left-0 top-0 bottom-0 bg-gray-100 px-6 flex items-center gap-2 z-20 shadow-xl" style={{ clipPath: 'polygon(0 0, 90% 0, 100% 100%, 0% 100%)' }}>
           <div className="w-4 h-4 rounded-full border-2 border-sm-blue flex items-center justify-center">
@@ -223,7 +223,7 @@ const Navbar = () => {
       </div>
 
       {/* Category Grid */}
-      <div className="bg-white border-b border-gray-200 py-4">
+      <div className="bg-white border-b border-gray-200 py-2">
         <div className="max-w-7xl mx-auto px-4">
           <div 
             className="flex sm:grid sm:grid-cols-5 lg:grid-cols-9 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 pb-2 sm:pb-0 hide-scrollbar"
@@ -238,8 +238,8 @@ const Navbar = () => {
                   className="flex flex-col items-center group flex-none w-[26vw] sm:w-auto shrink-0 snap-center sm:snap-none"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full ${cat.color} border border-gray-100 flex items-center justify-center mb-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                    <Icon size={28} className="text-gray-600 group-hover:text-sm-blue" />
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full ${cat.color} border border-gray-100 flex items-center justify-center mb-1 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
+                    <Icon size={20} className="text-gray-600 group-hover:text-sm-blue" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center uppercase tracking-tight group-hover:text-sm-blue transition-colors duration-200">
                     {cat.name}

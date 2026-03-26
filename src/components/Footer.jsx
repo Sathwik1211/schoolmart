@@ -56,8 +56,8 @@ const Footer = () => {
   return (
     <footer className="bg-sm-navy text-white">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Column 1 - About Us */}
           <div>
             <h3 className="text-lg font-semibold mb-4 font-heading">About Us</h3>
@@ -133,8 +133,8 @@ const Footer = () => {
         </div>
 
         {/* Trending Section */}
-        <div className="mt-10 pt-8 border-t border-white/10">
-          <h3 className="text-lg font-semibold mb-4 font-heading">What's Trending on SchoolMart</h3>
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <h3 className="text-base font-semibold mb-2 font-heading">What's Trending on SchoolMart</h3>
           <div className="flex flex-wrap gap-2">
             {trendingLinks.map((item) => (
               <span 
