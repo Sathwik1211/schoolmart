@@ -18,7 +18,13 @@ const Manufacturing = () => {
         <section className="pt-4 pb-6 flex flex-col gap-3">
            {/* STRIP 1 - THE STORY & STATS */}
            <div className="flex flex-col lg:flex-row gap-3 items-stretch h-auto lg:h-[300px]">
-              <div className="flex-1 bg-[#1A1A1A] rounded-[20px] p-8 text-white relative overflow-hidden group border border-gray-800 shadow-2xl">
+            <div className="flex-1 bg-[#1A1A1A] rounded-[20px] p-8 text-white relative overflow-hidden group border border-gray-800 shadow-2xl">
+               <img 
+                 src="https://images.unsplash.com/photo-1565106430335-b24968846171?w=1200&q=80" 
+                 className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-110 transition-transform duration-[3000ms]"
+                 alt="Precision Bg"
+               />
+               <div className="relative z-10">
                  <div className="px-3 py-1 bg-emerald-500/10 text-emerald-500 font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit border border-emerald-500/20">
                     <Factory size={12} className="inline mr-2 animate-pulse" /> Precision 4.0
                  </div>
@@ -28,36 +34,58 @@ const Manufacturing = () => {
                  <p className="text-white/40 text-[9px] font-bold uppercase tracking-widest max-w-xs leading-loose">
                     Combining robotic precision with artisan craftsmanship for institutional excellence.
                  </p>
-                 <div className="absolute top-8 right-8 flex flex-col gap-3">
-                    <button className="p-3 bg-emerald-500 text-white rounded-full hover:bg-white hover:text-gray-900 transition-all shadow-xl active:scale-90">
-                       <ArrowUpRight size={20} />
-                    </button>
-                    <button className="p-3 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-emerald-500 transition-all border border-white/10">
-                       <Download size={20} />
-                    </button>
-                 </div>
-              </div>
+               </div>
+               <div className="absolute top-8 right-8 flex flex-col gap-3 z-20">
+                  <button className="p-3 bg-emerald-500 text-white rounded-full hover:bg-white hover:text-gray-900 transition-all shadow-xl active:scale-90">
+                     <ArrowUpRight size={20} />
+                  </button>
+                  <button className="p-3 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-emerald-500 transition-all border border-white/10">
+                     <Download size={20} />
+                  </button>
+               </div>
+            </div>
 
-              {/* STATS STRIP - PACKED */}
-              <div className="lg:w-[320px] bg-white rounded-[20px] p-8 grid grid-cols-2 gap-4 border border-gray-100 shadow-sm content-center">
-                 {stats.map((s, i) => (
-                    <div key={i} className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-2xl border border-gray-50 group hover:border-emerald-200 transition-colors">
-                       <span className="text-2xl font-black font-heading text-gray-900 leading-none mb-1">{s.value}</span>
-                       <span className="text-[6px] font-black tracking-widest text-emerald-600 uppercase">{s.label}</span>
-                    </div>
-                 ))}
-              </div>
-           </div>
+            {/* STATS STRIP - PACKED */}
+            <div className="lg:w-[320px] bg-white rounded-[20px] p-8 grid grid-cols-2 gap-4 border border-gray-100 shadow-sm content-center">
+               {stats.map((s, i) => (
+                  <div key={i} className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-2xl border border-gray-50 group hover:border-emerald-200 transition-colors">
+                     <span className="text-2xl font-black font-heading text-gray-900 leading-none mb-1">{s.value}</span>
+                     <span className="text-[6px] font-black tracking-widest text-emerald-600 uppercase">{s.label}</span>
+                  </div>
+               ))}
+            </div>
+         </div>
 
-           {/* STRIP 2 - LARGE CINEMATIC IMAGE - PACKED */}
-           <div className="h-[250px] lg:h-[350px] rounded-[20px] overflow-hidden relative shadow-lg group border border-gray-100">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Factory" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000 scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-10 left-10 max-w-sm">
-                 <h3 className="text-xl font-black text-white uppercase font-heading leading-none mb-4">Artisanal <br/> Robotic <br/> Harmony.</h3>
-                 <button className="px-5 py-2.5 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all">Book Factory Tour</button>
-              </div>
-           </div>
+         {/* STRIP 2 - CINEMATIC IMAGE WITH 4 FEATURE BOXES */}
+         <div className="flex flex-col lg:flex-row gap-3">
+            <div className="flex-[2] h-[350px] rounded-[20px] overflow-hidden relative shadow-lg group border border-gray-100">
+               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Factory" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000" />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+               <div className="absolute bottom-8 left-8 max-w-sm">
+                  <h3 className="text-2xl font-black text-white uppercase font-heading leading-none mb-4">Artisanal <br/> Robotic <br/> Harmony.</h3>
+                  <button className="px-5 py-2.5 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all">Book Factory Tour</button>
+               </div>
+            </div>
+
+            <div className="flex-1 grid grid-cols-2 gap-3">
+               {[
+                  { t: 'MICRON LOGIC', d: '0.01mm Deviation', i: <Settings size={14} /> },
+                  { t: 'ARTISAN SOUL', d: 'Hand-finished Edges', i: <Layers size={14} /> },
+                  { t: 'ECO SCALE', d: '100% Recyclable Content', i: <Activity size={14} /> },
+                  { t: 'GLOBAL REACH', d: '20+ Countries Served', i: <Truck size={14} /> },
+               ].map((box, i) => (
+                  <div key={i} className="bg-white rounded-[20px] p-6 border border-gray-100 shadow-sm flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                     <div className="p-2 bg-gray-50 rounded-lg w-fit text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        {box.i}
+                     </div>
+                     <div>
+                        <h4 className="text-[9px] font-black uppercase text-gray-900 mb-1">{box.t}</h4>
+                        <p className="text-[7px] font-bold text-gray-400 uppercase tracking-widest leading-none">{box.d}</p>
+                     </div>
+                  </div>
+               ))}
+            </div>
+         </div>
         </section>
 
         {/* PROCESS FLOW - HORIZONTAL CLOSELY PACKED */}
