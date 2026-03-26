@@ -56,39 +56,70 @@ const Furniture = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['CLASSROOM', 'LIBRARY', 'LABS', 'OFFICE', 'CAFETERIA', 'AUDITORIUM'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2 uppercase">{cat}</button>
-             ))}
-           </div>
-        </section>
+        {/* CATEGORY & PRODUCT SECTION - SIDEBAR LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">CATEGORIES</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
+                 </div>
+                 {['CLASSROOM', 'LIBRARY', 'LABS', 'OFFICE', 'CAFETERIA', 'AUDITORIUM'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all flex items-center justify-between group ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>
+                       {cat}
+                       {i === 0 && <ChevronDown size={14} className="-rotate-90" />}
+                    </button>
+                 ))}
+                 
+                 {/* QUICK FILTERS BELOW */}
+                 <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100">
+                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Refine Search</span>
+                    <label className="flex items-center gap-3 mb-3 cursor-pointer group">
+                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-200 text-sm-blue focus:ring-sm-blue" />
+                       <span className="text-[9px] font-bold text-gray-500 uppercase group-hover:text-gray-900 transition-colors">In Stock Only</span>
+                    </label>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-200 text-sm-blue focus:ring-sm-blue" />
+                       <span className="text-[9px] font-bold text-gray-500 uppercase group-hover:text-gray-900 transition-colors">NEP Compliant</span>
+                    </label>
+                 </div>
+              </div>
+           </aside>
 
-        {/* PRODUCTS GRID - CLOSELY PACKED */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-             {products.map((item) => (
-               <div key={item.id} className="group cursor-pointer">
-                 <div className="relative bg-gray-50 rounded-[20px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[250px] border border-gray-100">
-                   <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                   {item.badge && (
-                     <div className="absolute top-4 left-4 px-2 py-1 bg-white rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
-                       {item.badge}
-                     </div>
-                   )}
-                   <div className="absolute inset-0 bg-sm-blue/0 group-hover:bg-sm-blue/10 transition-all duration-500 opacity-0 group-hover:opacity-100 flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center text-sm-blue">
-                         <ArrowRight size={16} />
-                      </div>
-                   </div>
-                 </div>
-                 <div className="mt-3 px-1 text-center">
-                   <h3 className="text-[12px] font-black text-gray-800 uppercase tracking-tighter mb-1 leading-none">{item.name}</h3>
-                   <span className="text-[8px] font-black text-sm-blue uppercase tracking-widest">{item.price}</span>
-                 </div>
-               </div>
-             ))}
+           {/* PRODUCTS GRID - MAIN CONTENT */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">CLASSROOM <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Collection</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Showing 1-4 of 120 Products</span>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                 {products.map((item) => (
+                    <div key={item.id} className="group cursor-pointer">
+                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-2xl h-[280px] border border-gray-100 p-2">
+                          <img src={item.img} alt={item.name} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
+                          {item.badge && (
+                             <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
+                                {item.badge}
+                             </div>
+                          )}
+                          <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="w-10 h-10 rounded-full bg-sm-blue shadow-xl flex items-center justify-center text-white">
+                                <ArrowRight size={18} />
+                             </div>
+                          </div>
+                       </div>
+                       <div className="mt-5 px-3">
+                          <h3 className="text-[13px] font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.name}</h3>
+                          <div className="flex items-center gap-3">
+                             <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{item.price}</span>
+                             <div className="h-px flex-grow bg-gray-100" />
+                          </div>
+                       </div>
+                    </div>
+                 ))}
+              </div>
            </div>
         </section>
 
