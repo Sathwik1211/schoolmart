@@ -82,14 +82,14 @@ const Architecture = () => {
                  <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Works Portfolio</span>
               </div>
               
-              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+              <div className="columns-1 md:columns-3 gap-4 space-y-4">
                  {[
-                   { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[400px]' },
-                   { t: 'Modular Auditorium', c: 'Structural Design', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', h: 'h-[350px]' },
-                   { t: 'Eco-Pavilion', c: 'Landscaping', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'The Glass Courtyard', c: 'Interior Flow', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', h: 'h-[450px]' },
-                   { t: 'Future-Pod Annex', c: 'Modern Annex', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[350px]' },
+                   { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[220px]' },
+                   { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[280px]' },
+                   { t: 'Modular Auditorium', c: 'Structural Design', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', h: 'h-[240px]' },
+                   { t: 'Eco-Pavilion', c: 'Landscaping', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', h: 'h-[220px]' },
+                   { t: 'The Glass Courtyard', c: 'Interior Flow', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', h: 'h-[310px]' },
+                   { t: 'Future-Pod Annex', c: 'Modern Annex', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[240px]' },
                  ].map((work, i) => (
                     <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />

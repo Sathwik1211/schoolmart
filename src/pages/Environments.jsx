@@ -10,7 +10,7 @@ const Environments = () => {
         {/* BENTO HIGH-DENSITY HERO - A 3x2 PACKED GRID MIXING CONTENT & IMAGE */}
         <section className="pt-4 pb-6 grid grid-cols-1 md:grid-cols-6 lg:grid-cols-4 gap-3 items-stretch h-auto">
            {/* BIG TEXT BLOCK */}
-           <div className="md:col-span-3 lg:col-span-2 bg-white rounded-[20px] p-8 flex flex-col justify-center border border-gray-300 shadow-sm relative overflow-hidden group min-h-[300px]">
+           <div className="md:col-span-3 lg:col-span-2 bg-white rounded-[20px] p-8 flex flex-col justify-center border border-gray-300 shadow-sm relative overflow-hidden group min-h-[220px]">
               <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90">
                  <Sparkles size={12} className="inline mr-2" /> Sensory Hub 2025
               </div>
@@ -83,12 +83,12 @@ const Environments = () => {
         <section className="py-6 border-t border-gray-100">
            <div className="columns-1 md:columns-3 gap-4 space-y-4">
               {[
-                { t: 'Natural Light Study', c: 'Optics', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', h: 'h-[300px]' },
-                { t: 'Acoustic Panel Grid', c: 'Sound', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=600&q=80', h: 'h-[400px]' },
-                { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80', h: 'h-[350px]' },
-                { t: 'Air Quality Lab', c: 'Climate', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[300px]' },
-                { t: 'Botanical Courtyard', c: 'Organic', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', h: 'h-[450px]' },
-                { t: 'Zen Meditation Pod', c: 'Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[350px]' },
+                { t: 'Natural Light Study', c: 'Optics', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', h: 'h-[220px]' },
+                { t: 'Acoustic Panel Grid', c: 'Sound', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=600&q=80', h: 'h-[280px]' },
+                { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80', h: 'h-[250px]' },
+                { t: 'Air Quality Lab', c: 'Climate', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[220px]' },
+                { t: 'Botanical Courtyard', c: 'Organic', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', h: 'h-[310px]' },
+                { t: 'Zen Meditation Pod', c: 'Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[250px]' },
               ].map((work, i) => (
                  <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[20px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
                     <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 hover:scale-110" />
@@ -114,7 +114,7 @@ const Environments = () => {
                  ))}
               </div>
            </div>
-           <div className="rounded-[30px] overflow-hidden shadow-xl h-[400px]">
+           <div className="rounded-[30px] overflow-hidden shadow-xl h-[280px]">
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&q=80" alt="Consultation" className="w-full h-full object-cover shadow-2xl" />
            </div>
         </section>

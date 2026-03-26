@@ -11,14 +11,14 @@ const categories = [
 ];
 
 const designWorks = [
-  { title: 'The Bio-Atrium', cat: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', height: 'h-[500px]' },
-  { title: 'Cyber-Punk STEM Lab', cat: 'Digital Experience', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', height: 'h-[400px]' },
-  { title: 'Pastel Primary Wing', cat: 'Color Psychology', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80', height: 'h-[600px]' },
-  { title: 'The Zen Library', cat: 'Adaptive Spaces', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', height: 'h-[450px]' },
-  { title: 'Infinity Sports Arena', cat: 'Kinetic Design', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', height: 'h-[550px]' },
-  { title: 'Organic Garden Lab', cat: 'Eco-Planning', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', height: 'h-[400px]' },
-  { title: 'The Glass Think-Tank', cat: 'Glassmorphism', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', height: 'h-[600px]' },
-  { title: 'Futuristic Faculty Lounge', cat: 'Admin Design', img: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80', height: 'h-[450px]' },
+  { title: 'The Bio-Atrium', cat: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', height: 'h-[320px]' },
+  { title: 'Cyber-Punk STEM Lab', cat: 'Digital Experience', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', height: 'h-[250px]' },
+  { title: 'Pastel Primary Wing', cat: 'Color Psychology', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80', height: 'h-[380px]' },
+  { title: 'The Zen Library', cat: 'Adaptive Spaces', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', height: 'h-[290px]' },
+  { title: 'Infinity Sports Arena', cat: 'Kinetic Design', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', height: 'h-[340px]' },
+  { title: 'Organic Garden Lab', cat: 'Eco-Planning', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', height: 'h-[250px]' },
+  { title: 'The Glass Think-Tank', cat: 'Glassmorphism', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', height: 'h-[350px]' },
+  { title: 'Futuristic Faculty Lounge', cat: 'Admin Design', img: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80', height: 'h-[280px]' },
 ];
 
 const SchoolDesigns = () => {
@@ -92,7 +92,7 @@ const SchoolDesigns = () => {
                  <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 450+ Sites</span>
               </div>
 
-              <div className="columns-1 md:columns-2 gap-6 space-y-6">
+              <div className="columns-1 md:columns-3 gap-6 space-y-6">
                  {designWorks.map((work, i) => (
                     <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300`}>
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />

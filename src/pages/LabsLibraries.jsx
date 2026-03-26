@@ -95,14 +95,14 @@ const LabsLibraries = () => {
                  <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 1,200+ STEM Hubs</span>
               </div>
               
-              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+              <div className="columns-1 md:columns-3 gap-4 space-y-4">
                  {[
-                   { t: 'The Quantum Lab', c: 'STEM Design', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'Robotics Workshop', c: 'Future Tech', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[350px]' },
-                   { t: 'Digital Archive', c: 'Modern Library', img: 'https://images.unsplash.com/photo-1507733470479-79a07a16f6b5?w=800&q=80', h: 'h-[400px]' },
-                   { t: 'Chemistry High-Spec', c: 'Safety Lab', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'Makerspace Hub', c: 'Creative Tech', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80', h: 'h-[450px]' },
-                   { t: 'The Reading Pod', c: 'Interior Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[350px]' },
+                   { t: 'The Quantum Lab', c: 'STEM Design', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[220px]' },
+                   { t: 'Robotics Workshop', c: 'Future Tech', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[270px]' },
+                   { t: 'Digital Archive', c: 'Modern Library', img: 'https://images.unsplash.com/photo-1507733470479-79a07a16f6b5?w=800&q=80', h: 'h-[290px]' },
+                   { t: 'Chemistry High-Spec', c: 'Safety Lab', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', h: 'h-[220px]' },
+                   { t: 'Makerspace Hub', c: 'Creative Tech', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80', h: 'h-[320px]' },
+                   { t: 'The Reading Pod', c: 'Interior Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[270px]' },
                  ].map((work, i) => (
                     <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
