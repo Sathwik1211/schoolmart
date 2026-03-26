@@ -91,7 +91,7 @@ const SchoolDesigns = () => {
 
               <div className="columns-1 md:columns-2 gap-6 space-y-6">
                  {designWorks.map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-200`}>
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300`}>
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6">
@@ -119,7 +119,7 @@ const SchoolDesigns = () => {
         <section className="py-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
            <div className="order-2 lg:order-1 relative">
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-sm-blue rounded-full blur-[80px] opacity-10" />
-              <div className="bg-white p-10 lg:p-14 rounded-[40px] shadow-3xl border border-gray-50 relative z-10">
+              <div className="bg-white p-10 lg:p-14 rounded-[40px] shadow-3xl border border-gray-300 relative z-10">
                  <div className="w-16 h-1.5 bg-sm-blue rounded-full mb-8" />
                  <h2 className="text-3xl font-black text-gray-900 font-heading mb-6 leading-tight tracking-tighter uppercase">Psychology <br/> of <span className="text-sm-blue">Colors.</span></h2>
                  <p className="text-gray-500 text-sm leading-relaxed mb-10 font-medium">

@@ -80,7 +80,7 @@ const Libraries = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                  {libraryCollections.map((item, i) => (
-                    <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-200 group hover:border-sm-blue transition-all shadow-sm">
+                    <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-300 group hover:border-sm-blue transition-all shadow-sm">
                        <div className="relative h-48 rounded-[20px] overflow-hidden mb-4">
                           <img src={item.img} className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" alt={item.title} />
                           <div className="absolute top-4 right-4">

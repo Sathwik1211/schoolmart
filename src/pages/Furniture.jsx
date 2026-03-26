@@ -76,11 +76,11 @@ const Furniture = () => {
                  <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100">
                     <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Refine Search</span>
                     <label className="flex items-center gap-3 mb-3 cursor-pointer group">
-                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-200 text-sm-blue focus:ring-sm-blue" />
+                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-300 text-sm-blue focus:ring-sm-blue" />
                        <span className="text-[9px] font-bold text-gray-500 uppercase group-hover:text-gray-900 transition-colors">In Stock Only</span>
                     </label>
                     <label className="flex items-center gap-3 cursor-pointer group">
-                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-200 text-sm-blue focus:ring-sm-blue" />
+                       <input type="checkbox" className="w-4 h-4 rounded-md border-gray-300 text-sm-blue focus:ring-sm-blue" />
                        <span className="text-[9px] font-bold text-gray-500 uppercase group-hover:text-gray-900 transition-colors">NEP Compliant</span>
                     </label>
                  </div>
@@ -97,7 +97,7 @@ const Furniture = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {products.map((item) => (
                     <div key={item.id} className="group cursor-pointer">
-                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-2xl h-[280px] border border-gray-200 p-2 shadow-sm">
+                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-2xl h-[280px] border border-gray-300 p-2 shadow-sm">
                           <img src={item.img} alt={item.name} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
                           {item.badge && (
                              <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
@@ -125,7 +125,7 @@ const Furniture = () => {
 
         {/* INFO SPLIT GRID */}
         <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="bg-white p-12 rounded-[30px] border border-gray-200 shadow-sm relative group overflow-hidden">
+           <div className="bg-white p-12 rounded-[30px] border border-gray-300 shadow-sm relative group overflow-hidden">
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Bespoke <br/> <span className="text-sm-blue">Planning Hub.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['Free Layout Design', 'Mockup Samples', 'Pan-India Delivery', 'BIFMA Level-3'].map((item, i) => (

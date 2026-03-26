@@ -75,7 +75,7 @@ const Science = () => {
               
               <div className="columns-1 md:columns-2 gap-4 space-y-4">
                  {scienceItems.map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-200 h-[300px]`}>
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[300px]`}>
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">

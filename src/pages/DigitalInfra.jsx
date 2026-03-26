@@ -83,7 +83,7 @@ const DigitalInfra = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {gadgets.map((item, i) => (
                     <div key={i} className="group cursor-pointer">
-                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-200 p-2 shadow-sm">
+                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-300 p-2 shadow-sm">
                           <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
                           <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
                              {item.badge}
@@ -109,11 +109,11 @@ const DigitalInfra = () => {
 
         {/* INFO SPLIT GRID */}
         <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px] border border-gray-100 p-2">
+           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px] border border-gray-300 p-2">
               <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80" alt="Tech" className="w-full h-full object-cover rounded-[25px] grayscale brightness-95" />
            </div>
            
-           <div className="bg-white p-12 rounded-[30px] border border-gray-100 shadow-sm relative overflow-hidden group">
+           <div className="bg-white p-12 rounded-[30px] border border-gray-300 shadow-sm relative overflow-hidden group">
               <h2 className="text-3xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Enterprise <br/> <span className="text-sm-blue">Privacy Pro.</span></h2>
               <div className="grid grid-cols-1 gap-3">
                  {['Institutional Grade Encryption', 'Multi-Year Service Level Agreements', 'On-Site Training Programs'].map((item, i) => (

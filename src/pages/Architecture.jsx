@@ -36,7 +36,7 @@ const Architecture = () => {
               </div>
 
               {/* ACTION CARD (SPAN 1) - PACKED */}
-              <div className="col-span-1 bg-gray-900 rounded-[25px] p-6 text-white flex flex-col justify-between group overflow-hidden relative shadow-xl border border-gray-800">
+              <div className="col-span-1 bg-gray-900 rounded-[25px] p-6 text-white flex flex-col justify-between group overflow-hidden relative shadow-xl border border-gray-300">
                  <h3 className="text-[9px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Request <br/> Pitch <br/> Proposal.</h3>
                  <button className="px-4 py-2 bg-sm-blue text-white font-black rounded-full text-[7px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all w-fit">Request</button>
               </div>
@@ -87,7 +87,7 @@ const Architecture = () => {
                    { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[300px]' },
                    { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[400px]' },
                  ].map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-200`}>
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}>
                        <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
@@ -102,7 +102,7 @@ const Architecture = () => {
 
         {/* INFO SPLIT GRID */}
         <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="bg-white p-12 rounded-[30px] border border-gray-100 shadow-sm relative group overflow-hidden">
+           <div className="bg-white p-12 rounded-[30px] border border-gray-300 shadow-sm relative group overflow-hidden">
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Spatial <br/> <span className="text-sm-blue">Innovation Hub.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['NEP Adaptive', 'Structural Audit', 'BIM Ready', 'Pan-India Reach'].map((item, i) => (
