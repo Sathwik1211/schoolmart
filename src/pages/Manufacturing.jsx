@@ -20,9 +20,9 @@ const Manufacturing = () => {
            <div className="flex flex-col lg:flex-row gap-3 items-stretch h-auto lg:h-[300px]">
             <div className="flex-1 bg-[#1A1A1A] rounded-[20px] p-8 text-white relative overflow-hidden group border border-gray-800 shadow-2xl">
                <img 
-                 src="https://images.unsplash.com/photo-1565106430335-b24968846171?w=1200&q=80" 
-                 className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-110 transition-transform duration-[3000ms]"
-                 alt="Precision Bg"
+                 src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=1200&q=80" 
+                 className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:scale-110 transition-transform duration-[3000ms] z-0"
+                 alt=""
                />
                <div className="relative z-10">
                  <div className="px-3 py-1 bg-emerald-500/10 text-emerald-500 font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit border border-emerald-500/20">
