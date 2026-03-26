@@ -62,28 +62,60 @@ const LabsLibraries = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-              {categories.map((cat) => (
-                 <button key={cat.id} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2 uppercase">{cat.name}</button>
-              ))}
-           </div>
-        </section>
-
-        {/* GALLARY */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 gap-4 space-y-4">
-              {[
-                { t: 'The Quantum Lab', c: 'STEM Design', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[300px]' },
-                { t: 'Robotics Workshop', c: 'Future Tech', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[350px]' },
-              ].map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
-                    <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 grayscale hover:grayscale-0" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
-                    <h3 className="absolute bottom-4 left-4 text-xs font-black text-white uppercase">{work.t}</h3>
+        {/* SIDEBAR GALLERY LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">PLATFORM MODULES</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-              ))}
+                 {['ROBOTICS', 'COMPOSITE LABS', 'PHYSICS', 'CHEMISTRY', 'BIOLOGY'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100 shadow-sm transition-all hover:bg-white hover:shadow-xl group">
+                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Experimental Stats</span>
+                    <div className="flex items-end gap-1 mb-2">
+                       <span className="text-2xl font-black text-gray-900 font-heading">4.2k</span>
+                       <span className="text-[8px] font-black text-sm-blue uppercase mb-1">Active Labs</span>
+                    </div>
+                    <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                       <div className="w-3/4 h-full bg-sm-blue transition-all group-hover:w-full duration-1000" />
+                    </div>
+                 </div>
+              </div>
+           </aside>
+
+           {/* MAIN CONTENT GALLERY */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">THE <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Quantum</span> LAB</h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 1,200+ STEM Hubs</span>
+              </div>
+              
+              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+                 {[
+                   { t: 'The Quantum Lab', c: 'STEM Design', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[300px]' },
+                   { t: 'Robotics Workshop', c: 'Future Tech', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[350px]' },
+                 ].map((work, i) => (
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
+                       <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+                          <h3 className="text-sm font-black text-white uppercase tracking-tighter uppercase">{work.t}</h3>
+                          <span className="text-[8px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+                       </div>
+                    </div>
+                 ))}
+                 
+                 <div className="break-inside-avoid bg-gray-900 rounded-[25px] p-10 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden group border border-gray-800">
+                    <Atom size={32} className="text-sm-blue mb-6" />
+                    <h4 className="text-xl font-black font-heading mb-4 uppercase leading-none">Discovery <br/> Blueprint.</h4>
+                    <button className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest w-fit">Request Specs</button>
+                 </div>
+              </div>
            </div>
         </section>
 

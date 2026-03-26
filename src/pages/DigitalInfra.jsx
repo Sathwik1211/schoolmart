@@ -49,35 +49,61 @@ const DigitalInfra = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['INTERACTIVE', 'TABLETS', 'NETWORKING', 'CLOUD CLASS', 'SECURITY'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-sm-blue uppercase tracking-widest transition-colors py-2 uppercase">{cat}</button>
-             ))}
-           </div>
-        </section>
-
-        {/* TECH GRID - CLOSELY PACKED */}
-        <section className="py-6 border-t border-gray-50">
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {gadgets.map((item, i) => (
-                 <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-100 group hover:border-sm-blue transition-all shadow-sm">
-                    <div className="relative h-48 rounded-[20px] overflow-hidden mb-4">
-                       <img src={item.img} className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" alt={item.title} />
-                       <div className="absolute top-4 right-4 animate-pulse">
-                          <span className="px-3 py-1 bg-sm-blue rounded-full text-[7px] font-black tracking-widest uppercase text-white">{item.badge}</span>
-                       </div>
-                    </div>
-                    <div className="px-4 pb-4">
-                       <h3 className="text-[14px] font-black uppercase text-gray-900 mb-2 leading-none group-hover:text-sm-blue transition-colors line-clamp-1">{item.title}</h3>
-                       <div className="flex justify-between items-center">
-                          <span className="text-[10px] text-gray-400 uppercase tracking-widest font-black">{item.price}</span>
-                          <button className="text-sm-blue group-hover:translate-x-1 transition-transform"><ArrowUpRight size={18} /></button>
-                       </div>
-                    </div>
+        {/* SIDEBAR LAYOUT SECTION */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">INFRA ENGINE</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-              ))}
+                 {['INTERACTIVE', 'TABLETS', 'NETWORKING', 'CLOUD CLASS', 'SECURITY'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-gray-900 rounded-[25px] border border-gray-800 text-white shadow-xl">
+                    <span className="text-[8px] font-black text-sm-blue tracking-[0.2em] uppercase mb-4 block">System Health</span>
+                    <div className="flex items-center gap-3 mb-4">
+                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
+                       <span className="text-[10px] font-black uppercase">All Nodes Active</span>
+                    </div>
+                    <button className="w-full py-2 bg-white/10 hover:bg-sm-blue rounded-full text-[7px] font-black uppercase tracking-widest transition-all">Network Map</button>
+                 </div>
+              </div>
+           </aside>
+
+           {/* PRODUCTS CONTENT GRID */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">NETWORK <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Solutions</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                 {gadgets.map((item, i) => (
+                    <div key={i} className="group cursor-pointer">
+                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-100 p-2">
+                          <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
+                          <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
+                             {item.badge}
+                          </div>
+                          <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="w-10 h-10 rounded-full bg-sm-blue shadow-xl flex items-center justify-center text-white">
+                                <ArrowRight size={18} />
+                             </div>
+                          </div>
+                       </div>
+                       <div className="mt-5 px-3">
+                          <h3 className="text-[12px] font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
+                          <div className="flex items-center gap-3">
+                             <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{item.price}</span>
+                             <div className="h-px flex-grow bg-gray-100" />
+                          </div>
+                       </div>
+                    </div>
+                 ))}
+              </div>
            </div>
         </section>
 

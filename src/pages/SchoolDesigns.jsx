@@ -53,47 +53,64 @@ const SchoolDesigns = () => {
            </div>
         </section>
 
-        {/* Category Icons Slider — COMPACT STRIP */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-4 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {categories.map((cat) => (
-               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-4 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-100">
-                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
-                   {cat.icon}
+        {/* SIDEBAR GALLERY LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">DESIGN MODULES</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>
-               </button>
-             ))}
-           </div>
-        </section>
-
-        {/* STAGGERED MASONRY GALLERY */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-              {designWorks.map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height}`}>
-                    <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100">
-                       <Download size={16} />
-                    </div>
-
-                    <div className="absolute bottom-6 left-6 right-6">
-                       <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">{work.cat}</span>
-                       <h3 className="text-xl font-black text-white font-heading leading-tight translate-y-3 group-hover:translate-y-0 transition-transform duration-500 uppercase">{work.title}</h3>
-                       <p className="text-white/40 text-[8px] font-bold uppercase tracking-widest mt-3 opacity-0 group-hover:opacity-100 transition-opacity delay-200">Case Study <ArrowRight size={10} className="inline ml-1" /></p>
+                 {['COLOR SCHEMES', 'SPATIAL PLANNING', 'WALL GRAPHICS', 'SMART LIGHTING', 'SAFE FLOORING'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100 shadow-sm">
+                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Process Guide</span>
+                    <div className="space-y-4">
+                       <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 rounded-full bg-sm-blue/10 flex items-center justify-center text-sm-blue text-[10px] font-black">1</div>
+                          <span className="text-[9px] font-black uppercase text-gray-900">Concept</span>
+                       </div>
+                       <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 text-[10px] font-black">2</div>
+                          <span className="text-[9px] font-black uppercase text-gray-400">3D Viz</span>
+                       </div>
                     </div>
                  </div>
-              ))}
+              </div>
+           </aside>
 
-              {/* UNIQUE BENTO CALL-TO-ACTION IN MASONRY */}
-              <div className="break-inside-avoid bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
-                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-sm-blue blur-3xl opacity-20 group-hover:opacity-60 transition-opacity" />
-                 <Layout size={32} className="text-sm-blue mb-6 animate-pulse" />
-                 <h4 className="text-xl font-black font-heading mb-4 tracking-tight uppercase">Bespoke <br/> Space Design.</h4>
-                 <p className="text-white/50 text-[9px] font-bold uppercase tracking-widest leading-loose mb-8">Our architects specialize in spatial design.</p>
-                 <button className="px-6 py-2.5 bg-sm-blue text-white font-black rounded-full hover:bg-white hover:text-gray-900 transition-all shadow-xl uppercase tracking-widest text-[8px] w-fit">Request Pitch</button>
+           {/* MAIN CONTENT MASONRY */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">COLOR <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Psychology</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 450+ Sites</span>
+              </div>
+
+              <div className="columns-1 md:columns-2 gap-6 space-y-6">
+                 {designWorks.map((work, i) => (
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-100`}>
+                       <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute top-6 right-6">
+                          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+                             <ArrowRight size={18} />
+                          </div>
+                       </div>
+                       <div className="absolute bottom-6 left-6 right-6">
+                          <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1">{work.cat}</span>
+                          <h3 className="text-xl font-black text-white font-heading leading-tight uppercase">{work.title}</h3>
+                       </div>
+                    </div>
+                 ))}
+                 
+                 <div className="break-inside-avoid bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
+                    <Layout size={32} className="text-sm-blue mb-6" />
+                    <h4 className="text-xl font-black font-heading mb-4 uppercase">Bespoke <br/> Space Design.</h4>
+                    <button className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest w-fit">Request Pitch</button>
+                 </div>
               </div>
            </div>
         </section>

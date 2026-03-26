@@ -41,37 +41,58 @@ const Sports = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['OUTDOOR TURFS', 'INDOOR COURTS', 'EQUIPMENT', 'SAFETY SURFACING'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2">{cat}</button>
-             ))}
-           </div>
-        </section>
-
-        {/* MASONRY GALLERY - CLOSELY PACKED */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-              {[
-                { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[300px]' },
-                { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[400px]' },
-                { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[350px]' },
-              ].map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
-                    <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                       <h3 className="text-sm font-black text-white uppercase">{work.t}</h3>
-                       <span className="text-[7px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
-                    </div>
+        {/* SIDEBAR GALLERY LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">ARENA MODULES</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-              ))}
+                 {['OUTDOOR TURFS', 'INDOOR COURTS', 'EQUIPMENT', 'SAFETY SURFACING'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-emerald-50/50 rounded-[25px] border border-emerald-100 group transition-all hover:bg-emerald-50">
+                    <span className="text-[8px] font-black text-emerald-600 tracking-[0.2em] uppercase mb-4 block">Safety Rating</span>
+                    <div className="flex items-center gap-2 mb-3">
+                       <Shield size={14} className="text-emerald-500" />
+                       <span className="text-[10px] font-black uppercase text-emerald-700">Gold Certified</span>
+                    </div>
+                    <p className="text-[8px] font-bold text-emerald-600/70 uppercase tracking-widest leading-loose">Compliant with International Standards.</p>
+                 </div>
+              </div>
+           </aside>
+
+           {/* MAIN CONTENT GALLERY */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">ELITE <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Surfaces</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">1,200+ Fields Installed</span>
+              </div>
               
-              <div className="break-inside-avoid bg-sm-blue rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden">
-                 <Trophy size={32} className="text-white/40 mb-4" />
-                 <h4 className="text-xl font-black font-heading tracking-tighter uppercase leading-none mb-4">Tournaments <br/> Ready.</h4>
-                 <button className="px-5 py-2.5 bg-white text-sm-blue font-black rounded-full hover:bg-gray-900 hover:text-white transition-all text-[8px] tracking-widest w-fit">Request Specs</button>
+              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+                 {[
+                   { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[300px]' },
+                   { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[400px]' },
+                   { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[350px]' },
+                 ].map((work, i) => (
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
+                       <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+                          <h3 className="text-sm font-black text-white uppercase tracking-tighter">{work.t}</h3>
+                          <span className="text-[8px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+                       </div>
+                    </div>
+                 ))}
+                 
+                 <div className="break-inside-avoid bg-gray-900 rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden group">
+                    <Trophy size={32} className="text-sm-blue mb-4" />
+                    <h4 className="text-xl font-black font-heading tracking-tighter uppercase leading-none mb-4">Tournaments <br/> Ready.</h4>
+                    <button className="px-5 py-2.5 bg-sm-blue text-white font-black rounded-full hover:bg-white hover:text-gray-900 transition-all text-[8px] tracking-widest w-fit">Request Specs</button>
+                 </div>
               </div>
            </div>
         </section>

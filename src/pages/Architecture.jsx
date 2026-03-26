@@ -49,28 +49,54 @@ const Architecture = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['SPATIAL PLANNING', 'STRUCTURAL', 'INTERIORS', 'LANDSCAPING', 'SITE AUDITS'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2 uppercase">{cat}</button>
-             ))}
-           </div>
-        </section>
-
-        {/* MASONRY GALLERY - PACKED */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 gap-4 space-y-4">
-              {[
-                { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[300px]' },
-                { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[400px]' },
-              ].map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
-                    <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
-                    <h3 className="absolute bottom-4 left-4 text-xs font-black text-white uppercase">{work.t}</h3>
+        {/* SIDEBAR LAYOUT SECTION */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">STUDIO SERVICE</h3>
+                    <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-              ))}
+                 {['SPATIAL PLANNING', 'STRUCTURAL', 'INTERIORS', 'LANDSCAPING', 'SITE AUDITS'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-blue-50/50 rounded-[25px] border border-blue-100">
+                    <span className="text-[8px] font-black text-sm-blue tracking-[0.2em] uppercase mb-4 block">Design Standards</span>
+                    <div className="space-y-3">
+                       {['NEP 2020', 'BIM Level 2', 'LEED Cert.'].map((s, i) => (
+                          <div key={i} className="flex items-center gap-2 text-[9px] font-bold text-gray-600 uppercase">
+                             <CheckCircle2 size={12} className="text-sm-blue" /> {s}
+                          </div>
+                       ))}
+                    </div>
+                 </div>
+              </div>
+           </aside>
+
+           {/* MAIN CONTENT GALLERY */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">SPATIAL <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Planning</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Works Portfolio</span>
+              </div>
+              
+              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+                 {[
+                   { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[300px]' },
+                   { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[400px]' },
+                 ].map((work, i) => (
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
+                       <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+                          <h3 className="text-sm font-black text-white uppercase tracking-tighter">{work.t}</h3>
+                          <span className="text-[8px] text-sm-blue font-black uppercase tracking-widest">{work.c}</span>
+                       </div>
+                    </div>
+                 ))}
+              </div>
            </div>
         </section>
 

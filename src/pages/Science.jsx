@@ -41,28 +41,55 @@ const Science = () => {
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
-        <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {['CHEMISTRY KITS', 'PHYSICS LABS', 'BIOLOGY MODELS', 'MICROSCOPES', 'LAB SAFETY'].map((cat, i) => (
-                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-emerald-500 uppercase tracking-widest transition-colors py-2 uppercase">{cat}</button>
-             ))}
-           </div>
-        </section>
-
-        {/* MASONRY GALLERY - CLOSELY PACKED */}
-        <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 gap-4 space-y-4">
-              {scienceItems.map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-100 h-[300px]`}>
-                    <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale hover:grayscale-0" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                       <h3 className="text-sm font-black text-white uppercase">{work.title}</h3>
-                       <span className="text-[7px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
-                    </div>
+        {/* SIDEBAR GRID LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
+           <aside className="lg:w-[240px] flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">SCIENCE CORE</h3>
+                    <div className="w-8 h-1 bg-emerald-500 rounded-full" />
                  </div>
-              ))}
+                 {['CHEMISTRY KITS', 'PHYSICS LABS', 'BIOLOGY MODELS', 'MICROSCOPES', 'LAB SAFETY'].map((cat, i) => (
+                    <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-emerald-600 text-white shadow-lg' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-900'}`}>{cat}</button>
+                 ))}
+                 
+                 <div className="mt-12 p-6 bg-emerald-900 rounded-[25px] border border-emerald-800 text-white shadow-2xl overflow-hidden relative group">
+                    <div className="absolute -top-4 -right-4 w-12 h-12 bg-emerald-500 blur-xl opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <span className="text-[8px] font-black text-emerald-400 tracking-[0.2em] uppercase mb-4 block">Safety Status</span>
+                    <div className="flex items-center gap-2 mb-4">
+                       <CheckCircle2 size={12} className="text-emerald-400" />
+                       <span className="text-[9px] font-black uppercase">OSHA Compliant</span>
+                    </div>
+                    <button className="px-4 py-2 bg-white/10 hover:bg-emerald-500 rounded-full text-[7px] font-black uppercase tracking-widest transition-all">Download SDS</button>
+                 </div>
+              </div>
+           </aside>
+
+           {/* MAIN CONTENT GALLERY */}
+           <div className="flex-grow">
+              <div className="flex justify-between items-end mb-8 px-2">
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">CHEMISTRY <span className="text-emerald-500 italic font-serif lowercase tracking-normal text-lg ml-2">Apparatus</span></h2>
+                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Kits for Gr. 8-12</span>
+              </div>
+              
+              <div className="columns-1 md:columns-2 gap-4 space-y-4">
+                 {scienceItems.map((work, i) => (
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-100 h-[300px]`}>
+                       <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-10 h-10 rounded-full bg-emerald-500 shadow-xl flex items-center justify-center text-white">
+                             <ArrowUpRight size={18} />
+                          </div>
+                       </div>
+                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+                          <h3 className="text-sm font-black text-white uppercase tracking-tighter font-heading">{work.title}</h3>
+                          <span className="text-[8px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
+                       </div>
+                    </div>
+                 ))}
+              </div>
            </div>
         </section>
 
