@@ -85,7 +85,7 @@ const Mathematics = () => {
                  <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                  {MathItems.map((item, i) => (
                     <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-300 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer relative overflow-hidden">
                        <div className="relative h-48 rounded-[20px] overflow-hidden mb-4">

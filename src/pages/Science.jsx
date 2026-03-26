@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, ArrowUpRight, Download, Eye, FileText, Activity, Layers, CheckCircle2 } from 'lucide-react';
 
 const scienceItems = [
-  { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', badge: 'Safety Plus' },
-  { id: 2, title: 'The Human Anatomy V3', cat: 'Biology Models', img: 'https://images.unsplash.com/photo-1540344211158-99937399a9a3?w=800&q=80', badge: 'High-Detail' },
+  { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', img: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80', badge: 'Safety Plus' },
+  { id: 2, title: 'The Human Anatomy V3', cat: 'Biology Models', img: 'https://images.unsplash.com/photo-1530210124550-912dc1381cb8?w=800&q=80', badge: 'High-Detail' },
   { id: 3, title: 'Spectroscopy Kit', cat: 'Optics', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', badge: 'Advanced' },
   { id: 4, title: 'Chemical Storage Unit', cat: 'Safety', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', badge: 'ISO Certified' },
   { id: 5, title: 'DNA Sequencer Card', cat: 'Biotech', img: 'https://images.unsplash.com/photo-1579154235820-22718e001804?w=800&q=80', badge: 'Modern' },
@@ -77,9 +77,9 @@ const Science = () => {
                  <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Kits for Gr. 8-12</span>
               </div>
               
-              <div className="columns-1 md:columns-3 gap-4 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                  {scienceItems.map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px]`}>
+                    <div key={i} className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px]`}>
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
