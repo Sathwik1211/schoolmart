@@ -1,11 +1,11 @@
 // src/pages/Science.jsx
 import { Link } from 'react-router-dom';
-import { FlaskConical, Beaker, Atom, Microscope, DNA, Zap, ArrowRight, Download, Eye, FileText, Activity, Layers } from 'lucide-react';
+import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, Download, Eye, FileText, Activity, Layers } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'CHEMISTRY KITS', icon: <FlaskConical size={24} /> },
   { id: 'physics', name: 'PHYSICS LABS', icon: <Atom size={24} /> },
-  { id: 'biology', name: 'BIOLOGY MODELS', icon: <DNA size={24} /> },
+  { id: 'biology', name: 'BIOLOGY MODELS', icon: <Dna size={24} /> },
   { id: 'micro', name: 'MICROSCOPES', icon: <Microscope size={24} /> },
   { id: 'safety', name: 'LAB SAFETY', icon: <Activity size={24} /> },
 ];
