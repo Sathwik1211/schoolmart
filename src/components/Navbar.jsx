@@ -198,7 +198,7 @@ const Navbar = () => {
 
         {/* Scrolling Ticker */}
         <div className="flex-1 overflow-hidden ml-40 h-full relative">
-          <div className="flex items-center gap-20 whitespace-nowrap animate-ticker h-full group-hover:pause">
+          <div className="scrolling-ticker h-full gap-20">
             {[
               "Digital Transformation Summit: 15 May 2026",
               "New AI-Powered Learning Stations now available for pre-order",
