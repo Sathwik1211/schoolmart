@@ -19,15 +19,15 @@ const labWorks = [
 
 const LabsLibraries = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
+    <main className="min-h-screen bg-gray-50 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED SPLIT-HUB HERO - THE USER PREFERRED THIS */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* REFINED SPLIT-HUB HERO - COMPACT PACKED */}
+        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
            {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+           <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90">
                  <Microscope size={12} className="inline mr-2" /> Innovation Hub 2025
               </div>
               <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
@@ -59,8 +59,8 @@ const LabsLibraries = () => {
         </section>
 
         {/* Compact Strip Menu — Standardized */}
-        <section className="pb-12 px-2">
-           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+        <section className="pb-6 px-2">
+           <div className="flex overflow-x-auto gap-4 pb-2 hide-scrollbar justify-start border-b border-gray-100">
              {categories.map((cat) => (
                <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
                  <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
@@ -73,7 +73,7 @@ const LabsLibraries = () => {
         </section>
 
         {/* MASONRY GALLERY */}
-        <section className="py-12 border-t border-gray-100">
+        <section className="py-6 border-t border-gray-100">
            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {labWorks.map((work, i) => (
                  <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
@@ -98,7 +98,7 @@ const LabsLibraries = () => {
         </section>
 
         {/* INFO SPLIT GRID */}
-        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
            <div className="bg-white p-12 lg:p-16 rounded-[40px] shadow-sm border border-gray-100">
               <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none tracking-tighter uppercase">Knowledge <br/> <span className="text-sm-blue">Engineering.</span></h2>
               <p className="text-gray-500 text-sm leading-loose mb-10 font-medium">

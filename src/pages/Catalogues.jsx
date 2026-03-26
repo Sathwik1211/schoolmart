@@ -30,15 +30,15 @@ const smallCatalogues = [
 
 const Catalogues = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
+    <main className="min-h-screen bg-gray-50 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED SPLIT-HUB HERO - THE USER PREFERRED THIS */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* REFINED SPLIT-HUB HERO - COMPACT PACKED */}
+        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
            {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+           <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90">
                  <BookOpen size={12} className="inline mr-2 animate-pulse" /> Digital Library 2025
               </div>
               <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
@@ -70,8 +70,8 @@ const Catalogues = () => {
         </section>
 
         {/* Compact Strip Menu — Standardized */}
-        <section className="pb-12 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+        <section className="pb-6 px-2">
+           <div className="flex overflow-x-auto gap-4 pb-2 hide-scrollbar justify-start border-b border-gray-100">
              {smallCatalogues.map((cat, i) => (
                <div key={i} className="flex flex-col items-start gap-1 group flex-none py-2 px-4 cursor-pointer active:scale-95 transition-all">
                  <h4 className="text-[14px] font-black text-gray-900 uppercase tracking-tighter transition-colors group-hover:text-sm-blue">{cat.title}</h4>
@@ -81,8 +81,8 @@ const Catalogues = () => {
            </div>
         </section>
 
-        {/* MASONRY DISPLAY - INSPIRED BY ARCHITECTURE PAGE */}
-        <section className="py-12 border-t border-gray-100">
+        {/* MASONRY DISPLAY */}
+        <section className="py-6 border-t border-gray-100">
            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {smallCatalogues.concat(smallCatalogues).map((item, i) => (
                  <div key={i} className="break-inside-avoid bg-white p-2 rounded-[30px] border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer hover:-translate-y-2 relative overflow-hidden">
@@ -115,7 +115,7 @@ const Catalogues = () => {
         </section>
 
         {/* INFO SPLIT GRID */}
-        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-gray-100 mt-20">
+        <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t border-gray-100 mt-10">
            <div className="order-2 lg:order-1 relative">
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-sm-blue rounded-full blur-[80px] opacity-10" />
               <div className="bg-white p-12 lg:p-16 rounded-[40px] shadow-sm border border-gray-100 relative z-10">

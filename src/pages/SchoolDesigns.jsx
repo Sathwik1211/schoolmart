@@ -20,12 +20,12 @@ const designWorks = [
 
 const SchoolDesigns = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
+    <main className="min-h-screen bg-gray-50 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4">
-        {/* MODERN BESPOKE HERO - REMOVED CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* MODERN BESPOKE HERO - COMPACT PACKED */}
+        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
            {/* TEXT BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden">
+           <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-sm-blue/5 rounded-full blur-3xl -mr-16 -mt-16" />
               <div className="px-3 py-1 bg-gray-900 text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
                  <Stars size={12} className="inline mr-2" /> Design Studio 2024
@@ -54,8 +54,8 @@ const SchoolDesigns = () => {
         </section>
 
         {/* Category Icons Slider — COMPACT STRIP */}
-        <section className="pb-12 px-2">
-           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+        <section className="pb-6 px-2">
+           <div className="flex overflow-x-auto gap-4 pb-2 hide-scrollbar justify-start border-b border-gray-100">
              {categories.map((cat) => (
                <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-4 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-100">
                  <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
@@ -67,8 +67,8 @@ const SchoolDesigns = () => {
            </div>
         </section>
 
-        {/* STAGGERED MASONRY GALLERY (Screenshot 3 Flow Inspired but for Designs) */}
-        <section className="py-12 border-t border-gray-100">
+        {/* STAGGERED MASONRY GALLERY */}
+        <section className="py-6 border-t border-gray-100">
            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {designWorks.map((work, i) => (
                  <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height}`}>
@@ -98,8 +98,8 @@ const SchoolDesigns = () => {
            </div>
         </section>
 
-        {/* INFORMATIONAL BLOCK (Screenshot 2 / Bento Style) */}
-        <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        {/* INFORMATIONAL BLOCK */}
+        <section className="py-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
            <div className="order-2 lg:order-1 relative">
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-sm-blue rounded-full blur-[80px] opacity-10" />
               <div className="bg-white p-10 lg:p-14 rounded-[40px] shadow-3xl border border-gray-50 relative z-10">
