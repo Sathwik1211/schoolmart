@@ -2,116 +2,95 @@
 import { Link } from 'react-router-dom';
 import { Zap, Activity, Trophy, Shield, Target, ArrowRight, ArrowUpRight, Award, Layers, CheckCircle2 } from 'lucide-react';
 
-const categories = [
-  { id: 'all', name: 'OUTDOOR TURFS', icon: <Activity size={20} /> },
-  { id: 'indoor', name: 'INDOOR COURTS', icon: <Target size={20} /> },
-  { id: 'equipment', name: 'EQUIPMENT', icon: <Zap size={20} /> },
-  { id: 'safety', name: 'SAFETY SURFACING', icon: <Shield size={20} /> },
-  { id: 'arenas', name: 'MULTI-ARENAS', icon: <Trophy size={20} /> },
-];
-
-const sportsWorks = [
-  { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[400px]' },
-  { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[500px]' },
-  { t: 'Safety Rubber Play', c: 'Infrastructure', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[350px]' },
-  { t: 'Synthetic Multi-Turf', c: 'Performance', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[450px]' },
-];
-
 const Sports = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-20 pb-10">
+    <main className="min-h-screen bg-gray-50 pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED SPLIT-HUB HERO - COMPACT PACKED */}
-        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
-           {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+        {/* KINETIC TRIPLE HERO - DISTINCT FROM THE SPLIT-HUB */}
+        <section className="pt-4 pb-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+           {/* COLUMN 1 - STORY (SPAN 5) */}
+           <div className="md:col-span-5 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
               <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90">
-                 <Zap size={12} className="inline mr-2" /> Performance Hub 2025
+                 <Zap size={12} className="inline mr-2" /> Performance 2025
               </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+              <h1 className="text-4xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase">
                  Built <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">for</span> <br/> Champions.
               </h1>
               <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
-                 We engineer high-performance athletic surfaces that empower the next generation of sporting excellence.
+                 Engineering high-performance athletic surfaces for the next generation.
               </p>
            </div>
 
-           {/* FEATURE HUB - RIGHT (High Contrast) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Schedule <br/> Professional <br/> Site Survey.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all">Book Now</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
-                 </div>
+           {/* COLUMN 2 - KINETIC IMAGE (SPAN 4) */}
+           <div className="md:col-span-4 rounded-[25px] overflow-hidden relative shadow-lg group">
+              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Athletics" />
+              <div className="absolute inset-0 bg-sm-blue/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
+           </div>
+
+           {/* COLUMN 3 - ACTION STACK (SPAN 3) */}
+           <div className="md:col-span-3 flex flex-col gap-4">
+              <div className="flex-1 bg-gray-900 rounded-[25px] p-6 text-white flex flex-col justify-between group overflow-hidden relative border border-gray-800">
+                 <h3 className="text-[9px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Schedule <br/> Site Survey.</h3>
+                 <ArrowUpRight className="self-end text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
               </div>
-              <div className="bg-emerald-50 rounded-[30px] p-8 text-emerald-600 flex flex-col justify-between group overflow-hidden relative border border-emerald-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Safety <br/> Compliance <br/> Certified.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Gold</span>
-                    <Shield className="text-emerald-300 group-hover:text-emerald-500 transition-colors" size={24} />
-                 </div>
+              <div className="flex-1 bg-emerald-50 rounded-[25px] p-6 text-emerald-600 flex flex-col justify-between group overflow-hidden relative border border-emerald-100">
+                 <Shield className="text-emerald-300" size={20} />
+                 <h3 className="text-[9px] font-black uppercase tracking-[0.1em] z-10 leading-relaxed group-hover:text-emerald-700">Safety Compliance Gold Certified.</h3>
               </div>
            </div>
         </section>
 
-        {/* Compact Strip Menu — Standardized */}
+        {/* Compact Strip Menu */}
         <section className="pb-6 px-2">
-           <div className="flex overflow-x-auto gap-4 pb-2 hide-scrollbar justify-start border-b border-gray-100">
-             {categories.map((cat) => (
-               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
-                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
-                   {cat.icon}
-                 </div>
-                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
-               </button>
+           <div className="flex overflow-x-auto gap-12 pb-2 hide-scrollbar justify-start border-b border-gray-100">
+             {['OUTDOOR TURFS', 'INDOOR COURTS', 'EQUIPMENT', 'SAFETY SURFACING'].map((cat, i) => (
+                <button key={i} className="flex-none text-[8px] font-black text-gray-400 hover:text-gray-900 uppercase tracking-widest transition-colors py-2">{cat}</button>
              ))}
            </div>
         </section>
 
-        {/* MASONRY GALLERY */}
+        {/* MASONRY GALLERY - CLOSELY PACKED */}
         <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-              {sportsWorks.map((work, i) => (
-                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
-                    <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                       <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">{work.c} Arena</span>
-                       <h3 className="text-xl font-black text-white font-heading leading-tight translate-y-3 group-hover:translate-y-0 transition-transform duration-500 uppercase">{work.t}</h3>
+           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+              {[
+                { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[300px]' },
+                { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[400px]' },
+                { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[350px]' },
+              ].map((work, i) => (
+                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
+                    <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                       <h3 className="text-sm font-black text-white uppercase">{work.t}</h3>
+                       <span className="text-[7px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
                     </div>
                  </div>
               ))}
-
-              {/* ACTION CALLOUT */}
-              <div className="break-inside-avoid bg-gray-900 rounded-[30px] p-10 text-white flex flex-col justify-center min-h-[300px] shadow-2xl relative overflow-hidden group">
-                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-sm-blue blur-3xl opacity-20" />
-                 <Trophy size={32} className="text-sm-blue mb-6" />
-                 <h4 className="text-2xl font-black font-heading mb-4 tracking-tighter uppercase leading-none">Tournaments <br/> Ready.</h4>
-                 <p className="text-white/40 text-[9px] font-bold uppercase tracking-widest leading-loose mb-8">Professional-grade surfaces certified for national events.</p>
-                 <button className="px-6 py-3 bg-sm-blue text-white font-black rounded-full hover:bg-white hover:text-gray-900 transition-all shadow-xl uppercase tracking-widest text-[8px] w-fit">Request Specs</button>
+              
+              <div className="break-inside-avoid bg-sm-blue rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden">
+                 <Trophy size={32} className="text-white/40 mb-4" />
+                 <h4 className="text-xl font-black font-heading tracking-tighter uppercase leading-none mb-4">Tournaments <br/> Ready.</h4>
+                 <button className="px-5 py-2.5 bg-white text-sm-blue font-black rounded-full hover:bg-gray-900 hover:text-white transition-all text-[8px] tracking-widest w-fit">Request Specs</button>
               </div>
            </div>
         </section>
 
-        {/* INFO SPLIT GRID */}
-        <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-           <div className="relative rounded-[40px] overflow-hidden shadow-3xl">
-              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1000&q=80" alt="Athletic Surface" className="w-full h-[500px] object-cover" />
+        {/* INFO SPLIT GRID - COMPACT */}
+        <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t border-gray-100 mt-6">
+           <div className="relative rounded-[30px] overflow-hidden shadow-xl h-[350px]">
+              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1000&q=80" alt="Athletic" className="w-full h-full object-cover" />
            </div>
            
-           <div className="bg-white p-12 lg:p-16 rounded-[40px] shadow-sm border border-gray-100">
-              <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none tracking-tighter uppercase">High <br/> <span className="text-sm-blue">Impact.</span> Low <span className="text-sm-blue">Injury.</span></h2>
-              <p className="text-gray-500 text-sm leading-loose mb-10 font-medium">
-                 Our shock-absorption technology minimizes athlete strain without compromising kinetic energy return, ensuring safety and performance go hand-in-hand.
+           <div className="bg-white p-10 rounded-[30px] shadow-sm border border-gray-100">
+              <h2 className="text-3xl font-black text-gray-900 font-heading mb-6 leading-none uppercase">High <span className="text-sm-blue">Impact.</span></h2>
+              <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                 Shock-absorption technology for safety and performance.
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                 {['FIBA Compliant', 'Anti-Skid', 'Heat Resistant', '10 Year Warranty'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-2xl group hover:bg-sm-blue hover:text-white transition-all">
-                       <CheckCircle2 size={14} className="text-sm-blue group-hover:text-white" />
+              <div className="grid grid-cols-2 gap-3">
+                 {['FIBA Compliant', 'Anti-Skid', 'Heat Proof', '10 Yr Warranty'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-[8px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-3 rounded-xl border border-gray-100">
+                       <CheckCircle2 size={12} className="text-sm-blue" />
                        {item}
                     </div>
                  ))}
