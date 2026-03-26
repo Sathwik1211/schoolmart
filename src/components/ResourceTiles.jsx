@@ -236,18 +236,18 @@ const ResourceTiles = () => {
                 <MessageSquare size={16} />
                 <span className="uppercase tracking-wider text-[11px]">Discussion Forum</span>
               </Link>
-              
+                        {/* Get a Quote Form — Highlighted */}
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="px-5 py-4 border-b border-gray-50 bg-gray-50/30">
-                  <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">Quick Quote</h3>
+                <div className="px-5 py-4 border-b border-gray-100 bg-sm-blue">
+                  <h3 className="text-sm font-black text-white uppercase tracking-widest text-center">GET A QUOTE</h3>
                 </div>
-                <form className="p-4 space-y-3">
-                  <div className="space-y-3">
-                    <input type="text" placeholder="School Name" className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all" />
-                    <input type="text" placeholder="Pin Code" className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all" />
-                    <textarea placeholder="What are you looking for?" rows="3" className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all resize-none"></textarea>
+                <form className="p-5 space-y-4">
+                  <div className="space-y-4">
+                    <input type="text" placeholder="School Name" className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all placeholder:text-gray-400 font-medium" />
+                    <input type="text" placeholder="Pin Code" className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all placeholder:text-gray-400 font-medium" />
+                    <textarea placeholder="What are you looking for?" rows="4" className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-xs focus:ring-1 focus:ring-sm-blue outline-none transition-all resize-none placeholder:text-gray-400 font-medium"></textarea>
                   </div>
-                  <button type="submit" className="w-full py-2.5 bg-sm-blue text-white font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-blue-700 transition-colors shadow-sm">Submit Quote</button>
+                  <button type="submit" className="w-full py-3 bg-sm-blue text-white font-black rounded-xl text-xs uppercase tracking-[0.2em] hover:bg-blue-700 transition-all shadow-md active:scale-[0.98]">Submit Request</button>
                 </form>
               </div>
             </div>
