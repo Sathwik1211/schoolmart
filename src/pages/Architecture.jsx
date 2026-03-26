@@ -1,196 +1,131 @@
 // src/pages/Architecture.jsx
 import { Link } from 'react-router-dom';
-import { Building2, Ruler, PenTool, Home, TreePine, Lightbulb, Check, ArrowRight, Compass } from 'lucide-react';
-import ImageOverlayCard from '../components/ImageOverlayCard';
+import { Building2, PencilRuler, Compass, Map, Home, ArrowRight, Download, FileCheck, Layers } from 'lucide-react';
 
-const serviceImages = [
-  'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80',
-  'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
-  'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80',
-  'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80',
-  'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
+const categories = [
+  { id: 'all', name: 'CAMPUS PLANNING', icon: <Building2 size={24} /> },
+  { id: 'interior', name: 'INTERIOR DESIGN', icon: <PencilRuler size={24} /> },
+  { id: 'blueprints', name: 'BLUEPRINTS', icon: <Compass size={24} /> },
+  { id: 'landscape', name: 'LANDSCAPE', icon: <Map size={24} /> },
+  { id: 'renovation', name: 'RENOVATION', icon: <Home size={24} /> },
+];
+
+const projects = [
+  {
+    title: 'Modern Central Wing',
+    loc: 'Mumbai, MH',
+    desc: 'A futuristic campus expansion featuring 40+ smart classrooms and a central atrium.',
+    img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80',
+    tags: ['NEP Ready', 'Solar Integrated']
+  },
+  {
+    title: 'The Green Primary School',
+    loc: 'Bangalore, KA',
+    desc: 'Integrating nature into learning with open-air corridors and rooftop gardens.',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80',
+    tags: ['Sustainable', 'Daylight Optimized']
+  },
 ];
 
 const Architecture = () => {
-  const services = [
-    {
-      title: 'School Master Planning',
-      description: 'Comprehensive campus planning and layout design for optimal space utilization.',
-      icon: Compass,
-      accent: '#3B82F6',
-      img: serviceImages[0],
-    },
-    {
-      title: 'Building Design',
-      description: 'Architectural design of school buildings with modern aesthetics and functionality.',
-      icon: Building2,
-      accent: '#8B5CF6',
-      img: serviceImages[1],
-    },
-    {
-      title: 'Interior Design',
-      description: 'Interior spaces designed for learning, creativity, and student well-being.',
-      icon: Home,
-      accent: '#EC4899',
-      img: serviceImages[2],
-    },
-    {
-      title: 'Landscape Design',
-      description: 'Outdoor spaces, gardens, and play areas designed for exploration and recreation.',
-      icon: TreePine,
-      accent: '#10B981',
-      img: serviceImages[3],
-    },
-    {
-      title: 'Renovation & Expansion',
-      description: 'Transform existing spaces and expand facilities to meet growing needs.',
-      icon: Ruler,
-      accent: '#F97316',
-      img: serviceImages[4],
-    },
-    {
-      title: 'Sustainable Design',
-      description: 'Eco-friendly and energy-efficient school designs for a greener future.',
-      icon: Lightbulb,
-      accent: '#14B8A6',
-      img: serviceImages[5],
-    },
-  ];
-
-  const features = [
-    '16+ Panel Architects',
-    'NEP 2020 Compliant Designs',
-    '3D Visualization',
-    'End-to-End Execution',
-    'Sustainable Practices',
-    'Budget Optimization',
-  ];
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-indigo-700 py-14 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="text-white z-10 relative">
-              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4">School Architecture</span>
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-3 leading-tight">
-                Inspiring Learning<br />Spaces
-              </h1>
-              <p className="text-lg text-white/80 mb-5">
-                Designing world-class school campuses with India's leading architects
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Master Planning</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Building Design</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">3D Visualization</span>
+    <main className="min-h-screen bg-[#0F172A] text-white overflow-hidden pt-24">
+      {/* OVERSIZE TYPOGRAPHY HERO (Unique for Architecture) */}
+      <section className="px-4 py-20 relative border-b border-white/5">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] -mr-96 -mt-96" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+           <div className="flex flex-col lg:flex-row items-end gap-10 mb-20">
+              <div className="flex-1">
+                 <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase font-heading select-none opacity-20 absolute -top-10 left-0 pointer-events-none">Architecture</h1>
+                 <h2 className="text-5xl md:text-8xl font-black font-heading leading-tight mb-8 relative">
+                    Designing <br/><span className="text-sm-blue italic font-serif">Future Heritage.</span>
+                 </h2>
+                 <p className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed">
+                    We bridge the gap between educational philosophy and physical form. Our architectural services transform campuses into world-class landmarks of learning.
+                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact-us" className="px-6 py-2.5 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm">
-                  Book Consultation
-                </Link>
-                <Link to="/design" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">
-                  View Designs
-                </Link>
+              <div className="flex flex-col gap-4 min-w-[300px]">
+                 <div className="p-6 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-sm-blue mb-4">Service Capabilities</p>
+                    <div className="space-y-3 text-sm font-bold text-gray-300">
+                       <div className="flex items-center gap-2"><FileCheck size={16} className="text-emerald-500" /> Site Feasibility Studies</div>
+                       <div className="flex items-center gap-2"><Layers size={16} className="text-emerald-500" /> NEP Compliance Audits</div>
+                       <div className="flex items-center gap-2"><Download size={16} className="text-emerald-500" /> Digital Twin Planning</div>
+                    </div>
+                 </div>
               </div>
+           </div>
+
+           {/* Circular Categories (Maintain User Requirement but with Dark Theme) */}
+           <div className="flex overflow-x-auto gap-12 pb-12 hide-scrollbar justify-start lg:justify-center">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex flex-col items-center gap-4 group flex-none">
+                 <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white group-hover:border-sm-blue transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-blue-500/20">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[9px] font-black text-white group-hover:text-sm-blue tracking-widest uppercase transition-colors">{cat.name}</span>
+               </button>
+             ))}
+           </div>
+        </div>
+      </section>
+
+      {/* HORIZONTAL SCROLL GALLERY (Unique for Architecture) */}
+      <section className="py-24 px-4 bg-white text-gray-900 rounded-t-[80px]">
+         <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-16 px-4">
+               <div>
+                  <h3 className="text-4xl font-black font-heading tracking-tight">Iconic Portfolios</h3>
+                  <p className="text-gray-500 mt-2 font-medium">Selected works across the Indian heritage landscape.</p>
+               </div>
+               <button className="px-8 py-3 bg-gray-900 text-white font-black rounded-full hover:bg-sm-blue transition-all uppercase tracking-widest text-xs">View All Work</button>
             </div>
-            <div className="relative h-72 lg:h-80 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/images/hero_architecture.png"
-                alt="School architecture"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
+
+            <div className="space-y-32">
+               {projects.map((proj, i) => (
+                  <div key={i} className={`flex flex-col lg:flex-row gap-20 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                     <div className="flex-1 group">
+                        <div className="relative rounded-[60px] overflow-hidden shadow-2xl h-[600px] w-full">
+                           <img src={proj.img} alt={proj.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
+                           <div className="absolute inset-0 bg-sm-blue/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                           <div className="absolute top-10 right-10 flex gap-2">
+                              {proj.tags.map(t => (
+                                 <span key={t} className="px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black tracking-widest uppercase shadow-sm">{t}</span>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
+                     <div className="max-w-md">
+                        <span className="text-sm-blue font-black text-xs uppercase tracking-[0.3em] mb-4 block">Project {i + 1} // {proj.loc}</span>
+                        <h4 className="text-4xl font-black font-heading mb-6 leading-tight">{proj.title}</h4>
+                        <p className="text-gray-500 text-lg leading-relaxed mb-10">{proj.desc}</p>
+                        <div className="flex items-center gap-10">
+                           <button className="flex items-center gap-3 text-xs font-black uppercase tracking-widest group hover:text-sm-blue transition-colors">
+                              Explore Details <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               ))}
             </div>
-          </div>
-        </div>
+         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-6 px-4 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check size={11} className="text-white" />
-                </div>
-                <span className="text-sm text-gray-700 font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 font-heading mb-2">
-              Our Architectural Services
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
-              Comprehensive architecture and design solutions for educational institutions
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services.map((service, index) => (
-              <ImageOverlayCard
-                key={index}
-                img={service.img}
-                title={service.title}
-                description={service.description}
-                badge={{ label: 'Architecture', color: service.accent }}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-gray-900 font-heading mb-8">
-            Our Design Process
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { step: '01', title: 'Discovery', desc: 'Understanding your vision, requirements, and constraints' },
-              { step: '02', title: 'Concept Design', desc: 'Creating initial concepts and 3D visualizations' },
-              { step: '03', title: 'Detailed Design', desc: 'Developing detailed architectural drawings and plans' },
-              { step: '04', title: 'Execution', desc: 'Overseeing construction and ensuring quality delivery' },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">
-                  {item.step}
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-12 px-4 bg-sm-navy">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading mb-3">
-            Ready to Design Your Dream School?
-          </h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
-            Schedule a free consultation with our panel of expert school architects and bring your vision to life.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact-us" className="px-6 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">
-              Book Free Consultation
-            </Link>
-            <a href="tel:+919966109191" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">
-              Call Us
-            </a>
-          </div>
-        </div>
+      {/* SIGNATURE COLLABORATION SECTION */}
+      <section className="py-24 px-4 bg-gray-50">
+         <div className="max-w-5xl mx-auto rounded-[60px] bg-sm-blue p-12 lg:p-20 text-center relative shadow-3xl overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+            <h5 className="text-white text-3xl md:text-5xl font-black font-heading leading-tight mb-8">Ready to define <br/> school culture by design?</h5>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+               <button className="px-12 py-5 bg-white text-gray-900 font-black rounded-3xl hover:bg-sm-gray transition-all shadow-xl uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                  Consult With Architects <PencilRuler size={18} />
+               </button>
+               <button className="px-12 py-5 bg-transparent border-2 border-white/30 text-white font-black rounded-3xl hover:bg-white/10 transition-all uppercase tracking-widest text-xs">
+                  Review Portfolio
+               </button>
+            </div>
+         </div>
       </section>
     </main>
   );

@@ -1,208 +1,131 @@
 // src/pages/Science.jsx
 import { Link } from 'react-router-dom';
-import { FlaskConical, Atom, Microscope, Beaker, Lightbulb, BookOpen, Check, ArrowRight, Sparkles } from 'lucide-react';
-import ImageOverlayCard from '../components/ImageOverlayCard';
+import { FlaskConical, Beaker, Atom, Microscope, DNA, Zap, ArrowRight, Download, Eye, FileText, Activity, Layers } from 'lucide-react';
 
-const labImages = [
-  '/images/card_physics_lab.png',
-  'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
-  '/images/card_biology_lab.png',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
-  'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=600&q=80',
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+const categories = [
+  { id: 'all', name: 'CHEMISTRY KITS', icon: <FlaskConical size={24} /> },
+  { id: 'physics', name: 'PHYSICS LABS', icon: <Atom size={24} /> },
+  { id: 'biology', name: 'BIOLOGY MODELS', icon: <DNA size={24} /> },
+  { id: 'micro', name: 'MICROSCOPES', icon: <Microscope size={24} /> },
+  { id: 'safety', name: 'LAB SAFETY', icon: <Activity size={24} /> },
+];
+
+const scienceItems = [
+  { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', desc: 'Integrated gas, water, and electrical supply with chemical-resistant surface.', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', badge: 'Safety Plus' },
+  { id: 2, title: 'The Human Anatomy V3', cat: 'Biology Models', desc: 'Medical-grade 3D anatomical models with AR-companion learning app.', img: 'https://images.unsplash.com/photo-1540344211158-99937399a9a3?w=800&q=80', badge: 'High-Detail' },
 ];
 
 const Science = () => {
-  const labs = [
-    {
-      title: 'Physics Lab',
-      description: 'Complete setup for mechanics, optics, electricity, and modern physics experiments.',
-      icon: Atom,
-      accent: '#3B82F6',
-      img: labImages[0],
-    },
-    {
-      title: 'Chemistry Lab',
-      description: 'Safety-compliant chemistry lab with all necessary equipment and storage.',
-      icon: Beaker,
-      accent: '#10B981',
-      img: labImages[1],
-    },
-    {
-      title: 'Biology Lab',
-      description: 'Microscopes, specimens, and equipment for life science exploration.',
-      icon: Microscope,
-      accent: '#EC4899',
-      img: labImages[2],
-    },
-    {
-      title: 'STEM Lab',
-      description: 'Integrated science, technology, engineering, and math learning space.',
-      icon: Lightbulb,
-      accent: '#8B5CF6',
-      img: labImages[3],
-    },
-    {
-      title: 'Composite Lab',
-      description: 'NEP-compliant combined lab for multi-disciplinary science learning.',
-      icon: FlaskConical,
-      accent: '#F97316',
-      img: labImages[4],
-    },
-    {
-      title: 'Science Park',
-      description: 'Outdoor science learning area with interactive exhibits and models.',
-      icon: Sparkles,
-      accent: '#14B8A6',
-      img: labImages[5],
-    },
-  ];
-
-  const features = [
-    'NEP 2020 Compliant',
-    'Safety Certified',
-    'Complete Equipment',
-    'Installation Support',
-    'Teacher Training',
-    'Maintenance Services',
-  ];
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <section className="relative bg-gradient-to-r from-cyan-600 to-blue-700 py-14 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="text-white z-10 relative">
-              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4">Science Labs</span>
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-3 leading-tight">
-                Science is Fun
+    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-4">
+        
+        {/* EXPERIMENTAL LAB HERO (Unique for Science) */}
+        <section className="py-20 flex flex-col items-center text-center relative overflow-hidden bg-white/50 rounded-[80px] border border-gray-100 mb-20 shadow-sm">
+           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sm-blue opacity-[0.03] rounded-full blur-[100px] -mr-96 -mt-96" />
+           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-500 opacity-[0.03] rounded-full blur-[80px] -ml-64 -mb-64" />
+
+           <div className="relative z-10 flex flex-col items-center">
+              <span className="inline-block px-5 py-2 bg-emerald-500/10 text-emerald-600 font-black rounded-full mb-8 text-[11px] uppercase tracking-widest border border-emerald-500/20 active:translate-y-1 transition-transform cursor-pointer">
+                 <Activity size={16} className="inline mr-2 animate-pulse" /> Experimental Discovery
+              </span>
+              <h1 className="text-6xl md:text-9xl font-black font-heading leading-none tracking-tighter text-gray-900 mb-10">
+                 Science Is <br/> <span className="text-sm-blue italic font-serif uppercase tracking-tight">Pure</span> Fun.
               </h1>
-              <p className="text-lg text-white/80 mb-5">
-                Create engaging science labs that inspire curiosity and discovery
+              <p className="text-gray-500 text-lg md:text-xl max-w-xl mx-auto mb-16 leading-relaxed font-medium">
+                 From periodic tables on walls to professional-grade gas-fitted workbenches, we create spaces where curiosity triggers action.
               </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Physics</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Chemistry</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Biology</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">STEM</span>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact-us" className="px-6 py-2.5 bg-white text-cyan-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm">
-                  Setup Science Lab
-                </Link>
-                <Link to="/catalogues" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">
-                  View Equipment
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-72 lg:h-80 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/images/hero_science.png"
-                alt="Science lab"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/40 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Features */}
-      <section className="py-6 px-4 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check size={11} className="text-white" />
-                </div>
-                <span className="text-sm text-gray-700 font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lab Types */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 font-heading mb-2">Science Lab Solutions</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">Complete lab setup solutions for all science disciplines</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {labs.map((lab, index) => (
-              <ImageOverlayCard
-                key={index}
-                img={lab.img}
-                title={lab.title}
-                description={lab.description}
-                badge={{ label: 'Science', color: lab.accent }}
-                fallback="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Science Labs */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 font-heading mb-5">
-                Why Invest in Science Labs?
-              </h2>
-              <div className="space-y-4">
-                {[
-                  { title: 'Hands-On Learning', desc: 'Practical experiments help students understand scientific concepts better.' },
-                  { title: 'Scientific Temperament', desc: 'Labs develop observation, analysis, and problem-solving skills.' },
-                  { title: 'Career Preparation', desc: 'Early exposure to scientific methods prepares students for STEM careers.' },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-3">
-                    <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Check size={18} className="text-cyan-600" />
+              {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
+              <div className="flex overflow-x-auto gap-12 pb-12 hide-scrollbar justify-start lg:justify-center w-full max-w-4xl">
+                {categories.map((cat) => (
+                  <button key={cat.id} className="flex flex-col items-center gap-4 group flex-none outline-none">
+                    <div className="w-20 h-20 rounded-[35px] bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-emerald-500 group-hover:text-white transition-all transform hover:rotate-3 active:scale-95 border-2 border-transparent group-hover:border-emerald-100">
+                      {cat.icon}
                     </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-gray-900 mb-0.5">{item.title}</h3>
-                      <p className="text-gray-500 text-sm">{item.desc}</p>
-                    </div>
-                  </div>
+                    <span className="text-[10px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
+                  </button>
                 ))}
               </div>
-            </div>
-            <div className="relative h-72 rounded-2xl overflow-hidden shadow-md">
-              <img
-                src="/images/card_biology_lab.png"
-                alt="Science lab equipment"
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80'; }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+           </div>
+        </section>
 
-      {/* CTA */}
-      <section className="py-12 px-4 bg-sm-navy">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading mb-3">
-            Build Your Science Lab Today
-          </h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
-            Get a complete science lab setup with equipment, furniture, and installation support.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact-us" className="px-6 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">
-              Get Quote
-            </Link>
-            <Link to="/labs" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">
-              View All Labs
-            </Link>
-          </div>
+        {/* LAB-GRID SHOWCASE (Screenshot 4 Product Inspired Variation) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
+           {scienceItems.map((item, i) => (
+              <div key={i} className="bg-white p-4 rounded-[60px] border border-gray-100 shadow-sm group hover:shadow-3xl transition-all duration-700 hover:-translate-y-3 cursor-pointer overflow-hidden flex flex-col lg:flex-row gap-10 items-center">
+                 <div className="w-full lg:w-[350px] h-[350px] rounded-[50px] overflow-hidden relative">
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                    <div className="absolute top-6 left-6">
+                       <span className="px-5 py-2 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black tracking-widest text-emerald-600 uppercase shadow-lg select-none">{item.badge}</span>
+                    </div>
+                 </div>
+                 
+                 <div className="flex-1 px-8 pb-10 lg:pb-0">
+                    <span className="text-sm-blue font-black text-[11px] uppercase tracking-[0.3em] block mb-4">{item.cat}</span>
+                    <h3 className="text-3xl font-black text-gray-900 font-heading mb-6 tracking-tight leading-tight group-hover:text-emerald-600 transition-colors">{item.title}</h3>
+                    <p className="text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-widest mb-10 h-10 overflow-hidden line-clamp-2">{item.desc}</p>
+                    <div className="flex items-center gap-4">
+                       <button className="flex-1 py-4 bg-gray-900 group-hover:bg-emerald-600 text-white font-black text-[10px] tracking-widest uppercase rounded-2xl transition-all shadow-xl shadow-gray-100 group-hover:shadow-emerald-100 active:scale-95">Download Info <Download size={14} className="inline ml-1" /></button>
+                       <button className="w-14 h-14 bg-gray-50 group-hover:bg-white border border-gray-100 group-hover:border-emerald-100 rounded-2xl flex items-center justify-center text-gray-300 group-hover:text-emerald-600 transition-all active:scale-95 shadow-sm">
+                          <Eye size={20} />
+                       </button>
+                    </div>
+                 </div>
+              </div>
+           ))}
         </div>
-      </section>
+
+        {/* TECHNICAL SCIENCE BENTO (Screenshot 2 / Unique Element) */}
+        <section className="py-24 grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-8 h-auto lg:h-[800px]">
+           {/* Main Safety Feature */}
+           <div className="lg:col-span-2 lg:row-span-2 bg-[#1A1A1A] rounded-[70px] p-12 lg:p-20 text-white relative overflow-hidden group shadow-3xl">
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500 opacity-10 rounded-full blur-[100px] group-hover:opacity-30 transition-opacity" />
+              <div className="relative z-10 flex flex-col h-full items-center text-center">
+                 <div className="w-24 h-24 bg-emerald-500/20 backdrop-blur-md rounded-[35px] flex items-center justify-center text-emerald-400 border border-emerald-500/30 mb-12 shadow-2xl group-hover:scale-110 transition-transform">
+                    <Activity size={48} />
+                 </div>
+                 <h2 className="text-4xl md:text-6xl font-black font-heading leading-[0.9] mb-10 tracking-tighter">Zero-Leaking <br/> <span className="text-emerald-400 italic">Security.</span></h2>
+                 <p className="text-white/40 text-xs font-bold uppercase tracking-widest leading-loose max-w-sm mb-12">
+                    Our laboratory workbenches feature hospital-grade epoxy coating and fire-proof gas plumbing, ensuring maximum child safety during high-frequency experiments.
+                 </p>
+                 <div className="mt-auto flex gap-4">
+                    <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-3xl hover:bg-emerald-500 hover:text-white transition-all shadow-xl uppercase tracking-widest text-[10px] active:scale-95">Safety Handbook</button>
+                 </div>
+              </div>
+           </div>
+
+           {/* Small Stats Bento */}
+           <div className="lg:col-span-1 lg:row-span-1 bg-white rounded-[50px] p-10 shadow-sm border border-gray-50 flex flex-col justify-center items-center text-center group hover:shadow-2xl transition-all hover:bg-emerald-50 transition-colors">
+              <span className="text-4xl font-black text-emerald-600 mb-2 font-heading">SEFA</span>
+              <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-tight">Certified Lab <br/> Furniture Member</p>
+           </div>
+           
+           <div className="lg:col-span-1 lg:row-span-1 bg-sm-blue rounded-[50px] p-10 shadow-2xl flex flex-col justify-center items-center text-center text-white group hover:bg-emerald-600 transition-colors">
+              <Beaker size={40} className="mb-6 opacity-30 group-hover:scale-125 transition-transform" />
+              <h5 className="text-3xl font-black font-heading mb-1 tracking-tight leading-none uppercase">500+</h5>
+              <p className="text-white/40 text-[9px] font-bold uppercase tracking-widest">Kits Installed <br/> Pan-India</p>
+           </div>
+
+           {/* Bottom CTA Bento Row */}
+           <div className="lg:col-span-2 lg:row-span-1 bg-white rounded-[50px] p-8 lg:p-12 border border-gray-100 shadow-sm flex items-center justify-between group overflow-hidden relative active:scale-[0.98] cursor-pointer">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
+                 <div className="w-16 h-16 bg-gray-900 rounded-3xl flex items-center justify-center text-white shadow-xl group-hover:bg-emerald-600 transition-colors">
+                    <FileText size={24} />
+                 </div>
+                 <div>
+                    <h5 className="text-xl font-black text-gray-900 mb-1 leading-tight uppercase tracking-tight">Institutional Setup Guide</h5>
+                    <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">Step-by-step PDF Lab Blueprints</p>
+                 </div>
+              </div>
+              <div className="w-14 h-14 border-2 border-gray-900 group-hover:bg-emerald-600 group-hover:border-emerald-600 text-gray-900 group-hover:text-white rounded-full flex items-center justify-center transition-all">
+                 <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+           </div>
+
+        </section>
+
+      </div>
     </main>
   );
 };

@@ -1,239 +1,134 @@
 // src/pages/Guides.jsx
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, Download, ExternalLink, ChevronRight, Lightbulb, School, Calculator, FlaskConical, Library } from 'lucide-react';
+import { BookOpen, FileText, Download, Search, Layout, ArrowUpRight, CheckCircle2, Award, Zap, Building2, Lightbulb, MousePointer2 } from 'lucide-react';
+
+const categories = [
+  { id: 'all', name: 'INSTITUTIONAL GUIDES', icon: <Building2 size={24} /> },
+  { id: 'design', name: 'DESIGN HANDBOOKS', icon: <Layout size={24} /> },
+  { id: 'tech', name: 'TECH MANUALS', icon: <MousePointer2 size={24} /> },
+  { id: 'infra', name: 'INFRA STRATEGY', icon: <Lightbulb size={24} /> },
+];
+
+const guideItems = [
+  { title: 'The NEP 2020 Compliance Guide', cat: 'Policy', size: '1.2 MB', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=600&q=80', badge: 'Must Read' },
+  { title: 'Color Theory for Classrooms', cat: 'Design', size: '2.5 MB', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', badge: 'Latest' },
+  { title: 'Smart Campus Cybersecurity', cat: 'Technology', size: '0.8 MB', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80', badge: 'Essential' },
+  { title: 'Ergonomic Seating Standards', cat: 'Furniture', size: '3.1 MB', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80' },
+];
 
 const Guides = () => {
-  const guides = [
-    {
-      title: 'Complete Guide to Digitization of Schools',
-      description: 'A comprehensive guide to transforming your school with digital infrastructure and tools.',
-      icon: Lightbulb,
-      color: 'bg-blue-500',
-      category: 'Digital',
-      img: 'https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=800&q=80',
-    },
-    {
-      title: 'Setting Up A School In India',
-      description: 'Step-by-step guide for establishing a new school, from planning to execution.',
-      icon: School,
-      color: 'bg-green-500',
-      category: 'Setup',
-      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80',
-    },
-    {
-      title: 'How to Setup Composite Skill Lab',
-      description: 'Detailed guide on designing and setting up NEP-compliant composite skill labs.',
-      icon: FlaskConical,
-      color: 'bg-purple-500',
-      category: 'Labs',
-      img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80',
-    },
-    {
-      title: 'Gamified Math Resources',
-      description: 'Collection of resources and ideas for creating engaging math learning environments.',
-      icon: Calculator,
-      color: 'bg-yellow-500',
-      category: 'Math',
-      img: 'https://images.unsplash.com/photo-1596496181871-9681eacf9764?w=800&q=80',
-    },
-    {
-      title: 'Library Trends 2025',
-      description: 'Latest trends in school library design and digital integration.',
-      icon: Library,
-      color: 'bg-orange-500',
-      category: 'Library',
-      img: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80',
-    },
-    {
-      title: '20 Stunning School Design Ideas',
-      description: 'Inspirational school architecture and interior design concepts.',
-      icon: School,
-      color: 'bg-pink-500',
-      category: 'Design',
-      img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
-    },
-  ];
-
-  const resources = [
-    { title: 'Product Catalog 2025', type: 'PDF', size: '15 MB' },
-    { title: 'Lookbook - Play Furniture', type: 'PDF', size: '8 MB' },
-    { title: 'Completed Projects Portfolio', type: 'PDF', size: '25 MB' },
-    { title: 'NEP Implementation Guide', type: 'PDF', size: '5 MB' },
-    { title: 'Furniture Planning Guide', type: 'PDF', size: '10 MB' },
-    { title: 'Digital Classroom Setup', type: 'PDF', size: '7 MB' },
-  ];
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-700 py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <BookOpen size={80} className="text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white font-heading mb-4">
-            Guides & Resources
-          </h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Comprehensive guides, resources, and insights to help you build better schools
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen bg-gray-50 pt-24 pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        
+        {/* KNOWLEDGE SEARCH HERO (Unique for Guides) */}
+        <section className="py-20 flex flex-col items-center text-center relative overflow-hidden bg-white/50 rounded-[80px] border border-gray-100 mb-20 shadow-sm">
+           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sm-blue opacity-[0.03] rounded-full blur-[100px] -mr-96 -mt-96" />
+           
+           <div className="relative z-10 w-full max-w-4xl flex flex-col items-center">
+              <span className="inline-block px-5 py-2 bg-yellow-400 text-gray-900 font-black rounded-full mb-8 text-[11px] uppercase tracking-widest shadow-lg active:scale-95 transition-transform"><BookOpen size={16} className="inline mr-2" /> Educational Resources</span>
+              <h1 className="text-6xl md:text-9xl font-black font-heading leading-none tracking-tighter text-gray-900 mb-12">
+                 Guides. <span className="text-sm-blue uppercase italic font-serif tracking-tight">Strategy.</span> <br/> Success.
+              </h1>
+              
+              {/* Search Bar (Screenshot 4 Interaction Inspired) */}
+              <div className="w-full max-w-2xl relative mb-16">
+                 <input type="text" placeholder="Search institutional handbooks..." className="w-full px-12 py-6 bg-white rounded-[40px] shadow-2xl border border-gray-100 focus:border-sm-blue focus:shadow-blue-100 outline-none transition-all placeholder:text-gray-300 font-medium text-lg" />
+                 <Search size={28} className="absolute left-12 top-1/2 -translate-y-1/2 text-gray-200 group-focus-within:text-sm-blue transition-colors" />
+                 <button className="absolute right-4 top-1/2 -translate-y-1/2 px-8 py-3 bg-gray-900 text-white font-black rounded-full hover:bg-sm-blue transition-all uppercase tracking-widest text-[10px]">Filter</button>
+              </div>
 
-      {/* Featured Guides */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 font-heading mb-4">
-            Featured Guides
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Explore our collection of in-depth guides covering various aspects of school infrastructure
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {guides.map((guide, index) => {
-              const Icon = guide.icon;
-              return (
-                <div key={index} className="bg-white rounded-lg overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={guide.img} 
-                      alt={guide.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <div className={`${guide.color} w-10 h-10 rounded-lg flex items-center justify-center shadow-lg`}>
-                        <Icon size={20} className="text-white" />
-                      </div>
+              {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
+              <div className="flex overflow-x-auto gap-12 pb-12 hide-scrollbar justify-start lg:justify-center w-full">
+                {categories.map((cat) => (
+                  <button key={cat.id} className="flex flex-col items-center gap-4 group flex-none outline-none">
+                    <div className="w-18 h-18 rounded-[35px] bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-gray-900 group-hover:text-white transition-all transform hover:rotate-6 active:scale-95 border border-transparent group-hover:border-sm-blue">
+                      {cat.icon}
                     </div>
-                    <div className="absolute bottom-4 left-4">
-                      <span className="px-2 py-0.5 bg-white/20 backdrop-blur-md text-white text-[10px] font-semibold uppercase tracking-wider rounded-full border border-white/10">
-                        {guide.category}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 font-heading mb-2">{guide.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{guide.description}</p>
-                    <button className="flex items-center gap-2 text-sm-blue font-medium hover:underline">
-                      <Download size={16} />
-                      <span>Download Guide</span>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Resources List */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 font-heading mb-6">
-                Downloadable Resources
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Access our library of downloadable resources including catalogues, lookbooks, 
-                and implementation guides.
-              </p>
-              <div className="space-y-3">
-                {resources.map((resource, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors duration-200 group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-                        <FileText size={18} className="text-indigo-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">{resource.title}</p>
-                        <p className="text-sm text-gray-500">{resource.type} • {resource.size}</p>
-                      </div>
-                    </div>
-                    <button className="p-2 text-gray-400 hover:text-indigo-600 transition-colors duration-200">
-                      <Download size={18} />
-                    </button>
-                  </div>
+                    <span className="text-[10px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
+                  </button>
                 ))}
               </div>
-            </div>
-            <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl h-full min-h-80 flex items-center justify-center">
-              <BookOpen size={140} className="text-indigo-400 opacity-40" />
-            </div>
-          </div>
-        </div>
-      </section>
+           </div>
+        </section>
 
-      {/* Quick Links */}
-      <section className="py-16 px-4 bg-sm-gray">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 font-heading mb-12">
-            Explore More
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link to="/furniture" className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-sm-orange/10 rounded-lg flex items-center justify-center mb-4">
-                <ExternalLink size={24} className="text-sm-orange" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Furniture</h3>
-              <p className="text-gray-600 text-sm">Browse our furniture collection</p>
-            </Link>
-            <Link to="/digital" className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-sm-blue/10 rounded-lg flex items-center justify-center mb-4">
-                <ExternalLink size={24} className="text-sm-blue" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Digital</h3>
-              <p className="text-gray-600 text-sm">Explore digital solutions</p>
-            </Link>
-            <Link to="/labs" className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
-                <ExternalLink size={24} className="text-purple-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Labs</h3>
-              <p className="text-gray-600 text-sm">View lab setup options</p>
-            </Link>
-            <Link to="/design" className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-4">
-                <ExternalLink size={24} className="text-pink-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Designs</h3>
-              <p className="text-gray-600 text-sm">See design inspirations</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+        {/* HIGH-DENSITY RESOURCE TILES (Screenshot 4 variation but for Guides) */}
+        <section className="py-20 border-t border-gray-100">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {guideItems.map((item, i) => (
+                 <div key={i} className="bg-white p-4 rounded-[60px] border border-gray-100 shadow-sm transition-all duration-700 hover:shadow-3xl hover:-translate-y-4 group cursor-pointer overflow-hidden flex flex-col relative">
+                    <div className="relative h-60 rounded-[45px] overflow-hidden mb-6">
+                       <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                       <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                       {item.badge && (
+                          <div className="absolute top-6 left-6 px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black tracking-widest uppercase shadow-lg text-sm-blue border border-blue-50">{item.badge}</div>
+                       )}
+                    </div>
+                    <div className="px-6 pb-8 flex-1 flex flex-col">
+                       <p className="text-sm-blue font-black text-[10px] uppercase tracking-widest mb-3">{item.cat} Handbook</p>
+                       <h3 className="text-xl font-black text-gray-900 font-heading mb-6 tracking-tight leading-tight group-hover:text-sm-blue transition-colors flex-1">{item.title}</h3>
+                       <div className="flex items-center justify-between pt-6 border-t border-gray-50">
+                          <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest">{item.size} PDF</span>
+                          <button className="w-10 h-10 bg-gray-50 group-hover:bg-sm-blue group-hover:text-white rounded-2xl flex items-center justify-center text-gray-300 transition-all active:scale-95">
+                             <Download size={18} />
+                          </button>
+                       </div>
+                    </div>
+                 </div>
+              ))}
 
-      {/* CTA */}
-      <section className="py-16 px-4 bg-sm-navy">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-4">
-            Need Custom Guidance?
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Our experts can provide personalized guidance for your school infrastructure project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/contact-us"
-              className="px-8 py-3 bg-sm-orange text-white font-semibold rounded-md hover:bg-orange-600 transition-colors duration-200"
-            >
-              Talk to an Expert
-            </Link>
-            <a 
-              href="https://wa.me/919966109191"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-sm-navy transition-colors duration-200"
-            >
-              WhatsApp Us
-            </a>
-          </div>
-        </div>
-      </section>
+              {/* UNIQUE BENTO CALL-TO-ACTION FOR GUIDES */}
+              <div className="lg:col-span-2 bg-[#1A1A1A] rounded-[70px] p-12 lg:p-16 text-white relative overflow-hidden group shadow-3xl flex flex-col lg:flex-row items-center gap-12 active:scale-[0.99] cursor-pointer">
+                 <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-sm-blue opacity-10 rounded-full blur-[80px] group-hover:opacity-30 transition-opacity" />
+                 <div className="w-32 h-32 bg-sm-blue/20 backdrop-blur-md rounded-[50px] flex items-center justify-center text-sm-blue border border-sm-blue/30 shadow-2xl group-hover:rotate-12 transition-transform">
+                    <Zap size={60} />
+                 </div>
+                 <div className="flex-1 text-center lg:text-left">
+                    <h4 className="text-3xl font-black font-heading mb-4 tracking-tight leading-tight uppercase">Request Custom Guide.</h4>
+                    <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest leading-loose mb-8">Can't find the specific compliance guide for your state? Our strategy team will curate one for you.</p>
+                    <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-3xl hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[10px]">Speak to Strategist</button>
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* FEATURED ARTICLES (Screenshot 2 / Unique Element) */}
+        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+           <div className="relative rounded-[70px] overflow-hidden shadow-2xl h-[700px] border-8 border-white group">
+              <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=1000&q=80" alt="Guide Detail" className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-16 left-16 right-16">
+                 <h2 className="text-4xl md:text-6xl font-black font-heading leading-tight mb-8 tracking-tighter text-white uppercase">The Smart <br/> Campus <span className="text-sm-blue italic lowercase font-serif border-b-4 border-sm-blue">Playbook.</span></h2>
+                 <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-full hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[10px] flex items-center gap-3">
+                    Read Online Case Study <ArrowUpRight size={18} />
+                 </button>
+              </div>
+           </div>
+
+           <div className="bg-white p-12 lg:p-20 rounded-[80px] shadow-3xl border border-gray-50 relative z-10 group overflow-hidden">
+              <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="relative z-10">
+                 <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-tight tracking-tighter uppercase">Certification <br/> & <span className="text-sm-blue">Compliance.</span></h2>
+                 <p className="text-gray-500 text-lg leading-relaxed mb-12 font-medium">
+                    We ensure all your instructional resource procurement aligns with the latest national education policy and safety standards.
+                 </p>
+                 <div className="space-y-6">
+                    {['BIFMA Certified Solutions', 'NEA Safety Manuals 2024', 'Sustainability Blueprints', 'IoT Implementation Handbooks'].map((item, i) => (
+                       <div key={i} className="flex items-center gap-6 p-6 rounded-[35px] bg-white shadow-xl border border-gray-100 transition-all cursor-pointer hover:border-sm-blue active:scale-[0.98]">
+                          <div className="w-12 h-12 bg-blue-50 text-sm-blue group-hover:bg-sm-blue group-hover:text-white rounded-2xl flex items-center justify-center transition-all">
+                             <CheckCircle2 size={24} />
+                          </div>
+                          <span className="text-[11px] font-black uppercase tracking-[0.2em]">{item}</span>
+                          <div className="ml-auto opacity-20">
+                             <Award size={20} />
+                          </div>
+                       </div>
+                    ))}
+                 </div>
+              </div>
+           </div>
+        </section>
+      </div>
     </main>
   );
 };

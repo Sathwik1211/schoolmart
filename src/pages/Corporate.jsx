@@ -1,156 +1,122 @@
 // src/pages/Corporate.jsx
 import { Link } from 'react-router-dom';
-import { Check, Award, Lightbulb, TrendingUp, Users, Building2 } from 'lucide-react';
-import ImageOverlayCard from '../components/ImageOverlayCard';
+import { Target, Users, Rocket, Award, ShieldCheck, Heart, ArrowUpRight, CheckCircle2, LayoutGrid, Sparkles, Building2, Briefcase, Globe } from 'lucide-react';
+
+const partners = [
+  { name: 'KVS Schools', cat: 'Central Govt', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=400&q=80' },
+  { name: 'Podar Education', cat: 'Private Network', img: 'https://images.unsplash.com/photo-1522071823907-b712ec46597a?w=400&q=80' },
+  { name: 'JNV Academies', cat: 'Govt Residential', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80' },
+];
 
 const Corporate = () => {
-  const benefits = [
-    'Building a community of education innovators, edtech enthusiasts and change makers',
-    'Manufactures most of its products inhouse with own factories spread across India.',
-    'Gives advisory on running schools, acquisition of schools, expansions',
-    'Involved in renovation of schools as per latest curriculum needs',
-    'Exposes partner schools to latest innovations, edtech products at lesser price',
-    'Actively involved in gamification of school curriculum',
-  ];
-
-  const features = [
-    { icon: Award, title: 'Quality', description: 'All products by Dogus Educational Equipments are subjected to quality control procedures. Our company has TS, ISO 9001 quality certification.', accent: '#3B82F6', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-    { icon: Lightbulb, title: 'R & D', description: 'Scientific, technical and visual field is constantly changing. Our R&D activities keep up with technology and drive continuous improvement.', accent: '#EAB308', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80' },
-    { icon: TrendingUp, title: 'Sales', description: 'Dogus Educational Equipment sales network both domestically and abroad are quickly structured. Quality, service, and customer satisfaction based company.', accent: '#10B981', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80' },
-  ];
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <section className="relative bg-gradient-to-r from-sm-blue to-blue-700 py-14 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="text-white z-10">
-              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4">About Schoolmart</span>
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-3 leading-tight">
-                One Stop for All<br />School Infrastructure
-              </h1>
-              <p className="text-lg text-white/80 mb-5">
-                A consortium of 16 panel architects, 20+ designers, school innovators, and EdTech experts working from 4 countries
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact-us" className="px-6 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">Request a Quote</Link>
-                <Link to="/catalogues" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">View Catalogues</Link>
-              </div>
+    <main className="min-h-screen bg-white pt-24 pb-20 overflow-hidden relative">
+      {/* PROFESSIONAL BENTO HERO (Unique for Corporate) */}
+      <section className="px-4 py-20 max-w-7xl mx-auto">
+         <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-6 gap-6 h-auto lg:h-[1000px]">
+            
+            {/* Main Statement Bento (Screenshot 2 Inspired) */}
+            <div className="lg:col-span-8 lg:row-span-4 bg-gray-900 rounded-[60px] p-12 lg:p-20 text-white relative overflow-hidden group shadow-3xl">
+               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sm-blue opacity-10 rounded-full blur-[100px] group-hover:scale-110 transition-transform" />
+               <div className="relative z-10 flex flex-col h-full h-full">
+                  <span className="inline-block px-5 py-2 bg-sm-blue text-white font-black rounded-full mb-10 text-[10px] uppercase tracking-widest shadow-lg">Enterprise Solutions</span>
+                  <h1 className="text-5xl md:text-8xl font-black font-heading leading-[0.85] tracking-tighter uppercase mb-12">
+                     Strategic <br/> Infrastructure <br/> <span className="text-sm-blue italic font-serif">Partnership.</span>
+                  </h1>
+                  <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed mb-auto font-medium uppercase tracking-widest">
+                     We don't just supply; we strategize. Our corporate division handles institutional procurement for high-net school networks across 22 states.
+                  </p>
+                  <div className="mt-12">
+                     <button className="px-10 py-5 bg-white text-gray-900 font-black rounded-3xl hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[11px] active:scale-95 flex items-center gap-3">
+                        Institutional Pitch Deck <Briefcase size={18} />
+                     </button>
+                  </div>
+               </div>
             </div>
-            <div className="relative h-72 lg:h-80 rounded-2xl overflow-hidden shadow-2xl">
-              <img src="/images/hero_about.png" alt="Schoolmart" className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80'; }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="relative">
-              <div className="relative h-64 rounded-2xl overflow-hidden shadow-md">
-                <img src="/images/hero_about.png" alt="Schoolmart team" className="w-full h-full object-cover"
-                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80'; }} />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-sm-blue text-white p-4 rounded-xl shadow-lg">
-                <p className="text-2xl font-bold">4000+</p>
-                <p className="text-xs">Partner Schools</p>
-              </div>
+            {/* Global Reach Bento */}
+            <div className="lg:col-span-4 lg:row-span-3 bg-sm-blue rounded-[60px] p-12 text-white flex flex-col justify-center text-center relative overflow-hidden group shadow-2xl">
+               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
+               <Globe size={80} className="mx-auto mb-8 text-white/30 group-hover:scale-125 transition-transform duration-1000" />
+               <h3 className="text-5xl font-black mb-2 tracking-tight">22</h3>
+               <p className="text-[10px] font-black text-white/60 uppercase tracking-widest leading-loose">States Active <br/> Across PAN India</p>
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 font-heading mb-4">All About Schoolmart</h2>
-              <div className="space-y-3 text-gray-500 text-sm leading-relaxed">
-                <p>Schoolmart is a dynamic consortium comprising school architects, designers, edtech majors, and school innovators who collectively contribute to the transformation of educational institutions.</p>
-                <p>School architects within the consortium design infrastructure that is functional, safe, and sustainable. Their meticulous attention to detail ensures schools provide conducive environments for effective teaching and learning.</p>
-                <p>Schoolmart's edtech experts leverage digital tools, software, and platforms to optimize teaching methodologies, student engagement, and learning outcomes.</p>
-              </div>
+
+            {/* Ethics Bento */}
+            <div className="lg:col-span-4 lg:row-span-3 bg-white rounded-[60px] p-12 shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center group hover:shadow-2xl transition-all">
+               <ShieldCheck size={50} className="text-sm-blue mb-8 group-hover:scale-110 transition-transform" />
+               <h4 className="text-2xl font-black text-gray-900 mb-2 leading-tight uppercase font-heading tracking-tight">Transparency First</h4>
+               <p className="text-gray-400 text-[9px] font-bold uppercase tracking-widest leading-relaxed">Full ERP Integration for <br/> Institutional Audits.</p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Services Section */}
-      <section className="py-10 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-gray-900 font-heading mb-6">Our Services</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {['School Infrastructure', 'Environments', 'Sports Infrastructure', 'School Supplies', 'School Branding', 'E-learning [AR + VR]'].map((service) => (
-              <div key={service} className="bg-white rounded-xl p-4 text-center hover:bg-sm-blue hover:text-white transition-colors duration-300 group border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 bg-sm-blue rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-white">
-                  <Check size={16} className="text-white group-hover:text-sm-blue" />
-                </div>
-                <p className="text-xs font-medium">{service}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Benefits */}
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 font-heading mb-5">
-                Why should you sign up with Schoolmart as a partner school?
-              </h2>
-              <ul className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <div className="w-5 h-5 bg-sm-green rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check size={11} className="text-white" />
+            {/* Partners Bento Grid (Screenshot 3 Style) */}
+            <div className="lg:col-span-8 lg:row-span-2 bg-gray-50 rounded-[60px] p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-10 group shadow-inner">
+               <div className="flex-1">
+                  <h4 className="text-xl font-black text-gray-900 mb-2 uppercase font-heading tracking-tight leading-none">Our High-Impact Allies.</h4>
+                  <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest leading-loose">Serving 50,000+ students monthly.</p>
+               </div>
+               <div className="flex -space-x-8">
+                  {partners.map((p, i) => (
+                    <div key={i} className="w-20 h-20 rounded-full border-8 border-gray-50 overflow-hidden shadow-xl hover:rotate-6 transition-all grayscale hover:grayscale-0 cursor-pointer">
+                       <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
                     </div>
-                    <span className="text-gray-600 text-sm">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 text-gray-500 text-sm italic">There are more features that can make your school a real 'smart school'</p>
-              <Link to="/registration-new-form" className="inline-block mt-4 px-5 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">
-                Signup With Us Today
-              </Link>
+                  ))}
+                  <div className="w-20 h-20 rounded-full border-8 border-gray-50 bg-sm-blue flex items-center justify-center text-white text-xs font-black shadow-xl hover:-rotate-6 transition-all cursor-pointer">
+                     +150
+                  </div>
+               </div>
             </div>
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-md">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" alt="Partnership" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
-          </div>
-        </div>
+
+         </div>
       </section>
 
-      {/* Quality, R&D, Sales */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 font-heading mb-2">Our Strengths</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {features.map((feature) => (
-              <ImageOverlayCard
-                key={feature.title}
-                img={feature.img}
-                title={feature.title}
-                description={feature.description}
-                badge={{ label: 'Corporate', color: feature.accent }}
-              />
-            ))}
-          </div>
-        </div>
+      {/* STRATEGIC CAPABILITIES (Screenshot 4 Product Inspired Variation) */}
+      <section className="py-24 px-4 bg-white border-t border-gray-100">
+         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+               <h2 className="text-5xl md:text-8xl font-black text-gray-900 font-heading leading-tight mb-8 tracking-tighter uppercase">Boardroom <br/> <span className="text-sm-blue">Consultancy.</span></h2>
+               <div className="space-y-6">
+                  {[
+                    { t: 'Multi-Phase Procurement', d: 'Structured budgets across fiscal years.' },
+                    { t: 'Turnkey Campus Ready', d: 'Design-Build-Supply-Maintain workflow.' },
+                    { t: 'Bulk Logistics Hub', d: 'Priority delivery for school networks.' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-6 p-8 rounded-[40px] bg-gray-50 border border-transparent group hover:bg-white hover:border-sm-blue hover:shadow-3xl transition-all cursor-pointer">
+                       <div className="w-14 h-14 bg-blue-50 text-sm-blue group-hover:bg-sm-blue group-hover:text-white rounded-2xl flex items-center justify-center transition-all">
+                          <Target size={24} />
+                       </div>
+                       <div>
+                          <h5 className="text-xl font-black text-gray-900 mb-1 leading-tight uppercase font-heading">{item.t}</h5>
+                          <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{item.d}</p>
+                       </div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="flex-1 w-full order-1 lg:order-2">
+               <div className="relative rounded-[70px] overflow-hidden shadow-2xl skew-x-1 group-hover:skew-x-0 transition-transform duration-1000 h-[600px] border-8 border-white">
+                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Corporate Office" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 h-full" />
+                  <div className="absolute inset-0 bg-sm-blue/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-10 right-10 flex gap-2">
+                     <span className="px-6 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg text-sm-blue border border-blue-50">Headquarters BLR</span>
+                  </div>
+               </div>
+            </div>
+         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-12 px-4 bg-sm-navy">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading mb-3">Ready to Transform Your School?</h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto text-sm">Join 4000+ schools across India who trust Schoolmart for their infrastructure needs.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact-us" className="px-6 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">Request a Quote</Link>
-            <Link to="/catalogues" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">View Catalogues</Link>
-          </div>
-        </div>
+      {/* FINAL CTA ENVELOPE (Unique for Corporate) */}
+      <section className="py-24 px-4 bg-gray-50">
+         <div className="max-w-5xl mx-auto rounded-[80px] bg-white p-12 lg:p-20 text-center relative shadow-3xl border border-gray-100 group transition-all hover:scale-[1.02]">
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-sm-blue rounded-[50px] flex items-center justify-center text-white shadow-2xl group-hover:rotate-12 transition-all">
+               <Rocket size={48} />
+            </div>
+            <h5 className="text-gray-900 text-3xl md:text-5xl font-black font-heading leading-tight mb-10 tracking-tighter uppercase mt-10">Scale Your Institutional <br/> <span className="text-sm-blue decoration-yellow-400 decoration-4 underline underline-offset-[16px]">Impact.</span></h5>
+            <button className="px-12 py-5 bg-gray-900 text-white font-black rounded-3xl hover:bg-sm-blue transition-all shadow-xl uppercase tracking-widest text-[11px] active:scale-95 flex items-center justify-center gap-3 mx-auto">
+               Request Management Consultation <ArrowUpRight size={20} />
+            </button>
+         </div>
       </section>
     </main>
   );

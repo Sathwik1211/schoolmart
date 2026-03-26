@@ -1,129 +1,119 @@
 // src/pages/SchoolDesigns.jsx
 import { Link } from 'react-router-dom';
-import { Palette, Ruler, Layers, Home, Sparkles, Check, ArrowRight, Building2 } from 'lucide-react';
-import ImageOverlayCard from '../components/ImageOverlayCard';
+import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, Eye, Stars, Download, Layers } from 'lucide-react';
 
-const designImages = [
-  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80',
-  'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80',
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
-  'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=600&q=80',
-  'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+const categories = [
+  { id: 'all', name: 'COLOR SCHEMES', icon: <Palette size={24} /> },
+  { id: 'spatial', name: 'SPATIAL PLANNING', icon: <Compass size={24} /> },
+  { id: 'graphic', name: 'WALL GRAPHICS', icon: <Pencil size={24} /> },
+  { id: 'lighting', name: 'SMART LIGHTING', icon: <Lightbulb size={24} /> },
+  { id: 'flooring', name: 'SAFE FLOORING', icon: <Layout size={24} /> },
+];
+
+const designWorks = [
+  { title: 'The Bio-Atrium', cat: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', height: 'h-[500px]' },
+  { title: 'Cyber-Punk STEM Lab', cat: 'Digital Experience', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', height: 'h-[400px]' },
+  { title: 'Pastel Primary Wing', cat: 'Color Psychology', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80', height: 'h-[600px]' },
+  { title: 'The Zen Library', cat: 'Adaptive Spaces', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', height: 'h-[450px]' },
+  { title: 'Infinity Sports Arena', cat: 'Kinetic Design', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', height: 'h-[550px]' },
 ];
 
 const SchoolDesigns = () => {
-  const designs = [
-    { title: 'Kindergarten Design', description: 'Playful, colorful spaces designed for early childhood learning and development.', icon: Sparkles, accent: '#EC4899', img: designImages[0] },
-    { title: 'Primary School Design', description: 'Engaging environments that foster curiosity and foundational learning.', icon: Home, accent: '#3B82F6', img: designImages[1] },
-    { title: 'High School Design', description: 'Modern spaces designed for advanced learning and student collaboration.', icon: Building2, accent: '#8B5CF6', img: designImages[2] },
-    { title: 'STEM Campus Design', description: 'Future-ready campuses with integrated science, technology, and innovation spaces.', icon: Layers, accent: '#10B981', img: designImages[3] },
-    { title: 'Theme-Based Design', description: 'Unique school designs based on educational philosophies and themes.', icon: Palette, accent: '#F97316', img: designImages[4] },
-    { title: 'Renovation & Upgrade', description: 'Transform existing schools into modern learning environments.', icon: Ruler, accent: '#14B8A6', img: designImages[5] },
-  ];
-
-  const features = ['20+ Design Templates', '3D Visualization', 'NEP 2020 Aligned', 'Customizable Plans', 'Expert Architects', 'End-to-End Service'];
-
-  const ideas = ['Open Learning Spaces', 'Collaborative Zones', 'Outdoor Classrooms', 'Maker Spaces', 'Reading Nooks', 'Art Studios', 'Science Gardens', 'Performance Areas', 'Quiet Zones', 'Game-Based Learning', 'Sustainable Design', 'Flexible Furniture', 'Technology Hubs', 'Wellness Centers', 'Community Spaces', 'Sports Integration', 'Natural Lighting', 'Color Psychology', 'Wayfinding Design', 'Safety Features'];
-
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <section className="relative bg-gradient-to-r from-purple-600 to-indigo-700 py-14 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="text-white z-10 relative">
-              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4">School Designs</span>
-              <h1 className="text-4xl md:text-5xl font-bold font-heading mb-3 leading-tight">
-                Spaces That<br />Inspire Greatness
-              </h1>
-              <p className="text-lg text-white/80 mb-5">
-                Inspiring school design ideas and architectural solutions for modern education
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Kindergarten</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Primary</span>
-                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">High School</span>
+    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* CREATIVE MASONRY HERO SECTION (Unique for Designs) */}
+        <section className="py-20 flex flex-col items-center text-center">
+           <div className="relative group">
+              <div className="absolute inset-0 bg-yellow-400/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="px-5 py-2 bg-yellow-400 text-gray-900 font-black rounded-full text-[10px] uppercase tracking-[0.2em] mb-8 shadow-lg relative z-10">
+                 <Stars size={16} className="inline mr-2 animate-spin" /> Design Innovation Award 2024
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact-us" className="px-6 py-2.5 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm">Get Design Consultation</Link>
-                <Link to="/catalogues" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">View Portfolio</Link>
+           </div>
+           <h1 className="text-5xl md:text-9xl font-black font-heading leading-none tracking-tighter text-gray-900 mb-10">
+              Imagine <br/> <span className="text-sm-blue uppercase italic font-serif">Infinite</span> <br/> Learning.
+           </h1>
+           <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-medium">
+              We create non-linear, adaptive spaces where students don't just sit—they explore, discover, and flourish.
+           </p>
+
+           {/* Category Icons Slider — AS PER SCREENSHOT 1 */}
+           <div className="flex overflow-x-auto gap-8 pb-12 hide-scrollbar justify-start lg:justify-center w-full">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex flex-col items-center gap-4 group flex-none">
+                 <div className="w-18 h-18 rounded-full bg-white shadow-xl flex items-center justify-center text-gray-300 group-hover:bg-gray-900 group-hover:text-white transition-all transform hover:-translate-y-2 border-2 border-transparent group-hover:border-sm-blue">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[9px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest">{cat.name}</span>
+               </button>
+             ))}
+           </div>
+        </section>
+
+        {/* STAGGERED MASONRY GALLERY (Screenshot 3 Flow Inspired but for Designs) */}
+        <section className="py-20 border-t border-gray-100">
+           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+              {designWorks.map((work, i) => (
+                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[50px] shadow-2xl group cursor-pointer ${work.height}`}>
+                    <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="absolute top-8 right-8 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100">
+                       <Download size={20} />
+                    </div>
+
+                    <div className="absolute bottom-8 left-8 right-8">
+                       <span className="text-sm-blue font-black text-[9px] uppercase tracking-widest block mb-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">{work.cat}</span>
+                       <h3 className="text-2xl font-black text-white font-heading leading-tight translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{work.title}</h3>
+                       <p className="text-white/40 text-[9px] font-bold uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-200">View Render Case Study <ArrowRight size={10} className="inline ml-1" /></p>
+                    </div>
+                 </div>
+              ))}
+
+              {/* UNIQUE BENTO CALL-TO-ACTION IN MASONRY */}
+              <div className="break-inside-avoid bg-gray-900 rounded-[50px] p-12 text-white flex flex-col justify-center min-h-[400px] relative overflow-hidden group">
+                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-sm-blue blur-3xl opacity-20 group-hover:opacity-60 transition-opacity" />
+                 <Layout size={48} className="text-sm-blue mb-8 animate-pulse" />
+                 <h4 className="text-3xl font-black font-heading mb-6 tracking-tight">Need a Bespoke Space Design?</h4>
+                 <p className="text-white/50 text-xs font-bold uppercase tracking-widest leading-loose mb-10">Our architects specialize in NEP-compliant campus planning and spatial design.</p>
+                 <button className="px-10 py-4 bg-sm-blue text-white font-black rounded-3xl hover:bg-white hover:text-gray-900 transition-all shadow-xl uppercase tracking-widest text-[10px] w-fit">Request Design Pitch</button>
               </div>
-            </div>
-            <div className="relative h-72 lg:h-80 rounded-2xl overflow-hidden shadow-2xl">
-              <img src="/images/hero_architecture.png" alt="School design" className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'; }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
+           </div>
+        </section>
 
-      {/* Features */}
-      <section className="py-6 px-4 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check size={11} className="text-white" />
-                </div>
-                <span className="text-sm text-gray-700 font-medium">{feature}</span>
+        {/* INFORMATIONAL BLOCK (Screenshot 2 / Bento Style) */}
+        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+           <div className="order-2 lg:order-1 relative">
+              <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-sm-blue rounded-full blur-[100px] opacity-10" />
+              <div className="bg-white p-12 lg:p-20 rounded-[80px] shadow-3xl border border-gray-50 relative z-10">
+                 <div className="w-20 h-2 bg-sm-blue rounded-full mb-10" />
+                 <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-tight tracking-tighter">Psychology of <br/> Architectural <span className="text-sm-blue">Colors.</span></h2>
+                 <p className="text-gray-500 text-lg leading-relaxed mb-12 font-medium">
+                    We don't just pick colors; we engineer moods. From focus-inducing blues to creativity-sparking yellows, our color theory maximizes student outcomes.
+                 </p>
+                 <div className="grid grid-cols-2 gap-6">
+                    {['200+ Palettes', 'UV Resistant', 'Odourless Paint', 'Texture Ready'].map((item, i) => (
+                       <div key={i} className="flex items-center gap-4 text-xs font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-2xl group hover:bg-gray-900 hover:text-white transition-all">
+                          <Layers size={18} className="text-sm-blue group-hover:text-white" />
+                          {item}
+                       </div>
+                    ))}
+                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Design Categories */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 font-heading mb-2">Design Categories</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">Explore our range of school design solutions for different educational levels and needs</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {designs.map((design, index) => (
-              <ImageOverlayCard
-                key={index}
-                img={design.img}
-                title={design.title}
-                description={design.description}
-                badge={{ label: 'Design', color: design.accent }}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Design Ideas */}
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-gray-900 font-heading mb-6">20 Smart School Design Ideas</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {ideas.map((idea, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-3 flex items-center gap-2 hover:bg-purple-50 transition-colors duration-200">
-                <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xs font-bold">{index + 1}</span>
-                </div>
-                <span className="text-gray-700 text-xs font-medium">{idea}</span>
+           </div>
+           <div className="order-1 lg:order-2">
+              <div className="relative rounded-[70px] overflow-hidden shadow-2xl skew-x-1 hover:skew-x-0 transition-transform duration-1000">
+                 <img src="https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=1000&q=80" alt="Atmosphere" className="w-full h-[700px] object-cover" />
+                 <div className="absolute inset-0 bg-blue-900/10 backdrop-contrast-125" />
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <button className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 hover:bg-sm-blue transition-all">
+                       <Eye size={40} />
+                    </button>
+                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-12 px-4 bg-sm-navy">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading mb-3">Design Your Dream School</h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto text-sm">Work with our expert architects to create a school that inspires learning and reflects your educational vision.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact-us" className="px-6 py-2.5 bg-sm-orange text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200 text-sm">Start Your Project</Link>
-            <Link to="/school-building-design" className="px-6 py-2.5 bg-transparent border border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 text-sm">View Architecture</Link>
-          </div>
-        </div>
-      </section>
+           </div>
+        </section>
+      </div>
     </main>
   );
 };
