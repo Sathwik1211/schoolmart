@@ -1,8 +1,18 @@
 // src/pages/Sports.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Activity, Trophy, Shield, Target, ArrowRight, ArrowUpRight, Award, Layers, CheckCircle2 } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import InlineQuickView from '../components/InlineQuickView';
+
+const sportsWorks = [
+  { title: 'The Olympic Track', cat: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', height: 'h-[220px]' },
+  { title: 'Maple Court Pro', cat: 'Basketball', img: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=800&q=80', height: 'h-[280px]' },
+  { title: 'Turf Excellence', cat: 'Football', img: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&q=80', height: 'h-[320px]' },
+  { title: 'Aquatic High-Dive', cat: 'Swimming', img: 'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=80', height: 'h-[250px]' },
+  { title: 'Indoor Gym Elite', cat: 'Fitness', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80', height: 'h-[220px]' },
+  { title: 'Badminton Arena', cat: 'Racket Sports', img: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=800&q=80', height: 'h-[300px]' },
+  { title: 'Cricket Pitch Max', cat: 'Outdoor', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80', height: 'h-[250px]' },
+];
 
 const Sports = () => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -60,38 +70,70 @@ const Sports = () => {
               </div>
            </aside>
 
-           {/* MAIN CONTENT GALLERY */}
+           {/* MAIN CONTENT GALLERY - GOOGLE IMAGES STYLE */}
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">ELITE <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Surfaces</span></h2>
                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">1,200+ Fields Installed</span>
               </div>
               
-              <div className="columns-1 md:columns-3 gap-4 space-y-4">
-                 {[
-                   { t: 'The Olympic Track', c: 'Competition', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', h: 'h-[220px]' },
-                   { t: 'Maple Court Pro', c: 'Basketball', img: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=800&q=80', h: 'h-[280px]' },
-                   { t: 'Turf Excellence', c: 'Football', img: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&q=80', h: 'h-[320px]' },
-                   { t: 'Aquatic High-Dive', c: 'Swimming', img: 'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=80', h: 'h-[250px]' },
-                   { t: 'Indoor Gym Elite', c: 'Fitness', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80', h: 'h-[220px]' },
-                   { t: 'Badminton Arena', c: 'Racket Sports', img: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=800&q=80', h: 'h-[300px]' },
-                   { t: 'Cricket Pitch Max', c: 'Outdoor', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80', h: 'h-[250px]' },
-                 ].map((work, i) => (
-                    <div 
-                      key={i} 
-                      className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
-                      onClick={() => setSelectedItem(work)}
-                    >
-                       <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
-                          <h3 className="text-base font-black text-white uppercase tracking-tighter">{work.t}</h3>
-                          <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+                 {sportsWorks.map((work, i) => (
+                    <React.Fragment key={i}>
+                       <div 
+                         className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.height} border border-gray-300 transition-all duration-500 ${selectedItem?.title === work.title ? 'ring-4 ring-sm-blue shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                         onClick={() => setSelectedItem(selectedItem?.title === work.title ? null : work)}
+                       >
+                          <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+                             <h3 className="text-base font-black text-white uppercase tracking-tighter">{work.title}</h3>
+                             <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.cat}</span>
+                          </div>
                        </div>
-                    </div>
+
+                       {/* INLINE EXPANSION LOGIC */}
+                       {/* Mobile */}
+                       <div className="md:hidden col-span-full">
+                          {selectedItem?.title === work.title && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
+                       </div>
+                       {/* Tablet (2 cols) */}
+                       {i % 2 === 1 && (
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {sportsWorks.slice(i-1, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Desktop (3 cols) */}
+                       {i % 3 === 2 && (
+                          <div className="hidden lg:block col-span-full">
+                             {sportsWorks.slice(i-2, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Handle End of List */}
+                       {i === sportsWorks.length - 1 && (
+                          <>
+                             <div className="hidden md:block lg:hidden col-span-full">
+                                {sportsWorks.slice(Math.floor(i/2)*2).some(dw => dw.title === selectedItem?.title) && i % 2 !== 1 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                             <div className="hidden lg:block col-span-full">
+                                {sportsWorks.slice(Math.floor(i/3)*3).some(dw => dw.title === selectedItem?.title) && i % 3 !== 2 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                          </>
+                       )}
+                    </React.Fragment>
                  ))}
                  
-                 <div className="break-inside-avoid bg-gray-900 rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden group">
+                 <div className="bg-gray-900 rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[250px] relative overflow-hidden group">
                     <Trophy size={32} className="text-sm-blue mb-4" />
                     <h4 className="text-xl font-black font-heading tracking-tighter uppercase leading-none mb-4">Tournaments <br/> Ready.</h4>
                     <button className="px-5 py-2.5 bg-sm-blue text-white font-black rounded-full hover:bg-white hover:text-gray-900 transition-all text-[8px] tracking-widest w-fit">Request Specs</button>
@@ -122,12 +164,6 @@ const Sports = () => {
            </div>
         </section>
       </div>
-
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };

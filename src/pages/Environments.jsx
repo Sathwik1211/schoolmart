@@ -1,8 +1,17 @@
 // src/pages/Environments.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Sparkles, Wind, Sun, Leaf, ArrowRight, ArrowUpRight, Eye, CheckCircle2, Award, Layers } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import InlineQuickView from '../components/InlineQuickView';
+
+const envItems = [
+  { t: 'Natural Light Study', c: 'Optics', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', h: 'h-[220px]' },
+  { t: 'Acoustic Panel Grid', c: 'Sound', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=600&q=80', h: 'h-[280px]' },
+  { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[250px]' },
+  { t: 'Air Quality Lab', c: 'Climate', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[220px]' },
+  { t: 'Botanical Courtyard', c: 'Organic', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', h: 'h-[310px]' },
+  { t: 'Zen Meditation Pod', c: 'Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[250px]' },
+];
 
 const Environments = () => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -11,7 +20,7 @@ const Environments = () => {
     <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* BENTO HIGH-DENSITY HERO - A 3x2 PACKED GRID MIXING CONTENT & IMAGE */}
+        {/* BENTO HIGH-DENSITY HERO */}
         <section className="pt-4 pb-6 grid grid-cols-1 md:grid-cols-6 lg:grid-cols-4 gap-3 items-stretch h-auto">
            {/* BIG TEXT BLOCK */}
            <div className="md:col-span-3 lg:col-span-2 bg-white rounded-[20px] p-8 flex flex-col justify-center border border-gray-300 shadow-sm relative overflow-hidden group min-h-[220px]">
@@ -74,29 +83,62 @@ const Environments = () => {
            </div>
         </section>
 
-        {/* MASONRY DISPLAY */}
+        {/* MASONRY DISPLAY - GOOGLE IMAGES STYLE */}
         <section className="py-6 border-t border-gray-100">
-           <div className="columns-1 md:columns-3 gap-4 space-y-4">
-              {[
-                { t: 'Natural Light Study', c: 'Optics', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', h: 'h-[220px]' },
-                { t: 'Acoustic Panel Grid', c: 'Sound', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=600&q=80', h: 'h-[280px]' },
-                { t: 'Biophilic Design', c: 'Nature', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[250px]' },
-                { t: 'Air Quality Lab', c: 'Climate', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[220px]' },
-                { t: 'Botanical Courtyard', c: 'Organic', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', h: 'h-[310px]' },
-                { t: 'Zen Meditation Pod', c: 'Focus', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', h: 'h-[250px]' },
-              ].map((work, i) => (
-                 <div 
-                   key={i} 
-                   className={`break-inside-avoid relative overflow-hidden rounded-[20px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
-                   onClick={() => setSelectedItem(work)}
-                 >
-                    <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-                       <h3 className="text-base font-black text-white uppercase">{work.t}</h3>
-                       <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+              {envItems.map((work, i) => (
+                 <React.Fragment key={i}>
+                    <div 
+                      className={`relative overflow-hidden rounded-[20px] shadow-sm group cursor-pointer ${work.h} border border-gray-300 transition-all duration-500 scale-100 ${selectedItem?.t === work.t ? 'ring-4 ring-sm-blue shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                      onClick={() => setSelectedItem(selectedItem?.t === work.t ? null : work)}
+                    >
+                       <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-700 hover:scale-110" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                          <h3 className="text-base font-black text-white uppercase">{work.t}</h3>
+                          <span className="text-[10px] text-sm-blue font-black tracking-widest uppercase">{work.c}</span>
+                       </div>
                     </div>
-                 </div>
+
+                    {/* INLINE EXPANSION LOGIC */}
+                    {/* Mobile */}
+                    <div className="md:hidden col-span-full">
+                       {selectedItem?.t === work.t && (
+                          <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                       )}
+                    </div>
+                    {/* Tablet (2 cols) */}
+                    {i % 2 === 1 && (
+                       <div className="hidden md:block lg:hidden col-span-full">
+                          {envItems.slice(i-1, i+1).some(dw => dw.t === selectedItem?.t) && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
+                       </div>
+                    )}
+                    {/* Desktop (3 cols) */}
+                    {i % 3 === 2 && (
+                       <div className="hidden lg:block col-span-full">
+                          {envItems.slice(i-2, i+1).some(dw => dw.t === selectedItem?.t) && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
+                       </div>
+                    )}
+                    {/* Handle End of List */}
+                    {i === envItems.length - 1 && (
+                       <>
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {envItems.slice(Math.floor(i/2)*2).some(dw => dw.t === selectedItem?.t) && i % 2 !== 1 && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                          <div className="hidden lg:block col-span-full">
+                             {envItems.slice(Math.floor(i/3)*3).some(dw => dw.t === selectedItem?.t) && i % 3 !== 2 && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       </>
+                    )}
+                 </React.Fragment>
               ))}
            </div>
         </section>
@@ -104,7 +146,7 @@ const Environments = () => {
         {/* INFO SPLIT GRID */}
         <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t border-gray-100 mt-6">
            <div className="bg-white p-12 rounded-[30px] border border-gray-300">
-              <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase">Engineering <span className="text-sm-blue">Atmospheres.</span></h2>
+              <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Engineering <span className="text-sm-blue">Atmospheres.</span></h2>
               <div className="grid grid-cols-2 gap-3">
                  {['CFD Modeled', 'Acoustic Labs', 'UV Protected', 'Ergo Tech'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-[10px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-xl group hover:bg-sm-blue hover:text-white transition-all border border-gray-100">
@@ -119,12 +161,6 @@ const Environments = () => {
            </div>
         </section>
       </div>
-
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };

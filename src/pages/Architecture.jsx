@@ -1,139 +1,165 @@
-import { useState } from 'react';
+// src/pages/Architecture.jsx
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Compass, Pencil, Map, ArrowRight, ArrowUpRight, Award, CheckCircle2, Layers, Layout } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import { Building2, Compass, Pencil, Map, Layout, ArrowRight, ArrowUpRight, Eye, Stars, CheckCircle2 } from 'lucide-react';
+import InlineQuickView from '../components/InlineQuickView';
+
+const portfolio = [
+  { title: 'The Atrium Primary', cat: 'Planning', img: 'https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=800&q=80', h: 'h-[320px]' },
+  { title: 'STEM Hub Gurgaon', cat: 'Interiors', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', h: 'h-[250px]' },
+  { title: 'Heritage Modern Wing', cat: 'Architecture', img: 'https://images.unsplash.com/photo-1541339907198-e08759dfc3f3?w=800&q=80', h: 'h-[380px]' },
+  { title: 'Glass Learning Pods', cat: 'Bespoke', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[290px]' },
+  { title: 'Eco-Campus Masterplan', cat: 'Landscape', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[340px]' },
+  { title: 'Future-Tech Institute', cat: 'Infrastructure', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', h: 'h-[250px]' },
+];
 
 const Architecture = () => {
   const [selectedItem, setSelectedItem] = useState(null);
+
   return (
     <main className="min-h-screen bg-gray-50 pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* DRAFTBOARD GRID HERO - OVERLAPPING ELEMENTS & HIGH VISUAL DENSITY - UNIQUE LAYOUT */}
-        <section className="pt-2 pb-2 grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-auto lg:h-[450px]">
-           {/* LEFT STORY (SPAN 5) - PACKED */}
-           <div className="lg:col-span-5 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute inset-0 bg-blue-50/20 mix-blend-multiply opacity-50" />
-              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90 relative z-10">
-                 <Building2 size={12} className="inline mr-2" /> Architectural Studio 2025
+        {/* MODERN BESPOKE HERO - COMPACT PACKED */}
+        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-4 items-stretch">
+           {/* TEXT BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-sm-blue/5 rounded-full blur-3xl -mr-16 -mt-16" />
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90">
+                 <Stars size={12} className="inline mr-2" /> Global Studio 2025
               </div>
-              <h1 className="text-4xl lg:text-5xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase relative z-10">
-                 Dream. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">then</span> <br/> Construct.
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase">
+                 Spaces <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">that</span> <br/> Speak.
               </h1>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose relative z-10">
-                 We create adaptive building designs that foster long-term institutional growth.
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 NEP-ready campus masterplanning and futuristic school architecture designed for deep focus.
               </p>
            </div>
 
-           {/* RIGHT DRAFTING STACK (SPAN 7) - PACKED DENSE GRID */}
-           <div className="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-3 h-full">
-              {/* IMAGE LARGE (SPAN 2x2) */}
-              <div className="col-span-2 row-span-2 rounded-[25px] overflow-hidden relative shadow-lg group border border-gray-100 h-full">
-                 <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80" className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" alt="Draft" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                 <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-xl font-black uppercase font-heading leading-none">The Bio-Atrium.</h3>
-                    <span className="text-[7px] font-black text-sm-blue tracking-widest uppercase">INTERIOR STRATEGY</span>
-                 </div>
-              </div>
-
-              {/* ACTION CARD (SPAN 1) - PACKED */}
-              <div className="col-span-1 bg-gray-900 rounded-[25px] p-6 text-white flex flex-col justify-between group overflow-hidden relative shadow-xl border border-gray-300">
-                 <h3 className="text-[9px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Request <br/> Pitch <br/> Proposal.</h3>
-                 <button className="px-4 py-2 bg-sm-blue text-white font-black rounded-full text-[7px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all w-fit">Request</button>
-              </div>
-
-              {/* STAT CARD (SPAN 1) - PACKED */}
-              <div className="col-span-1 bg-blue-50/50 rounded-[25px] p-6 flex flex-col items-center justify-center text-center group border border-blue-100 shadow-sm transition-all hover:bg-sm-blue hover:text-white">
-                 <span className="text-2xl font-black font-heading leading-none text-gray-900 group-hover:text-white uppercase mb-1">5M+</span>
-                 <span className="text-[6px] font-black tracking-widest text-sm-blue group-hover:text-white uppercase">SQFT DESIGNED</span>
+           {/* IMAGE BLOCK - RIGHT */}
+           <div className="lg:w-[500px] rounded-[30px] overflow-hidden relative shadow-lg group">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80" className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition-all duration-1000" alt="Architecture" />
+              <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-all" />
+              <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end backdrop-blur-md bg-white/10 p-4 rounded-2xl border border-white/20">
+                 <span className="text-[9px] font-black text-white uppercase tracking-widest">Master Planning Case Studies</span>
+                 <ArrowUpRight className="text-white" size={24} />
               </div>
            </div>
         </section>
 
-        {/* SIDEBAR LAYOUT SECTION */}
-        <section className="py-4 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
-           {/* LEFT SIDEBAR */}
+        {/* SIDEBAR GALLERY LAYOUT */}
+        <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
+           {/* LEFT SIDEBAR CATEGORY */}
            <aside className="lg:w-[240px] flex-shrink-0">
               <div className="sticky top-24 space-y-2">
-                 <div className="mb-4">
-                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">STUDIO SERVICE</h3>
+                 <div className="mb-6">
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">DESIGN PHASES</h3>
                     <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-                 {['SPATIAL PLANNING', 'STRUCTURAL', 'INTERIORS', 'LANDSCAPING', 'SITE AUDITS'].map((cat, i) => (
+                 {['CAMPUS PLANNING', 'INTERIOR DESIGN', '3D VISUALIZATION', 'GREEN BUILDING', 'CIVIL AUDIT'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
                  
-                 <div className="mt-12 p-6 bg-blue-50/50 rounded-[25px] border border-blue-100">
-                    <span className="text-[8px] font-black text-sm-blue tracking-[0.2em] uppercase mb-4 block">Design Standards</span>
-                    <div className="space-y-3">
-                       {['NEP 2020', 'BIM Level 2', 'LEED Cert.'].map((s, i) => (
-                          <div key={i} className="flex items-center gap-2 text-[9px] font-bold text-gray-600 uppercase">
-                             <CheckCircle2 size={12} className="text-sm-blue" /> {s}
-                          </div>
-                       ))}
+                 <div className="mt-12 p-6 bg-gray-50 rounded-[25px] border border-gray-100 shadow-sm">
+                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Our Compliance</span>
+                    <div className="space-y-4">
+                       <div className="flex items-center gap-3">
+                          <CheckCircle2 size={14} className="text-sm-blue" />
+                          <span className="text-[9px] font-black uppercase text-gray-900 tracking-wider">NEP GUIDELINES</span>
+                       </div>
+                       <div className="flex items-center gap-3">
+                          <CheckCircle2 size={14} className="text-sm-blue" />
+                          <span className="text-[9px] font-black uppercase text-gray-900 tracking-wider">NREDA GOLD</span>
+                       </div>
                     </div>
                  </div>
               </div>
            </aside>
 
-           {/* MAIN CONTENT GALLERY */}
+           {/* MAIN CONTENT GALLERY - GOOGLE IMAGES STYLE */}
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
-                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">SPATIAL <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Planning</span></h2>
-                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Selected Works Portfolio</span>
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">PROJECT <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Showcase</span></h2>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Selected Works: 2020-2025</span>
               </div>
               
-              <div className="columns-1 md:columns-3 gap-4 space-y-4">
-                 {[
-                   { t: 'The Bio-Atrium', c: 'Interior Strategy', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[220px]' },
-                   { t: 'Cyber-Punk Lab', c: 'Digital Space', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', h: 'h-[280px]' },
-                   { t: 'Modular Auditorium', c: 'Structural Design', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', h: 'h-[240px]' },
-                   { t: 'Eco-Pavilion', c: 'Landscaping', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', h: 'h-[220px]' },
-                   { t: 'The Glass Courtyard', c: 'Interior Flow', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', h: 'h-[310px]' },
-                   { t: 'Future-Pod Annex', c: 'Modern Annex', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', h: 'h-[240px]' },
-                 ].map((work, i) => (
-                    <div 
-                      key={i} 
-                      className={`break-inside-avoid relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer ${work.h} border border-gray-300`}
-                      onClick={() => setSelectedItem(work)}
-                    >
-                       <img src={work.img} alt={work.t} className="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0 hover:scale-110" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
-                           <h3 className="text-base font-black text-white uppercase tracking-tighter font-heading">{work.t}</h3>
-                           <span className="text-[10px] font-black text-sm-blue uppercase tracking-widest">{work.c}</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                 {portfolio.map((work, i) => (
+                    <React.Fragment key={i}>
+                       <div 
+                         className={`relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.h} border border-gray-300 transition-all duration-500 ${selectedItem?.title === work.title ? 'ring-4 ring-sm-blue shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                         onClick={() => setSelectedItem(selectedItem?.title === work.title ? null : work)}
+                       >
+                          <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute top-6 right-6">
+                             <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <ArrowRight size={18} />
+                             </div>
+                          </div>
+                          <div className="absolute bottom-6 left-6 right-6">
+                             <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1">{work.cat}</span>
+                             <h3 className="text-xl font-black text-white font-heading leading-tight uppercase">{work.title}</h3>
+                          </div>
+                          {selectedItem?.title === work.title && (
+                             <div className="absolute inset-0 bg-sm-blue/20 flex items-center justify-center backdrop-blur-[2px]">
+                                <div className="bg-white text-sm-blue px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest shadow-2xl">
+                                   Reading...
+                                </div>
+                             </div>
+                          )}
                        </div>
-                    </div>
-                 ))}
-              </div>
-           </div>
-        </section>
 
-        {/* INFO SPLIT GRID */}
-        <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="bg-white p-12 rounded-[30px] border border-gray-300 shadow-sm relative group overflow-hidden">
-              <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Spatial <br/> <span className="text-sm-blue">Innovation Hub.</span></h2>
-              <div className="grid grid-cols-2 gap-3">
-                 {['NEP Adaptive', 'Structural Audit', 'BIM Ready', 'Pan-India Reach'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[9px] font-black uppercase tracking-widest bg-gray-50 p-4 rounded-xl border border-gray-50 hover:bg-sm-blue hover:text-white transition-all">
-                       <Compass size={14} className="text-sm-blue group-hover:text-white" />
-                       {item}
-                    </div>
+                       {/* INLINE EXPANSION LOGIC */}
+                       {/* Mobile */}
+                       <div className="md:hidden col-span-full">
+                          {selectedItem?.title === work.title && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
+                       </div>
+                       {/* Tablet (2 cols) */}
+                       {i % 2 === 1 && (
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {portfolio.slice(i-1, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Desktop (3 cols) */}
+                       {i % 3 === 2 && (
+                          <div className="hidden lg:block col-span-full">
+                             {portfolio.slice(i-2, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Handle End of List */}
+                       {i === portfolio.length - 1 && (
+                          <>
+                             <div className="hidden md:block lg:hidden col-span-full">
+                                {portfolio.slice(Math.floor(i/2)*2).some(dw => dw.title === selectedItem?.title) && i % 2 !== 1 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                             <div className="hidden lg:block col-span-full">
+                                {portfolio.slice(Math.floor(i/3)*3).some(dw => dw.title === selectedItem?.title) && i % 3 !== 2 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                          </>
+                       )}
+                    </React.Fragment>
                  ))}
+                 
+                 <div className="bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
+                    <Building2 size={32} className="text-sm-blue mb-6" />
+                    <h4 className="text-xl font-black font-heading mb-4 uppercase leading-none tracking-tighter">Campus <br/> Audit Pro.</h4>
+                    <button className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest w-fit hover:bg-white hover:text-gray-900 transition-all shadow-xl shadow-blue-500/10">Request Site Visit</button>
+                 </div>
               </div>
-           </div>
-           
-           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px]">
-              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80" alt="Draft" className="w-full h-full object-cover" />
            </div>
         </section>
       </div>
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };

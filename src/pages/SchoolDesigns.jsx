@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, ArrowUpRight, Eye, Stars, Download, Layers } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import InlineQuickView from '../components/InlineQuickView';
 
 const categories = [
   { id: 'all', name: 'COLOR SCHEMES', icon: <Palette size={24} /> },
@@ -73,35 +73,104 @@ const SchoolDesigns = () => {
               </div>
            </aside>
 
-           {/* MAIN CONTENT MASONRY */}
+           {/* MAIN CONTENT GRID - USING FLEX WRAP FOR GOOGLE IMAGES STYLE INLINE EXPANSION */}
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">COLOR <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Psychology</span></h2>
                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Case Studies: 450+ Sites</span>
               </div>
 
-              <div className="columns-1 md:columns-3 gap-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                  {designWorks.map((work, i) => (
-                    <div 
-                      key={i} 
-                      className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300`}
-                      onClick={() => setSelectedItem(work)}
-                    >
-                       <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                       <div className="absolute top-6 right-6">
-                          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
-                             <ArrowRight size={18} />
+                    <React.Fragment key={i}>
+                       <div 
+                         className={`relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-300 transition-all duration-500 ${selectedItem?.title === work.title ? 'ring-4 ring-sm-blue shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                         onClick={() => setSelectedItem(selectedItem?.title === work.title ? null : work)}
+                       >
+                          <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute top-6 right-6">
+                             <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+                                <ArrowRight size={18} />
+                             </div>
                           </div>
+                          <div className="absolute bottom-6 left-6 right-6">
+                             <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1">{work.cat}</span>
+                             <h3 className="text-xl font-black text-white font-heading leading-tight uppercase">{work.title}</h3>
+                          </div>
+                          {selectedItem?.title === work.title && (
+                             <div className="absolute inset-0 bg-sm-blue/20 flex items-center justify-center backdrop-blur-[2px]">
+                                <div className="bg-white text-sm-blue px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest shadow-2xl">
+                                   Active Review
+                                </div>
+                             </div>
+                          )}
                        </div>
-                       <div className="absolute bottom-6 left-6 right-6">
-                          <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1">{work.cat}</span>
-                          <h3 className="text-xl font-black text-white font-heading leading-tight uppercase">{work.title}</h3>
+                       
+                       {/* Mobile Inline Expansion - Always after current if selected */}
+                       <div className="md:hidden col-span-full">
+                          {selectedItem?.title === work.title && (
+                             <InlineQuickView 
+                               isOpen={true} 
+                               onClose={() => setSelectedItem(null)} 
+                               data={selectedItem} 
+                             />
+                          )}
                        </div>
-                    </div>
+
+                       {/* Tablet Inline Expansion - After every 2 items */}
+                       {i % 2 === 1 && (
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {designWorks.slice(i-1, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView 
+                                  isOpen={true} 
+                                  onClose={() => setSelectedItem(null)} 
+                                  data={selectedItem} 
+                                />
+                             )}
+                          </div>
+                       )}
+
+                       {/* Desktop Inline Expansion - After every 3 items */}
+                       {i % 3 === 2 && (
+                          <div className="hidden lg:block col-span-full">
+                             {designWorks.slice(i-2, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView 
+                                  isOpen={true} 
+                                  onClose={() => setSelectedItem(null)} 
+                                  data={selectedItem} 
+                                />
+                             )}
+                          </div>
+                       )}
+
+                       {/* Handle end of list for expansions */}
+                       {i === designWorks.length - 1 && (
+                          <>
+                             <div className="hidden md:block lg:hidden col-span-full">
+                                {designWorks.slice(Math.floor(i/2)*2).some(dw => dw.title === selectedItem?.title) && i % 2 !== 1 && (
+                                   <InlineQuickView 
+                                     isOpen={true} 
+                                     onClose={() => setSelectedItem(null)} 
+                                     data={selectedItem} 
+                                   />
+                                )}
+                             </div>
+                             <div className="hidden lg:block col-span-full">
+                                {designWorks.slice(Math.floor(i/3)*3).some(dw => dw.title === selectedItem?.title) && i % 3 !== 2 && (
+                                   <InlineQuickView 
+                                     isOpen={true} 
+                                     onClose={() => setSelectedItem(null)} 
+                                     data={selectedItem} 
+                                   />
+                                )}
+                             </div>
+                          </>
+                       )}
+                    </React.Fragment>
                  ))}
                  
-                 <div className="break-inside-avoid bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
+                 <div className="bg-gray-900 rounded-[30px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
                     <Layout size={32} className="text-sm-blue mb-6" />
                     <h4 className="text-xl font-black font-heading mb-4 uppercase">Bespoke <br/> Space Design.</h4>
                     <button className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest w-fit">Request Pitch</button>
@@ -138,12 +207,6 @@ const SchoolDesigns = () => {
            </div>
         </section>
       </div>
-
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };

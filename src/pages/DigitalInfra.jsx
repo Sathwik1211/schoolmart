@@ -1,138 +1,166 @@
 // src/pages/DigitalInfra.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Monitor, Smartphone, Tablet, Terminal, Wifi, Cloud, ArrowRight, ArrowUpRight, Download, Eye, Zap, ShieldAlert, CheckCircle2, Cpu } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import { Laptop, Monitor, Wifi, Cpu, Globe, ArrowRight, ArrowUpRight, ShieldCheck, Zap, Download, Eye, FileText, CheckCircle2 } from 'lucide-react';
+import InlineQuickView from '../components/InlineQuickView';
 
-const gadgets = [
-  { id: 1, title: 'Smart Panel 75" 4K', cat: 'Interactivity', price: '₹1,45,000', img: 'https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=800&q=80', badge: 'Tech Pick' },
-  { id: 2, title: 'Student Tablet V2', cat: 'Mobility', price: '₹12,500', img: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80', badge: 'Best Seller' },
-  { id: 3, title: 'Mesh Router X', cat: 'Connectivity', price: '₹8,900', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80', badge: 'High-Perf' },
-  { id: 4, title: 'AI Edge Server', cat: 'Cloud Hub', price: '₹4,20,000', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80', badge: 'Enterprise' },
-  { id: 5, title: 'VR headset Pro', cat: 'Immersive', price: '₹45,000', img: 'https://images.unsplash.com/photo-1592477976530-bc620023472b?w=800&q=80', badge: 'New Gear' },
-  { id: 6, title: 'Charging Station', cat: 'Mobility', price: '₹18,000', img: 'https://images.unsplash.com/photo-1584433144859-1fc3ab84a9ec?w=800&q=80', badge: 'Utility' },
-  { id: 7, title: 'Biometric Access', cat: 'Security', price: '₹22,000', img: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&q=80', badge: 'Security+' },
-  { id: 8, title: '3D Printer Lab', cat: 'Makerspace', price: '₹85,000', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80', badge: 'STEM Pro' },
-  { id: 9, title: 'Smart Podium 2.0', cat: 'Lecture', price: '₹55,000', img: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?w=800&q=80', badge: 'Classic' },
+const techItems = [
+  { id: 1, title: 'Interactive Panel 75"', cat: 'Classroom Tech', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80', badge: 'Ultra HD' },
+  { id: 2, title: 'Smart Server Rack', cat: 'Networking', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80', badge: 'Eco-Cool' },
+  { id: 3, title: 'VR Learning Station', cat: 'AR/VR', img: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=800&q=80', badge: 'Best Seller' },
+  { id: 4, title: 'Linguistic Coding Kit', cat: 'Robotics', img: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&q=80', badge: 'STEM Pick' },
+  { id: 5, title: 'Unified Campus Wi-Fi', cat: 'Cloud', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80', badge: 'Secure' },
+  { id: 6, title: 'AI Attendance Cam', cat: 'Admin', img: 'https://images.unsplash.com/photo-1593344484962-796055d4a3a4?w=800&q=80', badge: 'New Entry' },
 ];
 
 const DigitalInfra = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
-    <main className="min-h-screen bg-white pt-6 pb-4 text-gray-900">
+    <main className="min-h-screen bg-white pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
-        
-        {/* CYBER STRIP HERO - HIGH TECH LIGHT MODE - UNIQUE LAYOUT */}
-        <section className="pt-4 pb-6 flex flex-col lg:flex-row gap-3 items-stretch text-gray-900">
-           {/* STORY BLOCK (SPAN 8-EQUIVALENT) - PACKED */}
-           <div className="flex-[2] bg-gray-50 rounded-[25px] p-8 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group min-h-[400px]">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-sm-blue/5 rounded-full blur-[100px] -mr-32 -mt-32 group-hover:bg-sm-blue/10 transition-all duration-1000" />
+        {/* MODERN TECH HERO */}
+        <section className="pt-4 pb-6 grid grid-cols-1 md:grid-cols-12 gap-3 items-stretch">
+           <div className="md:col-span-4 bg-[#0A0A0A] rounded-[25px] p-8 text-white flex flex-col justify-center border border-gray-800 shadow-xl relative overflow-hidden group min-h-[400px]">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-sm-blue/20 rounded-full blur-[80px] -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90 relative z-10">
-                 <Zap size={12} className="inline mr-2 animate-pulse" /> Digital Revolution 2025
+                 <Zap size={12} className="inline mr-2" /> Digital Transformation 2025
               </div>
-              <h1 className="text-4xl lg:text-5xl font-black font-heading leading-tight mb-4 tracking-tighter text-gray-900 uppercase relative z-10">
-                 The <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Smart</span> <br/> Campus.
+              <h1 className="text-4xl lg:text-5xl font-black font-heading leading-tight mb-4 tracking-tighter uppercase relative z-10">
+                 Future <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Digital.
               </h1>
-              <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest max-w-sm leading-loose relative z-10">
-                 Future-proofing educational legacy with high-affinity hardware and cloud infrastructure.
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose relative z-10">
+                 Deploying cutting-edge Ed-Tech and campus-wide smart infrastructure.
               </p>
            </div>
-
-           {/* TECH STACK COLUMN - PACKED */}
-           <div className="flex-1 flex flex-col gap-3">
-              <div className="flex-1 bg-gradient-to-br from-sm-blue to-blue-700 rounded-[25px] p-8 flex flex-col justify-between group overflow-hidden relative border border-white/10 shadow-xl">
-                 <Cpu className="text-white/20 group-hover:text-white transition-all transform group-hover:rotate-45" size={40} />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] leading-relaxed text-blue-50">Integrated <br/> Cloud <br/> Dashboard.</h3>
-              </div>
-              <div className="flex-1 bg-white rounded-[25px] p-8 flex flex-col justify-between group border border-gray-100 hover:border-sm-blue transition-all shadow-lg">
-                 <div className="flex items-center justify-between">
-                    <span className="text-[24px] font-black font-heading text-sm-blue uppercase tracking-tighter">AI Ready</span>
-                    <Terminal className="text-gray-300 group-hover:text-sm-blue" size={24} />
-                 </div>
-                 <button className="w-full py-3 bg-gray-50 text-[8px] font-black text-gray-900 uppercase tracking-[0.3em] rounded-xl hover:bg-sm-blue hover:text-white transition-all">Enroll Support</button>
+           
+           <div className="md:col-span-8 rounded-[25px] overflow-hidden relative shadow-lg group border border-gray-100">
+              <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=1200&q=80" className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition-all duration-700 hover:scale-110" alt="Tech" />
+              <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-all" />
+              <div className="absolute bottom-8 left-8 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white max-w-md hidden lg:block">
+                 <p className="text-[11px] font-black uppercase tracking-widest mb-2 opacity-60">Success Metric</p>
+                 <h3 className="text-xl font-black uppercase tracking-tighter">99.9% Uptime Deployment Guaranteed.</h3>
               </div>
            </div>
         </section>
 
-        {/* SIDEBAR LAYOUT SECTION */}
+        {/* SIDEBAR GRID LAYOUT */}
         <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
-           {/* LEFT SIDEBAR CATEGORY */}
            <aside className="lg:w-[240px] flex-shrink-0">
               <div className="sticky top-24 space-y-2">
                  <div className="mb-6">
-                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">INFRA ENGINE</h3>
+                    <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-[0.3em] mb-4">ED-TECH CORE</h3>
                     <div className="w-8 h-1 bg-sm-blue rounded-full" />
                  </div>
-                 {['INTERACTIVE', 'TABLETS', 'NETWORKING', 'CLOUD CLASS', 'SECURITY'].map((cat, i) => (
+                 {['INTERACTIVE PANELS', 'VR LEARNING', 'CAMPUS WI-FI', 'SERVER ROOMS', 'ADMIN SOFTWARE'].map((cat, i) => (
                     <button key={i} className={`w-full text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-lg' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>{cat}</button>
                  ))}
+                 
+                 <div className="mt-12 p-6 bg-blue-50/50 rounded-[25px] border border-blue-100 shadow-sm transition-transform hover:scale-[1.02]">
+                    <span className="text-[8px] font-black text-gray-400 tracking-[0.2em] uppercase mb-4 block">Process Blueprint</span>
+                    <div className="space-y-4">
+                       <div className="flex items-center gap-3">
+                          <CheckCircle2 size={14} className="text-sm-blue" />
+                          <span className="text-[9px] font-black uppercase text-gray-900">Architecture</span>
+                       </div>
+                       <div className="flex items-center gap-3">
+                          <CheckCircle2 size={14} className="text-sm-blue" />
+                          <span className="text-[9px] font-black uppercase text-gray-900">Integration</span>
+                       </div>
+                    </div>
+                 </div>
               </div>
            </aside>
 
-           {/* PRODUCTS CONTENT GRID */}
+           {/* MAIN CONTENT GALLERY - GOOGLE IMAGES STYLE */}
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
-                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">NETWORK <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Solutions</span></h2>
-                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Active nodes in 5,200 institutions</span>
+                 <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">SMART <span className="text-sm-blue italic font-serif lowercase tracking-normal text-lg ml-2">Hardware</span></h2>
+                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Enterprise Class: 300+ Deployments</span>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                 {gadgets.map((item, i) => (
-                    <div 
-                      key={i} 
-                      className="group cursor-pointer"
-                      onClick={() => setSelectedItem(item)}
-                    >
-                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-300 p-2 shadow-sm">
-                          <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
-                          <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
-                             {item.badge}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                 {techItems.map((work, i) => (
+                    <React.Fragment key={i}>
+                       <div 
+                         className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 transition-all duration-500 bg-gray-50 ${selectedItem?.title === work.title ? 'ring-4 ring-sm-blue shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                         onClick={() => setSelectedItem(selectedItem?.title === work.title ? null : work)}
+                       >
+                          <div className="h-[200px] overflow-hidden p-2">
+                             <img src={work.img} alt={work.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" />
                           </div>
-                          <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                             <div className="w-10 h-10 rounded-full bg-sm-blue shadow-xl flex items-center justify-center text-white">
-                                <ArrowRight size={18} />
+                          <div className="p-5 flex justify-between items-end border-t border-gray-100 bg-white">
+                             <div>
+                                <h3 className="text-base font-black text-gray-900 uppercase tracking-tighter leading-none group-hover:text-sm-blue transition-colors mb-2">{work.title}</h3>
+                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest block">{work.cat}</span>
+                                <span className="text-[10px] text-sm-blue font-black uppercase tracking-widest mt-2 block opacity-0 group-hover:opacity-100 transition-opacity">Details →</span>
                              </div>
+                             {work.badge && (
+                                <div className="px-2 py-0.5 bg-gray-50 text-gray-400 font-black rounded uppercase text-[7px] tracking-widest border border-gray-100">
+                                   {work.badge}
+                                </div>
+                             )}
                           </div>
+                          {selectedItem?.title === work.title && (
+                             <div className="absolute inset-0 bg-sm-blue/10 flex items-center justify-center backdrop-blur-[2px]">
+                                <div className="bg-white text-sm-blue px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest shadow-2xl">
+                                   Viewing Spec
+                                </div>
+                             </div>
+                          )}
                        </div>
-                       <div className="mt-5 px-3">
-                          <h3 className="text-base font-black text-gray-900 uppercase tracking-tighter mb-1.5 leading-none group-hover:text-sm-blue transition-colors">{item.title}</h3>
-                          <div className="flex items-center gap-3">
-                             <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest group-hover:text-sm-blue transition-colors">Details →</span>
-                             <div className="h-px flex-grow bg-gray-100" />
-                          </div>
-                       </div>
-                    </div>
-                 ))}
-              </div>
-           </div>
-        </section>
 
-        {/* INFO SPLIT GRID */}
-        <section className="py-6 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-6">
-           <div className="rounded-[30px] overflow-hidden shadow-2xl h-[400px]">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80" alt="Tech" className="w-full h-full object-cover grayscale brightness-95" />
-           </div>
-           
-           <div className="bg-white p-12 rounded-[30px] border border-gray-100 shadow-sm relative overflow-hidden group">
-              <h2 className="text-3xl font-black text-gray-900 font-heading mb-8 leading-none uppercase tracking-tighter">Enterprise <br/> <span className="text-sm-blue">Privacy Pro.</span></h2>
-              <div className="grid grid-cols-1 gap-3">
-                 {['Institutional Grade Encryption', 'Multi-Year Service Level Agreements', 'On-Site Training Programs'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest bg-gray-50 p-5 rounded-xl border border-gray-50 group hover:border-sm-blue transition-all text-gray-600">
-                       <ShieldAlert size={16} className="text-sm-blue" />
-                       {item}
-                    </div>
+                       {/* INLINE EXPANSION LOGIC */}
+                       {/* Mobile */}
+                       <div className="md:hidden col-span-full">
+                          {selectedItem?.title === work.title && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
+                       </div>
+                       {/* Tablet (2 cols) */}
+                       {i % 2 === 1 && (
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {techItems.slice(i-1, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Desktop (3 cols) */}
+                       {i % 3 === 2 && (
+                          <div className="hidden lg:block col-span-full">
+                             {techItems.slice(i-2, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Handle End of List */}
+                       {i === techItems.length - 1 && (
+                          <>
+                             <div className="hidden md:block lg:hidden col-span-full">
+                                {techItems.slice(Math.floor(i/2)*2).some(dw => dw.title === selectedItem?.title) && i % 2 !== 1 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                             <div className="hidden lg:block col-span-full">
+                                {techItems.slice(Math.floor(i/3)*3).some(dw => dw.title === selectedItem?.title) && i % 3 !== 2 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                          </>
+                       )}
+                    </React.Fragment>
                  ))}
+                 
+                 <div className="bg-gray-900 rounded-[25px] p-8 text-white flex flex-col justify-center min-h-[300px] relative overflow-hidden group">
+                    <Laptop size={32} className="text-sm-blue mb-6 border border-white/10 p-2 w-12 h-12 rounded-xl" />
+                    <h4 className="text-xl font-black font-heading mb-4 uppercase leading-none tracking-tighter">Campus <br/> Audit Pro.</h4>
+                    <p className="text-white/40 text-[9px] font-bold uppercase tracking-widest mb-6 leading-relaxed">Infrastructure <br/> Security & Performance.</p>
+                    <button className="px-6 py-2.5 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest w-fit hover:bg-white hover:text-gray-900 transition-all shadow-xl shadow-blue-500/10">Request Site Visit</button>
+                 </div>
               </div>
            </div>
         </section>
       </div>
-
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };

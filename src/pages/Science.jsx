@@ -1,8 +1,8 @@
 // src/pages/Science.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, ArrowUpRight, Download, Eye, FileText, Activity, Layers, CheckCircle2 } from 'lucide-react';
-import QuickView from '../components/QuickView';
+import InlineQuickView from '../components/InlineQuickView';
 
 const scienceItems = [
   { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', img: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80', badge: 'Safety Plus' },
@@ -20,9 +20,8 @@ const Science = () => {
     <main className="min-h-screen bg-white pt-6 pb-4">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* ASYMMETRIC SCHEMATIC HERO - OVERLAPPING ELEMENTS & HIGH VISUAL DENSITY - UNIQUE LAYOUT */}
+        {/* ASYMMETRIC SCHEMATIC HERO */}
         <section className="pt-4 pb-6 grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch">
-           {/* STORY OVERLAY (SPAN 8-EQUIVALENT) - PACKED */}
            <div className="lg:col-span-8 bg-emerald-50 rounded-[25px] p-8 flex flex-col justify-center border border-emerald-100 shadow-sm relative overflow-hidden group min-h-[400px]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[100px] -mr-32 -mt-32" />
               <div className="px-3 py-1 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-4 w-fit scale-90 relative z-10">
@@ -36,7 +35,6 @@ const Science = () => {
               </p>
            </div>
 
-           {/* IMAGE HUB (SPAN 4) - PACKED */}
            <div className="lg:col-span-4 flex flex-col gap-3">
               <div className="flex-grow rounded-[25px] overflow-hidden relative shadow-lg group border border-gray-100">
                  <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80" className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition-all duration-700 hover:scale-110" alt="Lab" />
@@ -51,7 +49,6 @@ const Science = () => {
 
         {/* SIDEBAR GRID LAYOUT */}
         <section className="py-8 border-t border-gray-100 flex flex-col lg:flex-row gap-8">
-           {/* LEFT SIDEBAR CATEGORY */}
            <aside className="lg:w-[240px] flex-shrink-0">
               <div className="sticky top-24 space-y-2">
                  <div className="mb-6">
@@ -74,32 +71,72 @@ const Science = () => {
               </div>
            </aside>
 
-           {/* MAIN CONTENT GALLERY */}
+           {/* MAIN CONTENT GALLERY - GOOGLE IMAGES STYLE */}
            <div className="flex-grow">
               <div className="flex justify-between items-end mb-8 px-2">
                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">CHEMISTRY <span className="text-emerald-500 italic font-serif lowercase tracking-normal text-lg ml-2">Apparatus</span></h2>
                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Selected Kits for Gr. 8-12</span>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                  {scienceItems.map((work, i) => (
-                    <div 
-                      key={i} 
-                      className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px]`}
-                      onClick={() => setSelectedItem(work)}
-                    >
-                       <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                       <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-10 h-10 rounded-full bg-emerald-500 shadow-xl flex items-center justify-center text-white">
-                             <ArrowUpRight size={18} />
+                    <React.Fragment key={i}>
+                       <div 
+                         className={`relative overflow-hidden rounded-[25px] shadow-sm group cursor-pointer border border-gray-300 h-[220px] transition-all duration-500 ${selectedItem?.title === work.title ? 'ring-4 ring-emerald-500 shadow-2xl scale-[1.02]' : 'hover:scale-[1.01]'}`}
+                         onClick={() => setSelectedItem(selectedItem?.title === work.title ? null : work)}
+                       >
+                          <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="w-10 h-10 rounded-full bg-emerald-500 shadow-xl flex items-center justify-center text-white">
+                                <ArrowUpRight size={18} />
+                             </div>
+                          </div>
+                          <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+                             <h3 className="text-base font-black text-white uppercase tracking-tighter font-heading">{work.title}</h3>
+                             <span className="text-[10px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
                           </div>
                        </div>
-                       <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
-                          <h3 className="text-base font-black text-white uppercase tracking-tighter font-heading">{work.title}</h3>
-                          <span className="text-[10px] text-emerald-400 font-black tracking-widest uppercase">{work.cat}</span>
+
+                       {/* INLINE EXPANSION LOGIC */}
+                       {/* Mobile */}
+                       <div className="md:hidden col-span-full">
+                          {selectedItem?.title === work.title && (
+                             <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                          )}
                        </div>
-                    </div>
+                       {/* Tablet (2 cols) */}
+                       {i % 2 === 1 && (
+                          <div className="hidden md:block lg:hidden col-span-full">
+                             {scienceItems.slice(i-1, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Desktop (3 cols) */}
+                       {i % 3 === 2 && (
+                          <div className="hidden lg:block col-span-full">
+                             {scienceItems.slice(i-2, i+1).some(dw => dw.title === selectedItem?.title) && (
+                                <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                             )}
+                          </div>
+                       )}
+                       {/* Handle End of List */}
+                       {i === scienceItems.length - 1 && (
+                          <>
+                             <div className="hidden md:block lg:hidden col-span-full">
+                                {scienceItems.slice(Math.floor(i/2)*2).some(dw => dw.title === selectedItem?.title) && i % 2 !== 1 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                             <div className="hidden lg:block col-span-full">
+                                {scienceItems.slice(Math.floor(i/3)*3).some(dw => dw.title === selectedItem?.title) && i % 3 !== 2 && (
+                                   <InlineQuickView isOpen={true} onClose={() => setSelectedItem(null)} data={selectedItem} />
+                                )}
+                             </div>
+                          </>
+                       )}
+                    </React.Fragment>
                  ))}
               </div>
            </div>
@@ -124,12 +161,6 @@ const Science = () => {
            </div>
         </section>
       </div>
-
-      <QuickView 
-        isOpen={!!selectedItem} 
-        onClose={() => setSelectedItem(null)} 
-        data={selectedItem} 
-      />
     </main>
   );
 };
