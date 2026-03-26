@@ -7,6 +7,11 @@ const products = [
   { id: 2, name: 'Ergonomic Chair', category: 'Office', price: '₹3,200', img: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80' },
   { id: 3, name: 'Library Shelving', category: 'Library', price: '₹12,400', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80' },
   { id: 4, name: 'Lab Workstation', category: 'Labs', price: '₹18,500', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80' },
+  { id: 5, name: 'Auditorium Seating', category: 'Auditorium', price: '₹5,800', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', badge: 'New Entry' },
+  { id: 6, name: 'Cafeteria Table', category: 'Cafeteria', price: '₹9,200', img: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?w=800&q=80' },
+  { id: 7, name: 'Kindergarten Pods', category: 'Classroom', price: '₹14,000', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', badge: 'Playful' },
+  { id: 8, name: 'Stackable Chairs', category: 'Classroom', price: '₹1,500', img: 'https://images.unsplash.com/photo-1596496181871-9681eacf9764?w=800&q=80' },
+  { id: 9, name: 'Executive Desk', category: 'Office', price: '₹28,000', img: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80' },
 ];
 
 const Furniture = () => {

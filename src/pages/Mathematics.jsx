@@ -6,6 +6,12 @@ const MathItems = [
   { id: 1, title: 'The Pythagoras Lab', cat: 'Theorem Visuals', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80', badge: 'Best Seller' },
   { id: 2, title: '3D Fraction Set', cat: 'Fractional Logic', img: 'https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=800&q=80', badge: 'NEA Pick' },
   { id: 3, title: 'Gamified Abacus Kit', cat: 'Mental Math', img: 'https://images.unsplash.com/photo-1509228468518-180dd482180c?w=800&q=80', badge: 'Innovation' },
+  { id: 4, title: 'Statistics Hub', cat: 'Data Science', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80', badge: 'Stats+' },
+  { id: 5, title: 'Algebraic Tiles', cat: 'Equation Logic', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80', badge: 'New Gen' },
+  { id: 6, title: 'Geometric Solids', cat: 'Volume Study', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80', badge: 'Premium' },
+  { id: 7, title: 'Logic Gates Kit', cat: 'Digital Math', img: 'https://images.unsplash.com/photo-1584433144859-1fc3ab84a9ec?w=800&q=80', badge: 'Bestseller' },
+  { id: 8, title: 'Vector Space Pro', cat: 'Calculus', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80', badge: 'Advanced' },
+  { id: 9, title: 'Trigonometry Dial', cat: 'Angles', img: 'https://images.unsplash.com/photo-1543286386-3067403818e8?w=800&q=80', badge: 'Utility' },
 ];
 
 const Mathematics = () => {

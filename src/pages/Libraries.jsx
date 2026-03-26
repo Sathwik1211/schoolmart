@@ -6,6 +6,12 @@ const libraryCollections = [
   { id: 1, title: 'K-12 Reference Library', cat: 'Academic', price: 'High-Density Shelving', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80', badge: 'Standard' },
   { id: 2, title: 'Digital Resource Kiosks', cat: 'Modern Tech', price: 'Integrated 4K Screens', img: 'https://images.unsplash.com/photo-1592478411213-61fa3e467d53?w=800&q=80', badge: 'Tech-Infused' },
   { id: 3, title: 'Collaborative Reading Zones', cat: 'Furniture', price: 'Acoustic Focused', img: 'https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?w=800&q=80', badge: 'Popular' },
+  { id: 4, title: 'Archival Storage Systems', cat: 'Storage', price: 'Space-Saving', img: 'https://images.unsplash.com/photo-1507733470479-79a07a16f6b5?w=800&q=80', badge: 'Heavy Duty' },
+  { id: 5, title: 'Kindle Reading Hubs', cat: 'Digital', price: 'E-Reader Integration', img: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=800&q=80', badge: 'Smart' },
+  { id: 6, title: 'The Silent Pod', cat: 'Focus', price: 'Soundproof Solo', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', badge: 'Premium' },
+  { id: 7, title: 'Preschool Story Corner', cat: 'Junior', price: 'Modular Cushions', img: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80', badge: 'Junior' },
+  { id: 8, title: 'Movable Book Trolleys', cat: 'Utility', price: 'Lockable Casters', img: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80', badge: 'Utility' },
+  { id: 9, title: 'High-Speed Scanner Lab', cat: 'Digitization', price: 'OCR Ready', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', badge: 'Tech' },
 ];
 
 const Libraries = () => {

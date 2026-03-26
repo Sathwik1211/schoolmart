@@ -6,6 +6,12 @@ const gadgets = [
   { id: 1, title: 'Smart Panel 75" 4K', cat: 'Interactivity', price: '₹1,45,000', img: 'https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=800&q=80', badge: 'Tech Pick' },
   { id: 2, title: 'Student Tablet V2', cat: 'Mobility', price: '₹12,500', img: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80', badge: 'Best Seller' },
   { id: 3, title: 'Mesh Router X', cat: 'Connectivity', price: '₹8,900', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80', badge: 'High-Perf' },
+  { id: 4, title: 'AI Edge Server', cat: 'Cloud Hub', price: '₹4,20,000', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80', badge: 'Enterprise' },
+  { id: 5, title: 'VR headset Pro', cat: 'Immersive', price: '₹45,000', img: 'https://images.unsplash.com/photo-1592477976530-bc620023472b?w=800&q=80', badge: 'New Gear' },
+  { id: 6, title: 'Charging Station', cat: 'Mobility', price: '₹18,000', img: 'https://images.unsplash.com/photo-1584433144859-1fc3ab84a9ec?w=800&q=80', badge: 'Utility' },
+  { id: 7, title: 'Biometric Access', cat: 'Security', price: '₹22,000', img: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&q=80', badge: 'Security+' },
+  { id: 8, title: '3D Printer Lab', cat: 'Makerspace', price: '₹85,000', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80', badge: 'STEM Pro' },
+  { id: 9, title: 'Smart Podium 2.0', cat: 'Lecture', price: '₹55,000', img: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?w=800&q=80', badge: 'Classic' },
 ];
 
 const DigitalInfra = () => {

@@ -5,6 +5,10 @@ import { FlaskConical, Beaker, Atom, Microscope, Dna, Zap, ArrowRight, ArrowUpRi
 const scienceItems = [
   { id: 1, title: 'Modular Physics Bench', cat: 'Lab Furniture', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80', badge: 'Safety Plus' },
   { id: 2, title: 'The Human Anatomy V3', cat: 'Biology Models', img: 'https://images.unsplash.com/photo-1540344211158-99937399a9a3?w=800&q=80', badge: 'High-Detail' },
+  { id: 3, title: 'Spectroscopy Kit', cat: 'Optics', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&q=80', badge: 'Advanced' },
+  { id: 4, title: 'Chemical Storage Unit', cat: 'Safety', img: 'https://images.unsplash.com/photo-1581093196277-9f608109ca46?w=800&q=80', badge: 'ISO Certified' },
+  { id: 5, title: 'DNA Sequencer Card', cat: 'Biotech', img: 'https://images.unsplash.com/photo-1579154235820-22718e001804?w=800&q=80', badge: 'Modern' },
+  { id: 6, title: 'Micro-Grid Solar Kit', cat: 'Renewables', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80', badge: 'STEM Pick' },
 ];
 
 const Science = () => {

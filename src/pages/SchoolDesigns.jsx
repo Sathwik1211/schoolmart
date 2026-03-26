@@ -16,6 +16,9 @@ const designWorks = [
   { title: 'Pastel Primary Wing', cat: 'Color Psychology', img: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80', height: 'h-[600px]' },
   { title: 'The Zen Library', cat: 'Adaptive Spaces', img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80', height: 'h-[450px]' },
   { title: 'Infinity Sports Arena', cat: 'Kinetic Design', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80', height: 'h-[550px]' },
+  { title: 'Organic Garden Lab', cat: 'Eco-Planning', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', height: 'h-[400px]' },
+  { title: 'The Glass Think-Tank', cat: 'Glassmorphism', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', height: 'h-[600px]' },
+  { title: 'Futuristic Faculty Lounge', cat: 'Admin Design', img: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80', height: 'h-[450px]' },
 ];
 
 const SchoolDesigns = () => {
