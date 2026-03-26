@@ -149,7 +149,7 @@ const ResourceTiles = () => {
                 <Link
                   key={tile.title}
                   to={tile.path}
-                  className={`block break-inside-avoid ${tile.height} rounded-2xl overflow-hidden relative group shadow-sm`}
+                  className={`block break-inside-avoid ${tile.height} rounded-2xl overflow-hidden relative group shadow-sm border border-gray-200`}
                   style={{ marginBottom: '12px' }}
                 >
                   <img
@@ -189,7 +189,7 @@ const ResourceTiles = () => {
                 {solutions.map((item) => (
                   <Link key={item.title} to={item.path} className="flex flex-col items-center text-center group">
                     {/* Circle Image Container */}
-                    <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl mb-5 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95 border-4 border-white">
+                    <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl mb-5 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-95 border-4 border-gray-100">
                       <img 
                         src={item.img} 
                         alt={item.title} 

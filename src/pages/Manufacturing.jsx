@@ -64,8 +64,8 @@ const Manufacturing = () => {
                { t: 'QUALITY CONTROL', p: 'ISO Certified', img: 'https://plus.unsplash.com/premium_photo-1661877737564-3dfd7282efcb?w=800&q=80', b: 'QC Standards' },
                { t: 'LOGISTICS HUB', p: 'Global Shipping', img: 'https://images.unsplash.com/photo-1586528116311-ad8669931342?w=800&q=80', b: 'Fulfillment' },
             ].map((card, i) => (
-               <div key={i} className="bg-white rounded-[20px] p-4 border border-gray-100 shadow-sm flex flex-col group hover:shadow-xl transition-all h-full">
-                  <div className="relative aspect-square rounded-[15px] overflow-hidden mb-4 bg-gray-50">
+               <div key={i} className="bg-white rounded-[20px] p-4 border border-gray-200 shadow-sm flex flex-col group hover:shadow-xl transition-all h-full">
+                  <div className="relative aspect-square rounded-[15px] overflow-hidden mb-4 bg-gray-50 border border-gray-200">
                      <img src={card.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={card.t} />
                   </div>
                   <div className="flex-grow">

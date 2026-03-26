@@ -81,7 +81,7 @@ const Mathematics = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {MathItems.map((item, i) => (
-                    <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer relative overflow-hidden">
+                    <div key={i} className="bg-white p-2 rounded-[25px] border border-gray-200 shadow-sm transition-all duration-500 hover:shadow-2xl group cursor-pointer relative overflow-hidden">
                        <div className="relative h-48 rounded-[20px] overflow-hidden mb-4">
                           <img src={item.img} alt={item.title} className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0" />
                           <div className="absolute top-4 right-4 animate-bounce opacity-0 group-hover:opacity-100">

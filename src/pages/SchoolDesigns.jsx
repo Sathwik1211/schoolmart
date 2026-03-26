@@ -91,7 +91,7 @@ const SchoolDesigns = () => {
 
               <div className="columns-1 md:columns-2 gap-6 space-y-6">
                  {designWorks.map((work, i) => (
-                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-100`}>
+                    <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group cursor-pointer ${work.height} border border-gray-200`}>
                        <img src={work.img} alt={work.title} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 right-6">

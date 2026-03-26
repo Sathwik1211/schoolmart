@@ -83,7 +83,7 @@ const DigitalInfra = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                  {gadgets.map((item, i) => (
                     <div key={i} className="group cursor-pointer">
-                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-100 p-2">
+                       <div className="relative bg-gray-50 rounded-[25px] overflow-hidden transition-all duration-500 group-hover:shadow-xl h-[260px] border border-gray-200 p-2 shadow-sm">
                           <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-[20px] transition-transform duration-700 group-hover:scale-110 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100" />
                           <div className="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[7px] font-black text-sm-blue uppercase tracking-widest shadow-sm border border-blue-50">
                              {item.badge}
