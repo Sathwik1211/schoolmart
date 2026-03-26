@@ -1,63 +1,60 @@
 // src/pages/Guides.jsx
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, Download, Search, Layout, ArrowUpRight, CheckCircle2, Award, Zap, Building2, Lightbulb, MousePointer2 } from 'lucide-react';
+import { BookOpen, Search, Download, FileText, ArrowRight, ArrowUpRight, Award, Shield, Layers, FileCheck } from 'lucide-react';
 
 const categories = [
-  { id: 'all', name: 'INSTITUTIONAL GUIDES', icon: <Building2 size={20} /> },
-  { id: 'design', name: 'DESIGN HANDBOOKS', icon: <Layout size={20} /> },
-  { id: 'tech', name: 'TECH MANUALS', icon: <MousePointer2 size={20} /> },
-  { id: 'infra', name: 'INFRA STRATEGY', icon: <Lightbulb size={20} /> },
-];
-
-const guideItems = [
-  { title: 'The NEP 2020 Compliance Guide', cat: 'Policy', size: '1.2 MB', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=600&q=80', badge: 'Must Read' },
-  { title: 'Color Theory for Classrooms', cat: 'Design', size: '2.5 MB', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', badge: 'Latest' },
-  { title: 'Smart Campus Cybersecurity', cat: 'Technology', size: '0.8 MB', img: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=600&q=80', badge: 'Essential' },
-  { title: 'Ergonomic Seating Standards', cat: 'Furniture', size: '3.1 MB', img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80' },
+  { id: 'all', name: 'NEP 2020', icon: <BookOpen size={20} /> },
+  { id: 'safety', name: 'SAFETY PROTOCOL', icon: <Shield size={20} /> },
+  { id: 'technical', name: 'TECH SPECS', icon: <Layers size={20} /> },
+  { id: 'standards', name: 'CERTIFICATIONS', icon: <Award size={20} /> },
+  { id: 'planning', name: 'SITE PLANNING', icon: <FileCheck size={20} /> },
 ];
 
 const Guides = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-gray-50 pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* IMPACT FULL-WIDTH HERO - UNIQUE GRID 2 */}
-        <section className="pt-8 pb-16 relative">
-           <div className="relative h-[600px] rounded-[50px] overflow-hidden group shadow-2xl border-8 border-white">
-              <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=1200&q=80" alt="Knowledge Base" className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+        {/* REFINED SPLIT-HUB HERO - THE USER PREFERRED THIS */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* STORY BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <BookOpen size={12} className="inline mr-2" /> Knowledge Base 2025
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Strategy. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">for</span> <br/> Compliance.
+              </h1>
               
-              <div className="absolute inset-x-12 bottom-16 flex flex-col lg:flex-row items-end justify-between gap-12">
-                 <div className="max-w-xl">
-                    <div className="px-4 py-1.5 bg-sm-blue text-white font-black rounded-full text-[9px] uppercase tracking-[0.3em] mb-8 w-fit">
-                       <BookOpen size={14} className="inline mr-2" /> Global Standards
-                    </div>
-                    <h1 className="text-6xl md:text-8xl font-black font-heading leading-tight mb-8 tracking-tighter text-white uppercase">
-                       Guides. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-white">for</span> <br/> Success.
-                    </h1>
-                    <div className="relative max-w-sm">
-                       <input type="text" placeholder="Search strategy handbooks..." className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 focus:bg-white focus:text-gray-900 outline-none text-[10px] font-bold uppercase tracking-widest text-white transition-all" />
-                       <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50" />
-                    </div>
-                 </div>
+              {/* Compact Search below title */}
+              <div className="relative max-w-sm mt-4">
+                 <input type="text" placeholder="Search strategy handbooks..." className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border border-gray-100 focus:border-sm-blue outline-none text-[10px] font-bold uppercase tracking-widest transition-all" />
+                 <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+              </div>
+           </div>
 
-                 {/* FLOATING ACTION CARD */}
-                 <div className="w-full lg:w-[320px] bg-white rounded-[40px] p-10 shadow-3xl transform lg:translate-y-10 border border-gray-100 group/card">
-                    <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Latest Release</h3>
-                    <h4 className="text-xl font-black text-gray-900 font-heading leading-tight mb-8 uppercase">NEP 2024 <br/> Compliance <br/> Master-Guide.</h4>
-                    <button className="w-full py-4 bg-sm-blue text-white font-black rounded-2xl text-[9px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 flex items-center justify-center gap-3">
-                       Download PDF <ArrowUpRight size={16} />
-                    </button>
-                    <div className="mt-6 flex items-center justify-between opacity-20 group-hover/card:opacity-100 transition-opacity">
-                       <span className="text-[8px] font-black uppercase text-gray-400">12.4 MB</span>
-                       <Award size={20} className="text-sm-blue" />
-                    </div>
+           {/* FEATURE HUB - RIGHT (High Contrast) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">NEP 2024 <br/> Implementation <br/> Resource Kit.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all">Download PDF</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-white rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-gray-100">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Certification <br/> & <br/> Standards.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">BIFMA</span>
+                    <Award className="text-gray-300 group-hover:text-sm-blue transition-colors" size={24} />
                  </div>
               </div>
            </div>
         </section>
 
-        {/* Compact Strip Menu — AS PER REFERENCE */}
+        {/* Compact Strip Menu — Standardized */}
         <section className="pb-12 px-2">
            <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
              {categories.map((cat) => (
@@ -71,80 +68,57 @@ const Guides = () => {
            </div>
         </section>
 
-        {/* HIGH-DENSITY RESOURCE TILES (Screenshot 4 variation but for Guides) */}
-        <section className="py-20 border-t border-gray-100">
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {guideItems.map((item, i) => (
-                 <div key={i} className="bg-white p-4 rounded-[60px] border border-gray-100 shadow-sm transition-all duration-700 hover:shadow-3xl hover:-translate-y-4 group cursor-pointer overflow-hidden flex flex-col relative">
-                    <div className="relative h-60 rounded-[45px] overflow-hidden mb-6">
-                       <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-                       <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                       {item.badge && (
-                          <div className="absolute top-6 left-6 px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black tracking-widest uppercase shadow-lg text-sm-blue border border-blue-50">{item.badge}</div>
-                       )}
-                    </div>
-                    <div className="px-6 pb-8 flex-1 flex flex-col">
-                       <p className="text-sm-blue font-black text-[10px] uppercase tracking-widest mb-3">{item.cat} Handbook</p>
-                       <h3 className="text-xl font-black text-gray-900 font-heading mb-6 tracking-tight leading-tight group-hover:text-sm-blue transition-colors flex-1">{item.title}</h3>
-                       <div className="flex items-center justify-between pt-6 border-t border-gray-50">
-                          <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest">{item.size} PDF</span>
-                          <button className="w-10 h-10 bg-gray-50 group-hover:bg-sm-blue group-hover:text-white rounded-2xl flex items-center justify-center text-gray-300 transition-all active:scale-95">
-                             <Download size={18} />
-                          </button>
-                       </div>
+        {/* RESOURCE LISTING - MASONRY INSPIRED BY ARCHITECTURE */}
+        <section className="py-12 border-t border-gray-100">
+           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+              {[
+                { t: 'Safety Master-Guide', c: 'Logistics', img: 'https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=800&q=80', h: 'h-[400px]' },
+                { t: 'Spatial Planning V2', c: 'Architecture', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', h: 'h-[500px]' },
+                { t: 'Color Psychology', c: 'Interiors', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', h: 'h-[350px]' },
+                { t: 'Furniture Selection', c: 'Strategy', img: 'https://images.unsplash.com/photo-1582213726894-46944743265d?w=800&q=80', h: 'h-[450px]' },
+              ].map((work, i) => (
+                 <div key={i} className={`break-inside-avoid relative overflow-hidden rounded-[30px] shadow-sm group cursor-pointer ${work.h} border border-gray-100`}>
+                    <img src={work.img} alt={work.t} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                       <span className="text-sm-blue font-black text-[8px] uppercase tracking-widest block mb-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">{work.c} Handbook</span>
+                       <h3 className="text-xl font-black text-white font-heading leading-tight translate-y-3 group-hover:translate-y-0 transition-transform duration-500 uppercase">{work.t}</h3>
                     </div>
                  </div>
               ))}
 
-              {/* UNIQUE BENTO CALL-TO-ACTION FOR GUIDES */}
-              <div className="lg:col-span-2 bg-[#1A1A1A] rounded-[70px] p-12 lg:p-16 text-white relative overflow-hidden group shadow-3xl flex flex-col lg:flex-row items-center gap-12 active:scale-[0.99] cursor-pointer">
-                 <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-sm-blue opacity-10 rounded-full blur-[80px] group-hover:opacity-30 transition-opacity" />
-                 <div className="w-32 h-32 bg-sm-blue/20 backdrop-blur-md rounded-[50px] flex items-center justify-center text-sm-blue border border-sm-blue/30 shadow-2xl group-hover:rotate-12 transition-transform">
-                    <Zap size={60} />
-                 </div>
-                 <div className="flex-1 text-center lg:text-left">
-                    <h4 className="text-3xl font-black font-heading mb-4 tracking-tight leading-tight uppercase">Request Custom Guide.</h4>
-                    <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest leading-loose mb-8">Can't find the specific compliance guide for your state? Our strategy team will curate one for you.</p>
-                    <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-3xl hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[10px]">Speak to Strategist</button>
-                 </div>
+              {/* ACTION CALLOUT */}
+              <div className="break-inside-avoid bg-sm-blue rounded-[30px] p-10 text-white flex flex-col justify-center min-h-[300px] shadow-2xl relative overflow-hidden group border border-sm-blue/20">
+                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 blur-3xl rounded-full" />
+                 <FileText size={32} className="text-white mb-6" />
+                 <h4 className="text-2xl font-black font-heading mb-4 tracking-tighter uppercase leading-none">Custom <br/> Portfolio.</h4>
+                 <p className="text-white/60 text-[9px] font-bold uppercase tracking-widest leading-loose mb-8">Request a curated strategy document for your school's specific infrastructure budget.</p>
+                 <button className="px-6 py-3 bg-white text-sm-blue font-black rounded-full hover:bg-gray-900 hover:text-white transition-all shadow-xl uppercase tracking-widest text-[8px] w-fit">Request Curation</button>
               </div>
            </div>
         </section>
 
-        {/* FEATURED ARTICLES (Screenshot 2 / Unique Element) */}
-        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-           <div className="relative rounded-[70px] overflow-hidden shadow-2xl h-[700px] border-8 border-white group">
-              <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=1000&q=80" alt="Guide Detail" className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-16 left-16 right-16">
-                 <h2 className="text-4xl md:text-6xl font-black font-heading leading-tight mb-8 tracking-tighter text-white uppercase">The Smart <br/> Campus <span className="text-sm-blue italic lowercase font-serif border-b-4 border-sm-blue">Playbook.</span></h2>
-                 <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-full hover:bg-sm-blue hover:text-white transition-all shadow-xl uppercase tracking-widest text-[10px] flex items-center gap-3">
-                    Read Online Case Study <ArrowUpRight size={18} />
-                 </button>
-              </div>
-           </div>
-
-           <div className="bg-white p-12 lg:p-20 rounded-[80px] shadow-3xl border border-gray-50 relative z-10 group overflow-hidden">
-              <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              <div className="relative z-10">
-                 <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-tight tracking-tighter uppercase">Certification <br/> & <span className="text-sm-blue">Compliance.</span></h2>
-                 <p className="text-gray-500 text-lg leading-relaxed mb-12 font-medium">
-                    We ensure all your instructional resource procurement aligns with the latest national education policy and safety standards.
+        {/* INFO SPLIT GRID */}
+        <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+           <div className="order-2 lg:order-1 relative">
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-sm-blue rounded-full blur-[80px] opacity-10" />
+              <div className="bg-white p-12 lg:p-16 rounded-[40px] shadow-sm border border-gray-100 relative z-10">
+                 <h2 className="text-4xl font-black text-gray-900 font-heading mb-8 leading-none tracking-tighter uppercase">Regulatory <br/> <span className="text-sm-blue">Frameworks.</span></h2>
+                 <p className="text-gray-500 text-sm leading-loose mb-10 font-medium">
+                    We keep stay updated with the latest NEA and MoE guidelines to ensure your institutional design remains compliant for the next decade.
                  </p>
-                 <div className="space-y-6">
-                    {['BIFMA Certified Solutions', 'NEA Safety Manuals 2024', 'Sustainability Blueprints', 'IoT Implementation Handbooks'].map((item, i) => (
-                       <div key={i} className="flex items-center gap-6 p-6 rounded-[35px] bg-white shadow-xl border border-gray-100 transition-all cursor-pointer hover:border-sm-blue active:scale-[0.98]">
-                          <div className="w-12 h-12 bg-blue-50 text-sm-blue group-hover:bg-sm-blue group-hover:text-white rounded-2xl flex items-center justify-center transition-all">
-                             <CheckCircle2 size={24} />
-                          </div>
-                          <span className="text-[11px] font-black uppercase tracking-[0.2em]">{item}</span>
-                          <div className="ml-auto opacity-20">
-                             <Award size={20} />
-                          </div>
+                 <div className="grid grid-cols-2 gap-4">
+                    {['200+ Guides', 'Site Surveys', 'Compliance Audit', 'Future Ready'].map((item, i) => (
+                       <div key={i} className="flex items-center gap-3 text-[9px] font-black text-gray-900 uppercase tracking-widest bg-gray-50 p-4 rounded-2xl group hover:bg-sm-blue hover:text-white transition-all">
+                          <Award size={14} className="text-sm-blue group-hover:text-white" />
+                          {item}
                        </div>
                     ))}
                  </div>
               </div>
+           </div>
+           <div className="order-1 lg:order-2 rounded-[40px] overflow-hidden shadow-3xl">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&q=80" alt="Planning" className="w-full h-[500px] object-cover" />
            </div>
         </section>
       </div>
