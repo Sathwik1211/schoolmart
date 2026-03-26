@@ -56,35 +56,36 @@ const Manufacturing = () => {
             </div>
          </div>
 
-         {/* STRIP 2 - CINEMATIC IMAGE WITH 4 FEATURE BOXES */}
-         <div className="flex flex-col lg:flex-row gap-3">
-            <div className="flex-[2] h-[350px] rounded-[20px] overflow-hidden relative shadow-lg group border border-gray-100">
-               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Factory" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000" />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-               <div className="absolute bottom-8 left-8 max-w-sm">
-                  <h3 className="text-2xl font-black text-white uppercase font-heading leading-none mb-4">Artisanal <br/> Robotic <br/> Harmony.</h3>
-                  <button className="px-5 py-2.5 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all">Book Factory Tour</button>
-               </div>
-            </div>
-
-            <div className="flex-1 grid grid-cols-2 gap-3">
-               {[
-                  { t: 'MICRON LOGIC', d: '0.01mm Deviation', i: <Settings size={14} /> },
-                  { t: 'ARTISAN SOUL', d: 'Hand-finished Edges', i: <Layers size={14} /> },
-                  { t: 'ECO SCALE', d: '100% Recyclable Content', i: <Activity size={14} /> },
-                  { t: 'GLOBAL REACH', d: '20+ Countries Served', i: <Truck size={14} /> },
-               ].map((box, i) => (
-                  <div key={i} className="bg-white rounded-[20px] p-6 border border-gray-100 shadow-sm flex flex-col justify-between hover:border-emerald-500 transition-all group">
-                     <div className="p-2 bg-gray-50 rounded-lg w-fit text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                        {box.i}
-                     </div>
-                     <div>
-                        <h4 className="text-[9px] font-black uppercase text-gray-900 mb-1">{box.t}</h4>
-                        <p className="text-[7px] font-bold text-gray-400 uppercase tracking-widest leading-none">{box.d}</p>
+         {/* STRIP 2 - 4 BOX LAYOUTS LIKE REFERENCE */}
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+               { t: 'ROBOTIC ASSEMBLY', p: 'Precision 4.0', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80', b: 'View Details' },
+               { t: 'CNC MACHINING', p: '0.01mm Grade', img: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=800&q=80', b: 'Specifications' },
+               { t: 'QUALITY CONTROL', p: 'ISO Certified', img: 'https://plus.unsplash.com/premium_photo-1661877737564-3dfd7282efcb?w=800&q=80', b: 'QC Standards' },
+               { t: 'LOGISTICS HUB', p: 'Global Shipping', img: 'https://images.unsplash.com/photo-1586528116311-ad8669931342?w=800&q=80', b: 'Fulfillment' },
+            ].map((card, i) => (
+               <div key={i} className="bg-white rounded-[20px] p-4 border border-gray-100 shadow-sm flex flex-col group hover:shadow-xl transition-all h-full">
+                  <div className="relative aspect-square rounded-[15px] overflow-hidden mb-4 bg-gray-50">
+                     <img src={card.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={card.t} />
+                  </div>
+                  <div className="flex-grow">
+                     <h3 className="text-[12px] font-black uppercase text-gray-900 mb-1 leading-tight">{card.t}</h3>
+                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">{card.p}</p>
+                     
+                     {/* Star Ratings like reference */}
+                     <div className="flex gap-0.5 mb-4">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                           <svg key={star} className="w-3 h-3 text-orange-400 fill-current" viewBox="0 0 20 20">
+                              <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                           </svg>
+                        ))}
                      </div>
                   </div>
-               ))}
-            </div>
+                  <button className="w-full py-3 bg-gray-50 text-[8px] font-black text-gray-900 uppercase tracking-widest rounded-full hover:bg-emerald-500 hover:text-white transition-all">
+                     {card.b}
+                  </button>
+               </div>
+            ))}
          </div>
         </section>
 
