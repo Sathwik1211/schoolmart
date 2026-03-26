@@ -11,41 +11,57 @@ const categories = [
 
 const Environments = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-white pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED ATMOSPHERE HERO - REMOVED CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
-           {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-3 py-1 bg-sm-blue/10 text-sm-blue font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90 border border-sm-blue/20">
-                 <Sparkles size={12} className="inline mr-2 animate-pulse" /> Sensory Learning
+        {/* ARCHITECTURAL BENTO HERO - UNIQUE GRID 1 */}
+        <section className="pt-8 pb-16">
+           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 h-auto lg:h-[650px]">
+              {/* PRIMARY STORY BLOCK */}
+              <div className="md:col-span-2 lg:col-span-3 bg-gray-50 rounded-[40px] p-12 flex flex-col justify-center relative overflow-hidden group shadow-sm border border-gray-100">
+                 <div className="absolute top-0 right-0 w-60 h-60 bg-blue-500/5 rounded-full blur-[100px] -mr-20 -mt-20" />
+                 <div className="px-4 py-1.5 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.3em] mb-10 w-fit scale-90">
+                    <Layout size={12} className="inline mr-2" /> Spatial Strategy
+                 </div>
+                 <h1 className="text-5xl md:text-7xl font-black font-heading leading-[0.9] mb-8 tracking-tight text-gray-900 uppercase">
+                    Mood. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">and</span> <br/> Matter.
+                 </h1>
+                 <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] max-w-xs leading-loose">
+                    We engineer atmospheres that command attention and foster elite academic performance.
+                 </p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
-                 Atmosphere <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Everything.
-              </h1>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
-                 We harmonize architectural sensory design to stimulate focus, collaborative energy, and deep learning.
-              </p>
-           </div>
 
-           {/* AUDIT FEATURE HUB - RIGHT (Premium Inspired) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Request <br/> Environment <br/> Audit Survey.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Apply Online</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+              {/* HIGH-IMPACT VISUAL BLOCK */}
+              <div className="md:col-span-2 lg:col-span-3 bg-gray-900 rounded-[40px] relative overflow-hidden group">
+                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80" alt="Modern Hall" className="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-1000" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                 <div className="absolute bottom-10 left-10">
+                    <h3 className="text-white text-2xl font-black font-heading tracking-tighter uppercase mb-4">The Atrium <br/> Series.</h3>
+                    <button className="px-6 py-2.5 bg-white text-gray-900 font-black rounded-full text-[8px] uppercase tracking-widest hover:bg-sm-blue hover:text-white transition-all shadow-xl">Explore Detail <ArrowUpRight size={14} className="inline ml-1" /></button>
                  </div>
               </div>
-              <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Spatial <br/> Research <br/> Indices.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Bespoke</span>
-                    <Layers className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
+
+              {/* ACTION HUB BLOCK */}
+              <div className="md:col-span-1 lg:col-span-2 bg-yellow-400 rounded-[40px] p-8 flex flex-col justify-between group cursor-pointer active:scale-95 shadow-lg shadow-yellow-400/10">
+                 <div className="w-12 h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                    <CheckCircle2 size={24} />
                  </div>
+                 <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-[0.2em] leading-relaxed">Safety <br/> Compliance <br/> Survey.</h4>
+                 <ArrowRight className="text-gray-900/30 group-hover:translate-x-1 transition-transform" size={20} />
+              </div>
+
+              {/* STATS/BADGE BLOCK */}
+              <div className="md:col-span-1 lg:col-span-2 bg-white border border-gray-100 rounded-[40px] p-8 flex flex-col items-center justify-center text-center group hover:border-sm-blue transition-colors shadow-sm">
+                 <div className="text-sm-blue font-black text-5xl mb-2 flex items-center gap-1 group-hover:scale-110 transition-transform">
+                    50 <span className="text-xl">+</span>
+                 </div>
+                 <p className="text-[8px] font-black text-gray-400 uppercase tracking-[0.3em] leading-loose">Elite Environments <br/> Built in 2024</p>
+              </div>
+
+              {/* SMALL IMAGE BLOCK */}
+              <div className="md:col-span-2 lg:col-span-2 bg-gray-100 rounded-[40px] relative overflow-hidden group">
+                 <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dee62?w=800&q=80" alt="Detail" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-700" />
+                 <Award className="absolute top-6 right-6 text-white/50 group-hover:text-yellow-400 transition-colors" size={24} />
               </div>
            </div>
         </section>

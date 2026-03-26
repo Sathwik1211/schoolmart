@@ -17,59 +17,40 @@ const libProjects = [
 
 const LabsLibraries = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        
-        {/* REFINED KNOWLEDGE HUB HERO - REMOVED CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
-           {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-6 py-2 bg-white/50 backdrop-blur-md text-sm-blue font-black rounded-full border border-blue-100 shadow-sm text-[8px] uppercase tracking-[0.3em] flex items-center gap-3 w-fit mb-8 scale-90">
-                 <Star size={12} className="fill-sm-blue text-sm-blue" /> World Class Learning Hubs
-              </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
-                 Serene. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Brilliant.</span> <br/> Organized.
-              </h1>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
-                 We re-imagine the silent corners of schools as high-engagement zones for deep work and discovery.
-              </p>
-           </div>
+    <main className="min-h-screen bg-white pt-24 pb-20 overflow-hidden relative">
+      {/* MINIMALIST MODERNIST HERO - UNIQUE GRID 4 */}
+      <section className="px-4 py-24 text-center relative overflow-hidden">
+         <div className="absolute top-0 right-0 w-[80%] h-[80%] bg-blue-50/30 rounded-full blur-[120px] -mr-32 -mt-32" />
+         <div className="absolute bottom-0 left-0 w-[60%] h-[60%] bg-orange-50/20 rounded-full blur-[100px] -ml-24 -mb-24" />
 
-           {/* DESIGN FEATURE HUB - RIGHT (Premium Inspired) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Request <br/> Specialist Design <br/> Consultation.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Book Now</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
-                 </div>
-              </div>
-              <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">STEM <br/> Lab <br/> Case Study.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Bespoke</span>
-                    <Layers className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
-                 </div>
-              </div>
-           </div>
-        </section>
+         <div className="relative z-10">
+            <div className="flex justify-center mb-10">
+               <div className="px-6 py-2 bg-white/50 backdrop-blur-md text-sm-blue font-black rounded-full border border-blue-100 shadow-sm text-[10px] uppercase tracking-[0.3em] flex items-center gap-3">
+                  <Star size={16} className="fill-sm-blue text-sm-blue" /> World Class Learning Hubs
+               </div>
+            </div>
+            
+            <h1 className="text-6xl md:text-9xl font-black font-heading leading-tight tracking-tighter text-gray-900 mb-12 uppercase">
+               Serene. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-gray-400">Engineering</span> <br/> Brilliant.
+            </h1>
+            
+            <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-20 leading-relaxed font-medium">
+               We re-imagine the silent corners of schools as high-engagement zones for deep work, creative exploration, and collaborative discovery.
+            </p>
 
-        {/* Compact Strip Menu — AS PER REFERENCE */}
-        <section className="pb-12 px-2">
-           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
-             {categories.map((cat) => (
-               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
-                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
-                   {cat.icon}
-                 </div>
-                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
-               </button>
-             ))}
-           </div>
-        </section>
-      </div>
+            {/* FLOATING CATEGORY ICONS STACK (Screenshot 1 Variation) */}
+            <div className="flex overflow-x-auto gap-12 pb-12 hide-scrollbar justify-start lg:justify-center w-full max-w-5xl mx-auto scroll-smooth">
+               {categories.map((cat) => (
+                 <button key={cat.id} className="flex flex-col items-center gap-5 group flex-none outline-none">
+                   <div className="w-24 h-24 rounded-[35px] bg-white shadow-2xl flex items-center justify-center text-gray-300 group-hover:bg-gray-900 group-hover:text-white transition-all transform hover:-translate-y-4 duration-500 border border-gray-50 group-hover:border-sm-blue">
+                     {cat.icon}
+                   </div>
+                   <span className="text-[9px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-[0.2em] transition-colors">{cat.name}</span>
+                 </button>
+               ))}
+            </div>
+         </div>
+      </section>
 
       {/* FULL-WIDTH IMMERSIVE PORTFOLIO (Screenshot 2 Bento Style but Linear) */}
       <section className="py-24 px-4 bg-gray-50 border-y border-gray-100 space-y-32">

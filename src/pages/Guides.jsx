@@ -21,40 +21,37 @@ const Guides = () => {
     <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED KNOWLEDGE HERO - REMOVED CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
-           {/* STRATEGY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-3 py-1 bg-yellow-400 text-gray-900 font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
-                 <BookOpen size={12} className="inline mr-2" /> Educational Resources
-              </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
-                 Guides. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">Strategy.</span> <br/> Success.
-              </h1>
+        {/* IMPACT FULL-WIDTH HERO - UNIQUE GRID 2 */}
+        <section className="pt-8 pb-16 relative">
+           <div className="relative h-[600px] rounded-[50px] overflow-hidden group shadow-2xl border-8 border-white">
+              <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=1200&q=80" alt="Knowledge Base" className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
               
-              {/* Compact Search below title */}
-              <div className="relative max-w-sm mt-4">
-                 <input type="text" placeholder="Search handbooks..." className="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border border-gray-100 focus:border-sm-blue outline-none text-[10px] font-bold uppercase tracking-widest transition-all" />
-                 <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-              </div>
-           </div>
-
-           {/* COMPLIANCE FEATURE HUB - RIGHT (High Contrast Inspired) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">NEP 2020 <br/> Compliance <br/> Strategic Guide.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Download PDF</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+              <div className="absolute inset-x-12 bottom-16 flex flex-col lg:flex-row items-end justify-between gap-12">
+                 <div className="max-w-xl">
+                    <div className="px-4 py-1.5 bg-sm-blue text-white font-black rounded-full text-[9px] uppercase tracking-[0.3em] mb-8 w-fit">
+                       <BookOpen size={14} className="inline mr-2" /> Global Standards
+                    </div>
+                    <h1 className="text-6xl md:text-8xl font-black font-heading leading-tight mb-8 tracking-tighter text-white uppercase">
+                       Guides. <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-white">for</span> <br/> Success.
+                    </h1>
+                    <div className="relative max-w-sm">
+                       <input type="text" placeholder="Search strategy handbooks..." className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 focus:bg-white focus:text-gray-900 outline-none text-[10px] font-bold uppercase tracking-widest text-white transition-all" />
+                       <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50" />
+                    </div>
                  </div>
-              </div>
-              <div className="bg-white rounded-[30px] p-8 text-gray-900 flex flex-col justify-between group overflow-hidden relative border border-gray-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Certification <br/> & <br/> Standards.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">BIFMA</span>
-                    <Award className="text-gray-300 group-hover:text-sm-blue transition-colors" size={24} />
+
+                 {/* FLOATING ACTION CARD */}
+                 <div className="w-full lg:w-[320px] bg-white rounded-[40px] p-10 shadow-3xl transform lg:translate-y-10 border border-gray-100 group/card">
+                    <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Latest Release</h3>
+                    <h4 className="text-xl font-black text-gray-900 font-heading leading-tight mb-8 uppercase">NEP 2024 <br/> Compliance <br/> Master-Guide.</h4>
+                    <button className="w-full py-4 bg-sm-blue text-white font-black rounded-2xl text-[9px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 flex items-center justify-center gap-3">
+                       Download PDF <ArrowUpRight size={16} />
+                    </button>
+                    <div className="mt-6 flex items-center justify-between opacity-20 group-hover/card:opacity-100 transition-opacity">
+                       <span className="text-[8px] font-black uppercase text-gray-400">12.4 MB</span>
+                       <Award size={20} className="text-sm-blue" />
+                    </div>
                  </div>
               </div>
            </div>

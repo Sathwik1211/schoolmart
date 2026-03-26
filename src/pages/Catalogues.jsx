@@ -32,41 +32,65 @@ const smallCatalogues = [
 
 const Catalogues = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-white pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* REFINED KNOWLEDGE HUB HERO - REMOVED CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
-           {/* STORY BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
-              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
-                 <BookOpen size={12} className="inline mr-2 animate-pulse" /> Digital Library
+        {/* LIBRARY BENTO HERO - UNIQUE GRID 6 */}
+        <section className="pt-8 pb-16">
+           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 h-auto lg:h-[700px]">
+              {/* PRIMARY LIBRARY BLOCK */}
+              <div className="md:col-span-2 lg:col-span-3 bg-gray-50 rounded-[45px] p-12 flex flex-col justify-center relative overflow-hidden group border border-gray-100 shadow-sm">
+                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-sm-blue/5 to-transparent" />
+                 <div className="px-5 py-2 bg-gray-900 text-white font-black rounded-full text-[9px] uppercase tracking-[0.3em] mb-10 w-fit">
+                    <Library size={14} className="inline mr-2" /> Collection 2025
+                 </div>
+                 <h1 className="text-5xl md:text-7xl font-black font-heading leading-none mb-8 tracking-tighter text-gray-900 uppercase">
+                    Knowledge <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Power.
+                 </h1>
+                 <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] max-w-xs leading-loose">
+                    Access our complete ecosystem of institutional design research and product technical specifications.
+                 </p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
-                 Knowledge <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Infrastructure.
-              </h1>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
-                 Deep-dive into our comprehensive institutional catalogues, design handbooks, and technical datasheets.
-              </p>
-           </div>
 
-           {/* DOWNLOAD FEATURE HUB - RIGHT (Premium Inspired) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Instant <br/> 2025 Resource <br/> Catalogue Download.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Download PDF</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+              {/* FEATURED LOOKBOOK - MASONRY STYLE BLOCK */}
+              <div className="md:col-span-2 lg:col-span-3 bg-sm-blue rounded-[45px] relative overflow-hidden group shadow-2xl">
+                 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1000&q=80" alt="Bookshelf" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-40 group-hover:opacity-60" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                 <div className="absolute bottom-10 left-10 right-10 flex items-end justify-between">
+                    <div>
+                       <h3 className="text-white text-2xl font-black font-heading uppercase mb-4 leading-tight">Interiors <br/> Handbook V4.</h3>
+                       <button className="px-8 py-3 bg-white text-gray-900 font-black rounded-full text-[9px] uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all">Download Now</button>
+                    </div>
+                    <Share2 size={24} className="text-white/30 hover:text-white transition-colors cursor-pointer" />
                  </div>
               </div>
-              <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Technical <br/> Datasheets <br/> V.2025.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Library</span>
-                    <Layers className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
+
+              {/* SMALL ASYMMETRIC TILES */}
+              <div className="md:col-span-1 lg:col-span-2 bg-yellow-400 rounded-[40px] p-10 flex flex-col justify-between group cursor-pointer active:scale-95 shadow-xl shadow-yellow-400/10">
+                 <div className="w-12 h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center group-hover:-rotate-6 transition-transform">
+                    <FileText size={24} />
                  </div>
+                 <h4 className="text-[11px] font-black text-gray-900 uppercase tracking-[0.2em] leading-relaxed">Technical <br/> Spec Sheets.</h4>
+                 <ArrowUpRight className="text-gray-900/30 group-hover:text-gray-900 transition-colors" size={24} />
+              </div>
+
+              <div className="md:col-span-1 lg:col-span-2 bg-white border border-gray-100 rounded-[40px] p-10 flex items-center justify-center text-center group hover:border-sm-blue transition-colors shadow-sm relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10" />
+                 <div className="relative z-10 flex flex-col items-center">
+                    <span className="text-emerald-500 font-black text-4xl mb-2">200+</span>
+                    <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Resources <br/> Online</p>
+                 </div>
+              </div>
+
+              <div className="md:col-span-2 lg:col-span-2 bg-[#1A1A1A] rounded-[40px] p-10 text-white flex flex-col justify-center gap-6 group">
+                 <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 rounded-lg bg-sm-blue flex items-center justify-center text-white scale-75">
+                       <Download size={16} />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-sm-blue">Fast Access</span>
+                 </div>
+                 <h4 className="text-xl font-black font-heading leading-tight uppercase">Get The 2025 <br/> Master Portfolio.</h4>
+                 <div className="h-0.5 w-full bg-white/10 group-hover:bg-sm-blue transition-colors" />
               </div>
            </div>
         </section>

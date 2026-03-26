@@ -11,57 +11,114 @@ const stats = [
 
 const Manufacturing = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        
-        {/* REFINED INDUSTRIAL HERO - REMOVED DARK CENTERED STARTING */}
-        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
-           {/* PRECISION BLOCK - LEFT */}
-           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-emerald-500/10 transition-colors" />
-              <div className="px-3 py-1 bg-emerald-500/10 text-emerald-600 font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90 border border-emerald-500/20">
-                 <Factory size={12} className="inline mr-2 animate-pulse" /> Precision Engineering
-              </div>
-              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
-                 Indian <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-emerald-400">the</span> <br/> Craftsmanship.
-              </h1>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
-                 Combined robotic precision with artisan craftsmanship to deliver furniture that lasts decades.
-              </p>
-           </div>
-
-           {/* FACTORY FEATURE HUB - RIGHT (Premium Inspired) */}
-           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
-                 <div className="absolute inset-0 bg-emerald-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-emerald-400">Virtual <br/> Factory Tour <br/> Video Hub.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <button className="px-5 py-2 bg-emerald-500 text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-emerald-500/20 active:scale-95">Watch Live</button>
-                    <ArrowUpRight className="text-white/20 group-hover:text-emerald-400 transition-colors" size={24} />
-                 </div>
-              </div>
-              <div className="bg-white rounded-[30px] p-8 text-gray-900 flex flex-col justify-between group overflow-hidden relative border border-gray-100">
-                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Safety <br/> Compliance <br/> Certified BIFMA.</h3>
-                 <div className="flex items-center justify-between mt-8 relative z-10">
-                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Level 3</span>
-                    <Shield className="text-gray-300 group-hover:text-emerald-500 transition-colors" size={24} />
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* Compact Stats Strip — AS PER REFERENCE */}
-        <section className="pb-12 px-2">
-           <div className="flex overflow-x-auto gap-12 pb-4 hide-scrollbar justify-start border-b border-gray-100">
-             {stats.map((stat, i) => (
-               <div key={i} className="flex flex-col items-start gap-1 group flex-none py-2 px-4">
-                 <h4 className="text-[14px] font-black text-gray-900 uppercase tracking-tighter transition-colors group-hover:text-sm-blue">{stat.value}</h4>
-                 <span className="text-[7px] font-black text-gray-400 uppercase tracking-[0.3em]">{stat.label}</span>
+    <main className="min-h-screen bg-[#0A0A0A] pt-16 pb-12 overflow-hidden text-white">
+      {/* TECHNICAL SCHEMATIC HERO - UNIQUE GRID 5 */}
+      <section className="relative h-auto lg:h-[800px] flex items-center border-b border-white/5 overflow-hidden py-12 lg:py-0">
+         {/* TECH GRID OVERLAY */}
+         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
+         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+         
+         <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-white/10 bg-white/5 backdrop-blur-xl rounded-[40px] overflow-hidden shadow-2xl">
+               {/* DATA COLUMN */}
+               <div className="lg:col-span-4 p-12 border-r border-white/10 flex flex-col justify-between">
+                  <div>
+                     <div className="w-12 h-1 bg-sm-blue mb-8" />
+                     <h1 className="text-6xl font-black font-heading leading-none tracking-tighter mb-8 uppercase">
+                        Heavy <br/> <span className="text-sm-blue">Duty.</span> <br/> Scale.
+                     </h1>
+                     <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] leading-loose mb-12">
+                        Precision engineering at an industrial scale. We don't just build furniture; we manufacture durability.
+                     </p>
+                  </div>
+                  <div className="space-y-8">
+                     {stats.map((stat, i) => (
+                        <div key={i} className="group cursor-default">
+                           <div className="text-4xl font-black font-heading text-white group-hover:text-sm-blue transition-colors">{stat.value}</div>
+                           <div className="text-[8px] font-black text-gray-400 uppercase tracking-widest">{stat.label}</div>
+                        </div>
+                     ))}
+                  </div>
                </div>
-             ))}
-           </div>
-        </section>
-      </div>
+
+               {/* VISUAL PANEL */}
+               <div className="lg:col-span-8 relative group min-h-[400px]">
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Factory" className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-black/80" />
+                  
+                  <div className="absolute top-12 right-12">
+                     <div className="px-6 py-2 bg-sm-blue text-white font-black rounded-full text-[10px] uppercase tracking-widest shadow-xl flex items-center gap-3">
+                        <Settings className="animate-spin-slow" size={16} /> ISO 9001:2025
+                     </div>
+                  </div>
+
+                  <div className="absolute bottom-12 left-12 right-12 flex flex-col lg:flex-row items-end justify-between gap-8">
+                     <div className="max-w-md">
+                        <h3 className="text-2xl font-black font-heading uppercase mb-6 leading-tight">Precision Metalworks <br/> & Wood Engineering.</h3>
+                        <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-full hover:bg-sm-blue hover:text-white transition-all shadow-2xl uppercase tracking-widest text-[10px]">
+                           Request Factory Tour <ArrowUpRight size={16} className="inline ml-1" />
+                        </button>
+                     </div>
+                     <Activity size={48} className="text-white/10 group-hover:text-sm-blue transition-colors hidden lg:block" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* COMPACT INDUSTRIAL STRIP - UNIQUE ACTIVITY MENU */}
+      <section className="py-12 px-4 border-b border-white/5 bg-black">
+         <div className="max-w-7xl mx-auto flex overflow-x-auto gap-12 hide-scrollbar justify-start lg:justify-center items-center">
+            {[
+              { t: 'Robot CNC', i: <Settings size={18} /> },
+              { t: 'Laser Mill', i: <Zap size={18} /> },
+              { t: 'UV Coater', i: <Layers size={18} /> },
+              { t: '3D Scan', i: <Eye size={18} /> },
+              { t: 'QC Labs', i: <Shield size={18} /> },
+            ].map((cat, i) => (
+               <div key={i} className="flex items-center gap-4 group flex-none cursor-pointer py-4 opacity-40 hover:opacity-100 transition-all">
+                  <div className="w-10 h-10 border border-white/10 rounded-xl flex items-center justify-center text-white group-hover:bg-sm-blue group-hover:border-sm-blue transition-all">
+                     {cat.i}
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest">{cat.t}</span>
+               </div>
+            ))}
+         </div>
+      </section>
+
+      {/* PROCESS FLOW - RE-ALIGNED FOR DARK THEME */}
+      <section className="py-32 px-4 bg-black border-b border-white/5">
+         <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-12">
+               <div className="max-w-2xl">
+                  <div className="w-16 h-1 bg-sm-blue mb-8" />
+                  <h2 className="text-4xl md:text-7xl font-black font-heading tracking-tight uppercase">The 5-Stage <br/> <span className="text-sm-blue">Evolution.</span></h2>
+               </div>
+               <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-loose max-w-xs text-right hidden lg:block">
+                  Witness how raw materials are transformed into world-class school infrastructure through elite precision.
+               </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+               {[
+                 { t: 'Selection', d: 'Grade-A Seasoned Wood & High-Tensile Steel.', i: <Box /> },
+                 { t: 'CNC Cut', d: 'Laser precision within 0.1mm tolerance.', i: <Settings /> },
+                 { t: 'Finish', d: 'Artisanal touch for smooth, safe edges.', i: <Layers /> },
+                 { t: 'Protocol', d: '30-point safety and stress-testing.', i: <Shield /> },
+                 { t: 'Transit', d: 'Protective casing and nationwide fleet.', i: <Truck /> },
+               ].map((step, i) => (
+                  <div key={i} className="bg-white/5 border border-white/10 p-10 rounded-[40px] group hover:bg-white hover:text-gray-900 transition-all duration-700">
+                     <div className="text-sm-blue font-black text-xs mb-8 group-hover:text-gray-900">0{i+1}.</div>
+                     <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gray-900 group-hover:text-white transition-colors">
+                        {step.i}
+                     </div>
+                     <h4 className="text-xl font-black font-heading mb-4 uppercase">{step.t}</h4>
+                     <p className="text-gray-500 group-hover:text-gray-600 text-[9px] font-bold uppercase tracking-widest leading-relaxed">{step.d}</p>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
 
       {/* PROCESS FLOW (Screenshot 3 Flow Inspired but Dark Theme) */}
       <section className="py-24 px-4 bg-white text-gray-900 rounded-t-[80px] -mt-20 relative z-20">
