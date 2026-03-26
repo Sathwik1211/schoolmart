@@ -1,13 +1,13 @@
 // src/pages/Sports.jsx
 import { Link } from 'react-router-dom';
-import { Trophy, Target, Dumbbell, Timer, Medal, Zap, ArrowRight, Play, Award, HardHat, FileText } from 'lucide-react';
+import { Trophy, Target, Dumbbell, Timer, Medal, Zap, ArrowRight, ArrowUpRight, Play, Award, HardHat, FileText, Activity } from 'lucide-react';
 
 const categories = [
-  { id: 'all', name: 'SPORTS SURFACES', icon: <Target size={24} /> },
-  { id: 'gym', name: 'GYM & FITNESS', icon: <Dumbbell size={24} /> },
-  { id: 'equipment', name: 'GEAR & EQUIP', icon: <Trophy size={24} /> },
-  { id: 'surfaces', name: 'OUTDOOR COURTS', icon: <Timer size={24} /> },
-  { id: 'indoor', name: 'INDOOR SPORTS', icon: <Medal size={24} /> },
+  { id: 'all', name: 'SPORTS SURFACES', icon: <Target size={20} /> },
+  { id: 'gym', name: 'GYM & FITNESS', icon: <Dumbbell size={20} /> },
+  { id: 'equipment', name: 'GEAR & EQUIP', icon: <Trophy size={20} /> },
+  { id: 'surfaces', name: 'OUTDOOR COURTS', icon: <Timer size={20} /> },
+  { id: 'indoor', name: 'INDOOR SPORTS', icon: <Medal size={20} /> },
 ];
 
 const stadiums = [
@@ -17,42 +17,59 @@ const stadiums = [
 
 const Sports = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-20 overflow-hidden relative">
-      {/* KINETIC DIAGONAL HERO (Unique for Sports) */}
-      <section className="px-4 py-20 relative bg-gray-900 border-b border-white/5 skew-y-1 -mt-10 overflow-hidden min-h-[600px] flex items-center">
-         <div className="absolute top-0 right-0 w-full h-full opacity-30 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sm-blue via-transparent to-transparent" />
-         <div className="max-w-7xl mx-auto relative z-10 -skew-y-1 w-full text-center lg:text-left flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1">
-               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-sm-blue text-white font-black rounded-full mb-8 text-[11px] uppercase tracking-widest shadow-lg animate-bounce">
-                  <Zap size={14} className="fill-white" /> Performance Infrastructure
-               </span>
-               <h1 className="text-6xl md:text-9xl font-black font-heading leading-none text-white tracking-tighter mb-10">
-                  Fueling <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-teal-400 italic font-serif">Champions.</span>
-               </h1>
-               <p className="text-gray-400 text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
-                  We don't just build grounds; we build arenas of excellence. Professional-grade surfaces and equipment for every athletic ambition.
-               </p>
-               <div className="flex gap-4 justify-center lg:justify-start">
-                  <button className="px-12 py-5 bg-white text-gray-900 font-black rounded-[20px] hover:bg-sm-blue hover:text-white transition-all shadow-3xl uppercase tracking-widest text-xs flex items-center gap-3">
-                     Schedule Site Survey <ArrowRight size={18} />
-                  </button>
-               </div>
-            </div>
-            
-            <div className="flex-1 w-full relative group">
-               <div className="absolute inset-0 bg-blue-500 rounded-full blur-[140px] opacity-20" />
-               <div className="relative rounded-[60px] overflow-hidden shadow-2xl skew-x-1 group-hover:skew-x-0 transition-transform duration-700 h-[500px]">
-                  <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1000&q=80" alt="Sports Arena" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-gray-900/60 via-transparent to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <button className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 hover:bg-sm-blue transition-all group-hover:scale-110">
-                        <Play size={40} className="fill-white" />
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        
+        {/* REFINED ATHLETIC HUB HERO - REMOVED DARK CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* PERFORMANCE BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <Zap size={12} className="inline mr-2 animate-pulse" /> Performance Hub
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Fueling <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-sm-blue to-teal-400">the</span> <br/> Champions.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 We build arenas of excellence. Professional-grade surfaces and equipment for every athletic ambition.
+              </p>
+           </div>
+
+           {/* SURVEY FEATURE HUB - RIGHT (Premium Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Schedule <br/> Professional <br/> Site Survey.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Book Now</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-emerald-50 rounded-[30px] p-8 text-emerald-600 flex flex-col justify-between group overflow-hidden relative border border-emerald-100">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Safety <br/> Compliance <br/> Certified.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Zero Injury</span>
+                    <Activity className="text-emerald-300 group-hover:text-emerald-500 transition-colors" size={24} />
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* Compact Strip Menu — AS PER REFERENCE */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-8 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+             {categories.map((cat) => (
+               <button key={cat.id} className="flex items-center gap-3 group flex-none py-2 px-6 hover:bg-white rounded-full transition-all border border-transparent hover:border-gray-50 shadow-sm hover:shadow-gray-100">
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sm-blue group-hover:text-white transition-all">
+                   {cat.icon}
+                 </div>
+                 <span className="text-[8px] font-black text-gray-400 group-hover:text-gray-900 uppercase tracking-widest transition-colors">{cat.name}</span>
+               </button>
+             ))}
+           </div>
+        </section>
+      </div>
 
       {/* DYNAMIC CATEGORY EXPLORER (Screenshot 1 Variation) */}
       <section className="py-24 px-4 bg-white">

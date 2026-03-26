@@ -1,6 +1,6 @@
 // src/pages/Catalogues.jsx
 import { Link } from 'react-router-dom';
-import { BookOpen, Download, FileText, ArrowRight, BookMarked, Layers, ChevronLeft, ChevronRight, Share2 } from 'lucide-react';
+import { BookOpen, Download, FileText, ArrowRight, ArrowUpRight, BookMarked, Layers, ChevronLeft, ChevronRight, Share2, Library } from 'lucide-react';
 
 const catalogues = [
   {
@@ -32,55 +32,57 @@ const smallCatalogues = [
 
 const Catalogues = () => {
   return (
-    <main className="min-h-screen bg-gray-50 pt-20">
-      {/* FEATURED STORY SECTION — BENTO STYLE SLIDER */}
-      <section className="px-4 py-12 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-6 mb-12 h-[600px]">
-          {/* Main Large Hero Feature (Screenshot 2 Inspired) */}
-          <div className="flex-1 rounded-[40px] overflow-hidden relative group">
-             <img 
-               src={catalogues[0].img} 
-               alt={catalogues[0].title} 
-               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-             
-             <div className="absolute top-8 left-8">
-                <span className="px-5 py-2 bg-red-600 text-white font-black text-[10px] uppercase tracking-widest rounded-full shadow-lg">New Release</span>
-             </div>
+    <main className="min-h-screen bg-gray-50 pt-16 pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        
+        {/* REFINED KNOWLEDGE HUB HERO - REMOVED CENTERED STARTING */}
+        <section className="pt-8 pb-12 flex flex-col lg:flex-row gap-8 items-stretch">
+           {/* STORY BLOCK - LEFT */}
+           <div className="flex-1 bg-white rounded-[30px] p-10 flex flex-col justify-center border border-gray-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sm-blue/5 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-sm-blue/10 transition-colors" />
+              <div className="px-3 py-1 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-[0.2em] mb-6 w-fit scale-90">
+                 <BookOpen size={12} className="inline mr-2 animate-pulse" /> Digital Library
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-heading leading-tight mb-6 tracking-tighter text-gray-900 uppercase">
+                 Knowledge <br/> <span className="text-sm-blue italic font-serif lowercase tracking-normal">is</span> <br/> Infrastructure.
+              </h1>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-loose">
+                 Deep-dive into our comprehensive institutional catalogues, design handbooks, and technical datasheets.
+              </p>
+           </div>
 
-             <div className="absolute bottom-12 left-12 max-w-xl">
-                <h2 className="text-white text-4xl md:text-6xl font-black font-heading leading-tight mb-4 drop-shadow-xl">{catalogues[0].title}</h2>
-                <p className="text-white/70 text-lg mb-8 line-clamp-2">{catalogues[0].description}</p>
-                <div className="flex gap-4">
-                   <button className="px-10 py-4 bg-white text-gray-900 font-black rounded-full hover:bg-sm-gray transition-all shadow-xl uppercase tracking-widest text-sm flex items-center gap-2">
-                     <Download size={18} /> Download Now
-                   </button>
-                   <button className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 hover:bg-white/20 transition-all">
-                      <Share2 size={22} />
-                   </button>
-                </div>
-             </div>
-          </div>
+           {/* DOWNLOAD FEATURE HUB - RIGHT (Premium Inspired) */}
+           <div className="lg:w-[450px] grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-[#1A1A1A] rounded-[30px] p-8 text-white flex flex-col justify-between group overflow-hidden relative shadow-2xl">
+                 <div className="absolute inset-0 bg-sm-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed text-sm-blue">Instant <br/> 2025 Resource <br/> Catalogue Download.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <button className="px-5 py-2 bg-sm-blue text-white font-black rounded-full text-[8px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95">Download PDF</button>
+                    <ArrowUpRight className="text-white/20 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+              <div className="bg-blue-50 rounded-[30px] p-8 text-sm-blue flex flex-col justify-between group overflow-hidden relative border border-blue-100">
+                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 leading-relaxed">Technical <br/> Datasheets <br/> V.2025.</h3>
+                 <div className="flex items-center justify-between mt-8 relative z-10">
+                    <span className="text-[20px] font-black font-heading opacity-10 uppercase tracking-tighter">Library</span>
+                    <Layers className="text-blue-300 group-hover:text-sm-blue transition-colors" size={24} />
+                 </div>
+              </div>
+           </div>
+        </section>
 
-          {/* Side Small Features (Screenshot 2 Style) */}
-          <div className="hidden lg:flex flex-col gap-6 w-[400px]">
-             {smallCatalogues.slice(0, 2).map((cat, i) => (
-                <div key={i} className={`flex-1 rounded-[40px] overflow-hidden relative group p-8 flex flex-col justify-end ${i === 0 ? 'bg-blue-50' : 'bg-purple-50'}`}>
-                   <img 
-                     src={cat.img} 
-                     alt={cat.title} 
-                     className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700"
-                   />
-                   <div className="relative z-10">
-                      <span className="text-[10px] font-black text-gray-900/40 uppercase tracking-widest block mb-2">{cat.cat}</span>
-                      <h3 className="text-2xl font-black text-gray-900 font-heading leading-tight mb-4">{cat.title}</h3>
-                      <button className="text-sm font-black text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-blue-600 hover:border-blue-600 transition-all">Shop Now</button>
-                   </div>
-                </div>
+        {/* Compact Strip Menu — AS PER REFERENCE */}
+        <section className="pb-12 px-2">
+           <div className="flex overflow-x-auto gap-12 pb-4 hide-scrollbar justify-start border-b border-gray-100">
+             {smallCatalogues.map((cat, i) => (
+               <div key={i} className="flex flex-col items-start gap-1 group flex-none py-2 px-4 cursor-pointer active:scale-95 transition-all">
+                 <h4 className="text-[14px] font-black text-gray-900 uppercase tracking-tighter transition-colors group-hover:text-sm-blue">{cat.title}</h4>
+                 <span className="text-[7px] font-black text-gray-400 uppercase tracking-[0.3em]">{cat.cat} RELEASE</span>
+               </div>
              ))}
-          </div>
-        </div>
+           </div>
+        </section>
+      </div>
 
         {/* RECENTLY LAUNCHED LIST (Screenshot 4 Inspired) */}
         <div className="mt-20">
@@ -116,26 +118,25 @@ const Catalogues = () => {
               ))}
            </div>
         </div>
-      </section>
 
-      {/* STACKED LIST SECTION (Screenshot 3 Inspired) */}
-      <section className="py-24 px-4 bg-white">
-         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
-               <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60" />
-               <div className="relative rounded-[60px] overflow-hidden shadow-2xl skew-y-1">
-                  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Consultation" className="w-full h-[600px] object-cover" />
-                  <div className="absolute inset-0 bg-sm-blue/20" />
-               </div>
-               <div className="absolute bottom-10 -right-10 bg-white p-8 rounded-[40px] shadow-2xl shadow-blue-200 max-w-xs border border-blue-50 transform -rotate-2">
-                  <div className="w-12 h-12 bg-sm-blue rounded-2xl flex items-center justify-center text-white mb-6">
-                     <BookMarked size={24} />
-                  </div>
-                  <h4 className="text-xl font-black text-gray-900 mb-2 leading-tight">Can't find what you need?</h4>
-                  <p className="text-gray-500 text-xs mb-6">Our design team can curate a custom portfolio for your specific school project.</p>
-                  <button className="text-xs font-black text-sm-blue uppercase tracking-widest hover:translate-x-1 transition-transform inline-flex items-center gap-2">Request Custom Portolio <ArrowRight size={14} /></button>
-               </div>
-            </div>
+        {/* STACKED LIST SECTION (Screenshot 3 Inspired) */}
+        <section className="py-24 px-4 bg-white mt-20 -mx-4 rounded-t-[80px]">
+           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="relative">
+                 <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60" />
+                 <div className="relative rounded-[60px] overflow-hidden shadow-2xl skew-y-1">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Consultation" className="w-full h-[600px] object-cover" />
+                    <div className="absolute inset-0 bg-sm-blue/20" />
+                 </div>
+                 <div className="absolute bottom-10 -right-10 bg-white p-8 rounded-[40px] shadow-2xl shadow-blue-200 max-w-xs border border-blue-50 transform -rotate-2">
+                    <div className="w-12 h-12 bg-sm-blue rounded-2xl flex items-center justify-center text-white mb-6">
+                       <BookMarked size={24} />
+                    </div>
+                    <h4 className="text-xl font-black text-gray-900 mb-2 leading-tight">Can't find what you need?</h4>
+                    <p className="text-gray-500 text-xs mb-6">Our design team can curate a custom portfolio for your specific school project.</p>
+                    <button className="text-xs font-black text-sm-blue uppercase tracking-widest hover:translate-x-1 transition-transform inline-flex items-center gap-2">Request Custom Portolio <ArrowRight size={14} /></button>
+                 </div>
+              </div>
 
             <div>
                <span className="inline-block px-4 py-1 bg-yellow-400 text-gray-900 font-black text-[9px] uppercase tracking-widest rounded-full mb-6 shadow-sm">Exclusive Content</span>
