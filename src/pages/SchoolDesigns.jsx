@@ -1,5 +1,5 @@
 // src/pages/SchoolDesigns.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Palette, Compass, Pencil, Lightbulb, Layout, ArrowRight, ArrowUpRight, Eye, Stars, Download, Layers } from 'lucide-react';
 import InlineQuickView from '../components/InlineQuickView';
